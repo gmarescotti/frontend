@@ -1,4 +1,3 @@
-import "@polymer/iron-icon/iron-icon";
 import {
   css,
   CSSResultGroup,
@@ -161,7 +160,7 @@ export class HaIcon extends LitElement {
       return nothing;
     }
     if (this._legacy) {
-      return html`<iron-icon .icon=${this.icon}></iron-icon>`;
+      return nothing;
     }
     return html`<ha-svg-icon
       .path=${this._path}

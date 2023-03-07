@@ -1,4 +1,4 @@
-import "@polymer/paper-tooltip/paper-tooltip";
+import "@lrnwebcomponents/simple-tooltip/simple-tooltip";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators";
 import { fireEvent } from "../common/dom/fire_event";
@@ -73,10 +73,10 @@ export class HaAnalytics extends LitElement {
                 </ha-switch>
                 ${!baseEnabled
                   ? html`
-                      <paper-tooltip animation-delay="0" position="right">
+                      <simple-tooltip animation-delay="0" position="right">
                         You need to enable basic analytics for this option to be
                         available
-                      </paper-tooltip>
+                      </simple-tooltip>
                     `
                   : ""}
               </span>
