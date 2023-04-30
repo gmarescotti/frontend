@@ -46,7 +46,7 @@ export type TranslationCategory =
   | "state"
   | "state_attributes"
   | "entity"
-  | "config"
+  | "my-giulio"
   | "config_panel"
   | "options"
   | "device_automation"

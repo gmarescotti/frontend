@@ -251,7 +251,7 @@ export class HaConfigLovelaceDashboards extends LitElement {
       <hass-tabs-subpage-data-table
         .hass=${this.hass}
         .narrow=${this.narrow}
-        back-path="/config"
+        back-path="/my-giulio"
         .route=${this.route}
         .tabs=${lovelaceTabs}
         .columns=${this._columns(
@@ -277,7 +277,7 @@ export class HaConfigLovelaceDashboards extends LitElement {
                   .label=${this.hass.localize("ui.common.menu")}
                   .path=${mdiDotsVertical}
                 ></ha-icon-button>
-                <ha-clickable-list-item href="/config/lovelace/resources">
+                <ha-clickable-list-item href="/my-giulio/lovelace/resources">
                   ${this.hass.localize(
                     "ui.panel.config.lovelace.resources.caption"
                   )}
@@ -317,7 +317,7 @@ export class HaConfigLovelaceDashboards extends LitElement {
     const urlPath = (ev.detail as RowClickedEvent).id;
 
     if (urlPath === "energy") {
-      navigate("/config/energy");
+      navigate("/my-giulio/energy");
       return;
     }
     const dashboard = this._dashboards.find((res) => res.url_path === urlPath);

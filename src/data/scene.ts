@@ -32,7 +32,7 @@ export const showSceneEditor = (
   areaId?: string
 ) => {
   inititialSceneEditorData = { config, areaId };
-  navigate("/config/scene/edit/new");
+  navigate("/my-giulio/scene/edit/new");
 };
 
 export const getSceneEditorInitData = () => {

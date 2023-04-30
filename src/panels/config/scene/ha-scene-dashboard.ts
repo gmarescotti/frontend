@@ -202,7 +202,7 @@ class HaSceneDashboard extends LitElement {
       <hass-tabs-subpage-data-table
         .hass=${this.hass}
         .narrow=${this.narrow}
-        back-path="/config"
+        back-path="/my-giulio"
         .route=${this.route}
         .tabs=${configSections.automations}
         .columns=${this._columns(this.hass.locale, this.narrow)}
@@ -233,7 +233,7 @@ class HaSceneDashboard extends LitElement {
           @related-changed=${this._relatedFilterChanged}
         >
         </ha-button-related-filter-menu>
-        <a href="/config/scene/edit/new" slot="fab">
+        <a href="/my-giulio/scene/edit/new" slot="fab">
           <ha-fab
             .label=${this.hass.localize(
               "ui.panel.config.scene.picker.add_scene"

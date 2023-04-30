@@ -115,7 +115,7 @@ export const protocolIntegrationPicked = async (
       return;
     }
 
-    navigate("/config/zha/add");
+    navigate("/my-giulio/zha/add");
   } else if (domain === "matter") {
     const entries = await getConfigEntries(hass, {
       domain,

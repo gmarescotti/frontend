@@ -35,8 +35,8 @@ export class HuiCardPreview extends ReactiveElement {
   protected update(changedProperties: PropertyValues) {
     super.update(changedProperties);
 
-    if (changedProperties.has("config")) {
-      const oldConfig = changedProperties.get("config") as
+    if (changedProperties.has("my-giulio")) {
+      const oldConfig = changedProperties.get("my-giulio") as
         | undefined
         | LovelaceCardConfig;
 

@@ -67,7 +67,7 @@ class HaConfigSectionGeneral extends LitElement {
     const disabled = this._submitting || !canEdit;
     return html`
       <hass-subpage
-        back-path="/config/system"
+        back-path="/my-giulio/system"
         .hass=${this.hass}
         .narrow=${this.narrow}
         .header=${this.hass.localize("ui.panel.config.core.caption")}
@@ -452,7 +452,7 @@ class HaConfigSectionGeneral extends LitElement {
   );
 
   private _editLocation() {
-    navigate("/config/zone/edit/zone.home");
+    navigate("/my-giulio/zone/edit/zone.home");
   }
 
   static styles = [

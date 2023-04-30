@@ -5,5 +5,5 @@ export const mockEntityRegistry = (
   hass: MockHomeAssistant,
   data: EntityRegistryEntry[] = []
 ) => {
-  hass.mockWS("config/entity_registry/list", () => data);
+  hass.mockWS("my-giulio/entity_registry/list", () => data);
 };

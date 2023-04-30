@@ -212,7 +212,7 @@ class HaBlueprintOverview extends LitElement {
     super.firstUpdated(changedProps);
     if (this.route.path === "/import") {
       const url = extractSearchParam("blueprint_url");
-      navigate("/config/blueprint/dashboard", { replace: true });
+      navigate("/my-giulio/blueprint/dashboard", { replace: true });
       if (url) {
         this._addBlueprint(url);
       }
@@ -224,7 +224,7 @@ class HaBlueprintOverview extends LitElement {
       <hass-tabs-subpage-data-table
         .hass=${this.hass}
         .narrow=${this.narrow}
-        back-path="/config"
+        back-path="/my-giulio"
         .route=${this.route}
         .tabs=${configSections.automations}
         .columns=${this._columns(this.narrow, this.hass.language)}

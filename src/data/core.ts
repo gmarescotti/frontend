@@ -25,14 +25,14 @@ export const saveCoreConfig = (
   values: Partial<ConfigUpdateValues>
 ) =>
   hass.callWS<HassConfig>({
-    type: "config/core/update",
+    type: "my-giulio/core/update",
     ...values,
   });
 
 export const detectCoreConfig = (hass: HomeAssistant) =>
   hass.callWS<Partial<ConfigUpdateValues>>({
-    type: "config/core/detect",
+    type: "my-giulio/core/detect",
   });
 
 export const checkCoreConfig = (hass: HomeAssistant) =>
-  hass.callApi<CheckConfigResult>("POST", "config/core/check_config");
+  hass.callApi<CheckConfigResult>("POST", "my-giulio/core/check_config");

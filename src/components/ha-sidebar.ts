@@ -59,7 +59,7 @@ import "./ha-menu-button";
 import "./ha-svg-icon";
 import "./user/ha-user-badge";
 
-const SHOW_AFTER_SPACER = ["config", "developer-tools"];
+const SHOW_AFTER_SPACER = ["my-giulio", "developer-tools"];
 
 const SUPPORT_SCROLL_IF_NEEDED = "scrollIntoViewIfNeeded" in document.body;
 
@@ -388,7 +388,7 @@ class HaSidebar extends SubscribeMixin(LitElement) {
 
     // Show the supervisor as beeing part of configuration
     const selectedPanel = this.route.path?.startsWith("/hassio/")
-      ? "config"
+      ? "my-giulio"
       : this.hass.panelUrl;
 
     // prettier-ignore
@@ -435,7 +435,7 @@ class HaSidebar extends SubscribeMixin(LitElement) {
     icon?: string | null,
     iconPath?: string | null
   ) {
-    return urlPath === "config"
+    return urlPath === "my-giulio"
       ? this._renderConfiguration(title)
       : html`
           <a
@@ -531,8 +531,8 @@ class HaSidebar extends SubscribeMixin(LitElement) {
     return html`<a
       class="configuration-container"
       role="option"
-      href="/config"
-      data-panel="config"
+      href="/my-giulio"
+      data-panel="my-giulio"
       tabindex="-1"
       @mouseenter=${this._itemMouseEnter}
       @mouseleave=${this._itemMouseLeave}

@@ -50,7 +50,7 @@ let inititialZoneEditorData: Partial<ZoneMutableParams> | undefined;
 
 export const showZoneEditor = (data?: Partial<ZoneMutableParams>) => {
   inititialZoneEditorData = data;
-  navigate("/config/zone/new");
+  navigate("/my-giulio/zone/new");
 };
 
 export const getZoneEditorInitData = () => {

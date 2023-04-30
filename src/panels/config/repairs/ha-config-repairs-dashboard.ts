@@ -45,7 +45,7 @@ class HaConfigRepairsDashboard extends SubscribeMixin(LitElement) {
     const searchParam = extractSearchParam("dialog");
 
     if (searchParam === "system-health") {
-      navigate("/config/repairs", { replace: true });
+      navigate("/my-giulio/repairs", { replace: true });
       showSystemInformationDialog(this);
     }
   }
@@ -73,7 +73,7 @@ class HaConfigRepairsDashboard extends SubscribeMixin(LitElement) {
 
     return html`
       <hass-subpage
-        back-path="/config/system"
+        back-path="/my-giulio/system"
         .hass=${this.hass}
         .narrow=${this.narrow}
         .header=${this.hass.localize("ui.panel.config.repairs.caption")}

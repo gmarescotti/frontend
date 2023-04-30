@@ -413,7 +413,7 @@ export class HaConfigDeviceDashboard extends LitElement {
         .narrow=${this.narrow}
         .backPath=${this._searchParms.has("historyBack")
           ? undefined
-          : "/config"}
+          : "/my-giulio"}
         .tabs=${configSections.devices}
         .route=${this.route}
         .activeFilters=${activeFilters}

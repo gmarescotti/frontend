@@ -89,7 +89,7 @@ class ZHAConfigDashboard extends LitElement {
         .narrow=${this.narrow}
         .route=${this.route}
         .tabs=${zhaTabs}
-        back-path="/config/integrations"
+        back-path="/my-giulio/integrations"
       >
         <ha-card
           header=${this.hass.localize(
@@ -203,7 +203,7 @@ class ZHAConfigDashboard extends LitElement {
           </div>
         </ha-card>
 
-        <a href="/config/zha/add" slot="fab">
+        <a href="/my-giulio/zha/add" slot="fab">
           <ha-fab
             .label=${this.hass.localize("ui.panel.config.zha.add_device")}
             extended

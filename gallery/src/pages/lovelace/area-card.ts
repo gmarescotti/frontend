@@ -85,7 +85,7 @@ class DemoArea extends LitElement {
     hass.updateTranslations(null, "en");
     hass.updateTranslations("lovelace", "en");
     hass.addEntities(ENTITIES);
-    hass.mockWS("config/area_registry/list", () => [
+    hass.mockWS("my-giulio/area_registry/list", () => [
       {
         name: "Bedroom",
         area_id: "bedroom",
@@ -107,8 +107,8 @@ class DemoArea extends LitElement {
         picture: "/images/kitchen.png",
       },
     ]);
-    hass.mockWS("config/device_registry/list", () => []);
-    hass.mockWS("config/entity_registry/list", () => [
+    hass.mockWS("my-giulio/device_registry/list", () => []);
+    hass.mockWS("my-giulio/entity_registry/list", () => [
       {
         area_id: "bedroom",
         entity_id: "light.bed_light",

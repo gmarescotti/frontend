@@ -144,7 +144,7 @@ class ConfigUrlForm extends LitElement {
             : html`
                 <div class="row">
                   <div class="flex"></div>
-                  <a href="/config/cloud"
+                  <a href="/my-giulio/cloud"
                     >${this.hass.localize(
                       "ui.panel.config.url.external_get_ha_cloud"
                     )}</a
@@ -157,7 +157,7 @@ class ConfigUrlForm extends LitElement {
                   ? html`
                       <div class="row">
                         <div class="flex"></div>
-                        <a href="/config/cloud"
+                        <a href="/my-giulio/cloud"
                           >${this.hass.localize(
                             "ui.panel.config.url.manage_ha_cloud"
                           )}</a
@@ -169,7 +169,7 @@ class ConfigUrlForm extends LitElement {
                         ${this.hass.localize(
                           "ui.panel.config.url.ha_cloud_remote_not_enabled"
                         )}
-                        <a href="/config/cloud" slot="action"
+                        <a href="/my-giulio/cloud" slot="action"
                           ><mwc-button
                             .label=${this.hass.localize(
                               "ui.panel.config.url.enable_remote"

@@ -493,7 +493,7 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
         .narrow=${this.narrow}
         .backPath=${this._searchParms.has("historyBack")
           ? undefined
-          : "/config"}
+          : "/my-giulio"}
         .route=${this.route}
         .tabs=${configSections.devices}
         .columns=${this._columns(
@@ -678,7 +678,7 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
               </ha-button-menu>
             `}
         ${includeZHAFab
-          ? html`<a href="/config/zha/add" slot="fab">
+          ? html`<a href="/my-giulio/zha/add" slot="fab">
               <ha-fab
                 .label=${this.hass.localize("ui.panel.config.zha.add_device")}
                 extended

@@ -76,11 +76,11 @@ import "./ha-integration-header";
 import { isDevVersion } from "../../../common/config/version";
 
 const integrationsWithPanel = {
-  matter: "/config/matter",
-  mqtt: "/config/mqtt",
-  thread: "/config/thread",
-  zha: "/config/zha/dashboard",
-  zwave_js: "/config/zwave_js/dashboard",
+  matter: "/my-giulio/matter",
+  mqtt: "/my-giulio/mqtt",
+  thread: "/my-giulio/thread",
+  zha: "/my-giulio/zha/dashboard",
+  zwave_js: "/my-giulio/zwave_js/dashboard",
 };
 
 @customElement("ha-integration-card")
@@ -259,7 +259,7 @@ export class HaIntegrationCard extends LitElement {
         `ui.panel.config.integrations.config_entry.state.${item.state}`,
       ];
       if (item.reason) {
-        this.hass.loadBackendTranslation("config", item.domain);
+        this.hass.loadBackendTranslation("my-giulio", item.domain);
         stateTextExtra = html`:
         ${this.hass.localize(
           `component.${item.domain}.config.error.${item.reason}`

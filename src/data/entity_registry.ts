@@ -6,7 +6,7 @@ import { caseInsensitiveStringCompare } from "../common/string/compare";
 import { debounce } from "../common/util/debounce";
 import { HomeAssistant } from "../types";
 
-type entityCategory = "config" | "diagnostic";
+type entityCategory = "my-giulio" | "diagnostic";
 
 export interface EntityRegistryDisplayEntry {
   entity_id: string;
@@ -145,7 +145,7 @@ export const getExtendedEntityRegistryEntry = (
   entityId: string
 ): Promise<ExtEntityRegistryEntry> =>
   hass.callWS({
-    type: "config/entity_registry/get",
+    type: "my-giulio/entity_registry/get",
     entity_id: entityId,
   });
 
@@ -154,7 +154,7 @@ export const getExtendedEntityRegistryEntries = (
   entityIds: string[]
 ): Promise<Record<string, ExtEntityRegistryEntry>> =>
   hass.callWS({
-    type: "config/entity_registry/get_entries",
+    type: "my-giulio/entity_registry/get_entries",
     entity_ids: entityIds,
   });
 
@@ -164,7 +164,7 @@ export const updateEntityRegistryEntry = (
   updates: Partial<EntityRegistryEntryUpdateParams>
 ): Promise<UpdateEntityRegistryEntryResult> =>
   hass.callWS({
-    type: "config/entity_registry/update",
+    type: "my-giulio/entity_registry/update",
     entity_id: entityId,
     ...updates,
   });
@@ -174,18 +174,18 @@ export const removeEntityRegistryEntry = (
   entityId: string
 ): Promise<void> =>
   hass.callWS({
-    type: "config/entity_registry/remove",
+    type: "my-giulio/entity_registry/remove",
     entity_id: entityId,
   });
 
 export const fetchEntityRegistry = (conn: Connection) =>
   conn.sendMessagePromise<EntityRegistryEntry[]>({
-    type: "config/entity_registry/list",
+    type: "my-giulio/entity_registry/list",
   });
 
 export const fetchEntityRegistryDisplay = (conn: Connection) =>
   conn.sendMessagePromise<EntityRegistryDisplayEntryResponse>({
-    type: "config/entity_registry/list_for_display",
+    type: "my-giulio/entity_registry/list_for_display",
   });
 
 const subscribeEntityRegistryUpdates = (

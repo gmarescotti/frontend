@@ -18,7 +18,7 @@ import { documentationUrl } from "../../util/documentation-url";
 
 export const getMyRedirects = (hasSupervisor: boolean): Redirects => ({
   application_credentials: {
-    redirect: "/config/application_credentials",
+    redirect: "/my-giulio/application_credentials",
   },
   developer_states: {
     redirect: "/developer-tools/state",
@@ -49,105 +49,105 @@ export const getMyRedirects = (hasSupervisor: boolean): Redirects => ({
     redirect: "/calendar",
   },
   config: {
-    redirect: "/config/dashboard",
+    redirect: "/my-giulio/dashboard",
   },
   cloud: {
     component: "cloud",
-    redirect: "/config/cloud",
+    redirect: "/my-giulio/cloud",
   },
   config_flow_start: {
-    redirect: "/config/integrations/add",
+    redirect: "/my-giulio/integrations/add",
     params: {
       domain: "string",
     },
   },
   brand: {
-    redirect: "/config/integrations/add",
+    redirect: "/my-giulio/integrations/add",
     params: {
       brand: "string",
     },
   },
   integrations: {
-    redirect: "/config/integrations",
+    redirect: "/my-giulio/integrations",
   },
   config_mqtt: {
     component: "mqtt",
-    redirect: "/config/mqtt",
+    redirect: "/my-giulio/mqtt",
   },
   config_zha: {
     component: "zha",
-    redirect: "/config/zha/dashboard",
+    redirect: "/my-giulio/zha/dashboard",
   },
   config_zwave_js: {
     component: "zwave_js",
-    redirect: "/config/zwave_js/dashboard",
+    redirect: "/my-giulio/zwave_js/dashboard",
   },
   add_zigbee_device: {
     component: "zha",
-    redirect: "/config/zha/add",
+    redirect: "/my-giulio/zha/add",
   },
   add_zwave_device: {
     component: "zwave_js",
-    redirect: "/config/zwave_js/add",
+    redirect: "/my-giulio/zwave_js/add",
   },
   add_matter_device: {
     component: "matter",
-    redirect: "/config/matter/add",
+    redirect: "/my-giulio/matter/add",
   },
   config_energy: {
     component: "energy",
-    redirect: "/config/energy/dashboard",
+    redirect: "/my-giulio/energy/dashboard",
   },
   devices: {
-    redirect: "/config/devices/dashboard",
+    redirect: "/my-giulio/devices/dashboard",
   },
   entities: {
-    redirect: "/config/entities",
+    redirect: "/my-giulio/entities",
   },
   energy: {
     component: "energy",
     redirect: "/energy",
   },
   areas: {
-    redirect: "/config/areas/dashboard",
+    redirect: "/my-giulio/areas/dashboard",
   },
   blueprint_import: {
     component: "blueprint",
-    redirect: "/config/blueprint/dashboard/import",
+    redirect: "/my-giulio/blueprint/dashboard/import",
     params: {
       blueprint_url: "url",
     },
   },
   blueprints: {
     component: "blueprint",
-    redirect: "/config/blueprint/dashboard",
+    redirect: "/my-giulio/blueprint/dashboard",
   },
   automations: {
     component: "automation",
-    redirect: "/config/automation/dashboard",
+    redirect: "/my-giulio/dashboard",
   },
   scenes: {
     component: "scene",
-    redirect: "/config/scene/dashboard",
+    redirect: "/my-giulio/scene/dashboard",
   },
   scripts: {
     component: "script",
-    redirect: "/config/script/dashboard",
+    redirect: "/my-giulio/script/dashboard",
   },
   helpers: {
-    redirect: "/config/helpers",
+    redirect: "/my-giulio/helpers",
   },
   tags: {
     component: "tag",
-    redirect: "/config/tags",
+    redirect: "/my-giulio/tags",
   },
   lovelace_dashboards: {
     component: "lovelace",
-    redirect: "/config/lovelace/dashboards",
+    redirect: "/my-giulio/lovelace/dashboards",
   },
   lovelace_resources: {
     component: "lovelace",
-    redirect: "/config/lovelace/resources",
+    redirect: "/my-giulio/lovelace/resources",
   },
   oauth: {
     redirect: "/auth/external/callback",
@@ -160,52 +160,52 @@ export const getMyRedirects = (hasSupervisor: boolean): Redirects => ({
   },
   people: {
     component: "person",
-    redirect: "/config/person",
+    redirect: "/my-giulio/person",
   },
   zones: {
     component: "zone",
-    redirect: "/config/zone",
+    redirect: "/my-giulio/zone",
   },
   users: {
-    redirect: "/config/users",
+    redirect: "/my-giulio/users",
   },
   general: {
-    redirect: "/config/general",
+    redirect: "/my-giulio/general",
   },
   logs: {
-    redirect: "/config/logs",
+    redirect: "/my-giulio/logs",
   },
   repairs: {
     component: "repairs",
-    redirect: "/config/repairs",
+    redirect: "/my-giulio/repairs",
   },
   info: {
-    redirect: "/config/info",
+    redirect: "/my-giulio/info",
   },
   system_health: {
-    redirect: "/config/repairs?dialog=system-health",
+    redirect: "/my-giulio/repairs?dialog=system-health",
   },
   hardware: {
-    redirect: "/config/hardware",
+    redirect: "/my-giulio/hardware",
   },
   storage: {
-    redirect: "/config/storage",
+    redirect: "/my-giulio/storage",
   },
   network: {
-    redirect: "/config/network",
+    redirect: "/my-giulio/network",
   },
   analytics: {
-    redirect: "/config/analytics",
+    redirect: "/my-giulio/analytics",
   },
   updates: {
-    redirect: "/config/updates",
+    redirect: "/my-giulio/updates",
   },
   system_dashboard: {
-    redirect: "/config/system",
+    redirect: "/my-giulio/system",
   },
   customize: {
     // customize was removed in 2021.12, fallback to dashboard
-    redirect: "/config/dashboard",
+    redirect: "/my-giulio/dashboard",
   },
   profile: {
     redirect: "/profile",
@@ -224,27 +224,27 @@ export const getMyRedirects = (hasSupervisor: boolean): Redirects => ({
   },
   backup: {
     component: hasSupervisor ? "hassio" : "backup",
-    redirect: hasSupervisor ? "/hassio/backups" : "/config/backup",
+    redirect: hasSupervisor ? "/hassio/backups" : "/my-giulio/backup",
   },
   supervisor_snapshots: {
     component: hasSupervisor ? "hassio" : "backup",
-    redirect: hasSupervisor ? "/hassio/backups" : "/config/backup",
+    redirect: hasSupervisor ? "/hassio/backups" : "/my-giulio/backup",
   },
   supervisor_backups: {
     component: hasSupervisor ? "hassio" : "backup",
-    redirect: hasSupervisor ? "/hassio/backups" : "/config/backup",
+    redirect: hasSupervisor ? "/hassio/backups" : "/my-giulio/backup",
   },
   supervisor_system: {
     // Moved from Supervisor panel in 2022.5
-    redirect: "/config/system",
+    redirect: "/my-giulio/system",
   },
   supervisor_logs: {
     // Moved from Supervisor panel in 2022.5
-    redirect: "/config/logs",
+    redirect: "/my-giulio/logs",
   },
   supervisor_info: {
     // Moved from Supervisor panel in 2022.5
-    redirect: "/config/info",
+    redirect: "/my-giulio/info",
   },
   hacs_repository: {
     component: "hacs",
@@ -323,7 +323,7 @@ class HaPanelMy extends LitElement {
       ) {
         const params = extractSearchParamsObject();
         this.hass
-          .loadFragmentTranslation("config")
+          .loadFragmentTranslation("my-giulio")
           .then()
           .then(() => {
             protocolIntegrationPicked(this, this.hass, component, {

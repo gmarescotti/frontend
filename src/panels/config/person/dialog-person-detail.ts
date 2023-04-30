@@ -222,7 +222,7 @@ class DialogPersonDetail extends LitElement {
                     <li>
                       <a
                         @click=${this._closeDialog}
-                        href="/config/integrations"
+                        href="/my-giulio/integrations"
                       >
                         ${this.hass!.localize(
                           "ui.panel.config.person.detail.link_integrations_page"

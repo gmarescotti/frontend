@@ -142,7 +142,7 @@ class AddIntegrationDialog extends LitElement {
     (
       i: Brands,
       h: Integrations,
-      components: HomeAssistant["config"]["components"],
+      components: HomeAssistant["my-giulio"]["components"],
       localize: LocalizeFunc,
       filter?: string
     ): IntegrationListItem[] => {
@@ -552,7 +552,7 @@ class AddIntegrationDialog extends LitElement {
       isComponentLoaded(this.hass, "cloud")
     ) {
       this.closeDialog();
-      navigate("/config/cloud");
+      navigate("/my-giulio/cloud");
       return;
     }
 

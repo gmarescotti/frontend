@@ -308,7 +308,7 @@ export const getScriptStateConfig = (hass: HomeAssistant, entity_id: string) =>
 
 export const showScriptEditor = (data?: Partial<ScriptConfig>) => {
   inititialScriptEditorData = data;
-  navigate("/config/script/edit/new");
+  navigate("/my-giulio/script/edit/new");
 };
 
 export const getScriptEditorInitData = () => {

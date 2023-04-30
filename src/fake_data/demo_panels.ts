@@ -80,10 +80,10 @@ export const demoPanels: Panels = {
     url_path: "energy",
   },
   // config: {
-  //   component_name: "config",
+  //   component_name: "my-giulio",
   //   icon: "hass:cog",
-  //   title: "config",
+  //   title: "my-giulio",
   //   config: null,
-  //   url_path: "config",
+  //   url_path: "my-giulio",
   // },
 };

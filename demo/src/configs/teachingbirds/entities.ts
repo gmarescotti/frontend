@@ -1574,7 +1574,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
             enabled: false,
             id: "ded82243c49f41adbdb0ea11cca1b7b1",
             name: "Hass.io",
-            picture: "/local/images/ha.png",
+            picture: "/my.giulio/images/ha.png",
           },
           {
             code: "****",
@@ -1582,7 +1582,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
             enabled: false,
             id: "abc561cfafcf410a86ca25a0d9460533",
             name: "Hass.io",
-            picture: "/local/images/ha.png",
+            picture: "/my.giulio/images/ha.png",
           },
           {
             code: "****",
@@ -1590,7 +1590,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
             enabled: false,
             id: "24dad8f9c2d24d5b8bffaa06cbba55fc",
             name: "Isa",
-            picture: "/local/images/ha.png",
+            picture: "/my.giulio/images/ha.png",
           },
           {
             code: "****",
@@ -1598,7 +1598,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
             enabled: false,
             id: "39426ba732604d71a5176c1e695710c9",
             name: "Stefan",
-            picture: "/local/images/ha.png",
+            picture: "/my.giulio/images/ha.png",
           },
           {
             code: "****",
@@ -1606,7 +1606,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
             enabled: false,
             id: "52ff3b9ce9a14a9bb3c33212bcffe936",
             name: "homeassistant",
-            picture: "/local/images/ha.png",
+            picture: "/my.giulio/images/ha.png",
           },
           {
             code: "****",
@@ -1614,7 +1614,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
             enabled: false,
             id: "439178e213a348fabf87f06da546fb1d",
             name: "dashboard",
-            picture: "/local/images/ha.png",
+            picture: "/my.giulio/images/ha.png",
           },
           {
             code: "****",
@@ -1622,7 +1622,7 @@ export const demoEntitiesTeachingbirds: DemoConfig["entities"] = () =>
             enabled: false,
             id: "650d785326e04e8aba8f449f469c7d17",
             name: "Isabella",
-            picture: "/local/images/ha.png",
+            picture: "/my.giulio/images/ha.png",
           },
         ],
         hs_color: [0, 0],

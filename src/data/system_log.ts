@@ -3,7 +3,7 @@ import { HomeAssistant, TranslationDict } from "../types";
 export interface LoggedError {
   name: string;
   message: [string];
-  level: keyof TranslationDict["ui"]["panel"]["config"]["logs"]["level"];
+  level: keyof TranslationDict["ui"]["panel"]["my-giulio"]["logs"]["level"];
   source: [string, number];
   // unix timestamp in seconds
   timestamp: number;

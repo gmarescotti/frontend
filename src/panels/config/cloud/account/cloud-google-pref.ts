@@ -164,7 +164,7 @@ export class CloudGooglePref extends LitElement {
               `}
         </div>
         <div class="card-actions">
-          <a href="/config/cloud/google-assistant">
+          <a href="/my-giulio/cloud/google-assistant">
             <mwc-button>
               ${this.hass.localize(
                 "ui.panel.config.cloud.account.google.manage_entities"

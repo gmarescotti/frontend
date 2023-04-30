@@ -184,7 +184,7 @@ export class HaConfigDevicePage extends LitElement {
         | NonNullable<EntityRegistryEntry["entity_category"]>,
         EntityRegistryStateEntry[]
       >;
-      for (const key of ["control", "sensor", "diagnostic", "config"]) {
+      for (const key of ["control", "sensor", "diagnostic", "my-giulio"]) {
         if (!(key in result)) {
           result[key] = [];
         }
@@ -626,7 +626,7 @@ export class HaConfigDevicePage extends LitElement {
             ${
               area
                 ? html`<div class="header-name">
-                    <a href="/config/areas/area/${area.area_id}"
+                    <a href="/my-giulio/areas/area/${area.area_id}"
                       >${this.hass.localize(
                         "ui.panel.config.integrations.config_entry.area",
                         "area",
@@ -813,7 +813,7 @@ export class HaConfigDevicePage extends LitElement {
             ${!this.narrow ? [automationCard, sceneCard, scriptCard] : ""}
           </div>
           <div class="column">
-            ${(["control", "sensor", "config", "diagnostic"] as const).map(
+            ${(["control", "sensor", "my-giulio", "diagnostic"] as const).map(
               (category) =>
                 // Make sure we render controls if no other cards will be rendered
                 entitiesByCategory[category].length > 0 ||

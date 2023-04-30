@@ -222,7 +222,7 @@ export class CloudLogin extends LitElement {
             "ui.panel.config.cloud.login.alert_password_change_required"
           ),
         });
-        navigate("/config/cloud/forgot-password");
+        navigate("/my-giulio/cloud/forgot-password");
         return;
       }
 
@@ -248,14 +248,14 @@ export class CloudLogin extends LitElement {
     this._dismissFlash();
     // @ts-ignore
     fireEvent(this, "email-changed", { value: this._emailField.value });
-    navigate("/config/cloud/register");
+    navigate("/my-giulio/cloud/register");
   }
 
   private _handleForgotPassword() {
     this._dismissFlash();
     // @ts-ignore
     fireEvent(this, "email-changed", { value: this._emailField.value });
-    navigate("/config/cloud/forgot-password");
+    navigate("/my-giulio/cloud/forgot-password");
   }
 
   private _dismissFlash() {

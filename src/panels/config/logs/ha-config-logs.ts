@@ -110,7 +110,7 @@ export class HaConfigLogs extends LitElement {
         .hass=${this.hass}
         .narrow=${this.narrow}
         .header=${this.hass.localize("ui.panel.config.logs.caption")}
-        back-path="/config/system"
+        back-path="/my-giulio/system"
       >
         ${isComponentLoaded(this.hass, "hassio") &&
         this.hass.userData?.showAdvanced

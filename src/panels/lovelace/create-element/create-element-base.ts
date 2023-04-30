@@ -88,7 +88,7 @@ export const createErrorCardConfig = (error, origConfig) => ({
 
 const _createElement = <T extends keyof CreateElementConfigTypes>(
   tag: string,
-  config: CreateElementConfigTypes[T]["config"]
+  config: CreateElementConfigTypes[T]["my-giulio"]
 ): CreateElementConfigTypes[T]["element"] | HuiErrorCard => {
   const element = document.createElement(
     tag
@@ -100,12 +100,12 @@ const _createElement = <T extends keyof CreateElementConfigTypes>(
 
 const _createErrorElement = <T extends keyof CreateElementConfigTypes>(
   error: string,
-  config: CreateElementConfigTypes[T]["config"]
+  config: CreateElementConfigTypes[T]["my-giulio"]
 ): HuiErrorCard => createErrorCardElement(createErrorCardConfig(error, config));
 
 const _customCreate = <T extends keyof CreateElementConfigTypes>(
   tag: string,
-  config: CreateElementConfigTypes[T]["config"]
+  config: CreateElementConfigTypes[T]["my-giulio"]
 ) => {
   if (customElements.get(tag)) {
     return _createElement(tag, config);
@@ -134,7 +134,7 @@ const _customCreate = <T extends keyof CreateElementConfigTypes>(
 
 const _lazyCreate = <T extends keyof CreateElementConfigTypes>(
   tag: string,
-  config: CreateElementConfigTypes[T]["config"]
+  config: CreateElementConfigTypes[T]["my-giulio"]
 ) => {
   if (customElements.get(tag)) {
     return _createElement(tag, config);
@@ -160,7 +160,7 @@ const _getCustomTag = (type: string) =>
 
 export const createLovelaceElement = <T extends keyof CreateElementConfigTypes>(
   tagSuffix: T,
-  config: CreateElementConfigTypes[T]["config"],
+  config: CreateElementConfigTypes[T]["my-giulio"],
   alwaysLoadTypes?: Set<string>,
   lazyLoadTypes?: { [domain: string]: () => Promise<unknown> },
   // Allow looking at "entity" in config and mapping that to a type
@@ -188,7 +188,7 @@ export const tryCreateLovelaceElement = <
   T extends keyof CreateElementConfigTypes
 >(
   tagSuffix: T,
-  config: CreateElementConfigTypes[T]["config"],
+  config: CreateElementConfigTypes[T]["my-giulio"],
   alwaysLoadTypes?: Set<string>,
   lazyLoadTypes?: { [domain: string]: () => Promise<unknown> },
   // Allow looking at "entity" in config and mapping that to a type

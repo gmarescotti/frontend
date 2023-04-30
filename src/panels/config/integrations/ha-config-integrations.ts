@@ -182,7 +182,7 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
           manifests.add(flow.handler);
         });
         await this.hass.loadBackendTranslation(
-          "config",
+          "my-giulio",
           Array.from(integrations)
         );
         this._fetchIntegrationManifests(manifests);
@@ -420,7 +420,7 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
       <hass-tabs-subpage
         .hass=${this.hass}
         .narrow=${this.narrow}
-        back-path="/config"
+        back-path="/my-giulio"
         .route=${this.route}
         .tabs=${configSections.devices}
       >
@@ -699,7 +699,7 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
   private async _handleAdd(localizePromise: Promise<LocalizeFunc>) {
     const brand = extractSearchParam("brand");
     const domain = extractSearchParam("domain");
-    navigate("/config/integrations", { replace: true });
+    navigate("/my-giulio/integrations", { replace: true });
 
     if (brand) {
       showAddIntegrationDialog(this, {

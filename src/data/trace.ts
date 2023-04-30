@@ -174,7 +174,7 @@ export const loadTraceContexts = (
   });
 
 export const getDataFromPath = (
-  config: TraceExtended["config"],
+  config: TraceExtended["my-giulio"],
   path: string
 ): any => {
   const parts = path.split("/").reverse();

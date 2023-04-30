@@ -34,7 +34,7 @@ export interface UpdateUserParams {
 
 export const fetchUsers = async (hass: HomeAssistant) =>
   hass.callWS<User[]>({
-    type: "config/auth/list",
+    type: "my-giulio/auth/list",
   });
 
 export const createUser = async (
@@ -45,7 +45,7 @@ export const createUser = async (
   local_only?: boolean
 ) =>
   hass.callWS<{ user: User }>({
-    type: "config/auth/create",
+    type: "my-giulio/auth/create",
     name,
     group_ids,
     local_only,
@@ -58,13 +58,13 @@ export const updateUser = async (
 ) =>
   hass.callWS<{ user: User }>({
     ...params,
-    type: "config/auth/update",
+    type: "my-giulio/auth/update",
     user_id: userId,
   });
 
 export const deleteUser = async (hass: HomeAssistant, userId: string) =>
   hass.callWS<void>({
-    type: "config/auth/delete",
+    type: "my-giulio/auth/delete",
     user_id: userId,
   });
 
@@ -97,7 +97,7 @@ export const computeUserBadges = (
   const labels: [string, string][] = [];
   const translate = (
     key: Extract<
-      keyof TranslationDict["ui"]["panel"]["config"]["users"],
+      keyof TranslationDict["ui"]["panel"]["my-giulio"]["users"],
       `is_${string}`
     >
   ) => hass.localize(`ui.panel.config.users.${key}`);

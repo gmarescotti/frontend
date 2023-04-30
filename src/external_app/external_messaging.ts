@@ -30,7 +30,7 @@ interface EMMessageResultError {
 }
 
 interface EMOutgoingMessageConfigGet extends EMMessage {
-  type: "config/get";
+  type: "my-giulio/get";
 }
 
 interface EMOutgoingMessageMatterCommission extends EMMessage {
@@ -38,7 +38,7 @@ interface EMOutgoingMessageMatterCommission extends EMMessage {
 }
 
 type EMOutgoingMessageWithAnswer = {
-  "config/get": {
+  "my-giulio/get": {
     request: EMOutgoingMessageConfigGet;
     response: ExternalConfig;
   };
@@ -157,8 +157,8 @@ export class ExternalMessaging {
         payload: { event: ev.detail },
       })
     );
-    this.config = await this.sendMessage<"config/get">({
-      type: "config/get",
+    this.config = await this.sendMessage<"my-giulio/get">({
+      type: "my-giulio/get",
     });
   }
 
@@ -210,7 +210,7 @@ export class ExternalMessaging {
           code = "not_ready";
           message = "Command handler not ready";
         } else {
-          code = "unknown_command";
+          code = "simga_unknown_command";
           message = `Unknown command ${msg.command}`;
         }
         // eslint-disable-next-line no-console

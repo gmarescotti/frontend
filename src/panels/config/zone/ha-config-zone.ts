@@ -219,7 +219,7 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
         .hass=${this.hass}
         .narrow=${this.narrow}
         .route=${this.route}
-        back-path="/config"
+        back-path="/my-giulio"
         .tabs=${configSections.areas}
       >
         ${this.narrow
@@ -268,7 +268,7 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
       ["storage", "default"].includes(this.hass.config.config_source);
     this._fetchData();
     if (this.route.path === "/new") {
-      navigate("/config/zone", { replace: true });
+      navigate("/my-giulio/zone", { replace: true });
       this._createZone();
     }
   }
@@ -282,7 +282,7 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
       return;
     }
     const id = this.route.path.slice(6);
-    navigate("/config/zone", { replace: true });
+    navigate("/my-giulio/zone", { replace: true });
     this._zoomZone(id);
   }
 
@@ -405,7 +405,7 @@ export class HaConfigZone extends SubscribeMixin(LitElement) {
       });
       return;
     }
-    navigate("/config/general");
+    navigate("/my-giulio/general");
   }
 
   private async _createEntry(values: ZoneMutableParams) {

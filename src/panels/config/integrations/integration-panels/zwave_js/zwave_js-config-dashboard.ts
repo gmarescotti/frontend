@@ -527,14 +527,14 @@ class ZWaveJSConfigDashboard extends SubscribeMixin(LitElement) {
         `ui.panel.config.integrations.config_entry.state.${item.state}`,
       ];
       if (item.reason) {
-        this.hass.loadBackendTranslation("config", item.domain);
+        this.hass.loadBackendTranslation("my-giulio", item.domain);
         stateTextExtra = html` ${this.hass.localize(
           `component.${item.domain}.config.error.${item.reason}`
         ) || item.reason}`;
       } else {
         stateTextExtra = html`
           <br />
-          <a href="/config/logs?filter=zwave_js"
+          <a href="/my-giulio/logs?filter=zwave_js"
             >${this.hass.localize(
               "ui.panel.config.integrations.config_entry.check_the_logs"
             )}</a

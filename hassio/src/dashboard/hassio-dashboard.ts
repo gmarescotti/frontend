@@ -28,7 +28,7 @@ class HassioDashboard extends LitElement {
         .hass=${this.hass}
         .narrow=${this.narrow}
         .route=${this.route}
-        back-path="/config"
+        back-path="/my-giulio"
         .header=${this.supervisor.localize("panel.addons")}
       >
         <hassio-addons
@@ -57,7 +57,7 @@ class HassioDashboard extends LitElement {
         .route=${this.route}
         .tabs=${supervisorTabs(this.hass)}
         .mainPage=${!atLeastVersion(this.hass.config.version, 2021, 12)}
-        back-path="/config"
+        back-path="/my-giulio"
         supervisor
         hasFab
       >

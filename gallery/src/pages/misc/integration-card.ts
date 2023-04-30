@@ -315,7 +315,7 @@ export class DemoIntegrationCard extends LitElement {
     super.firstUpdated(changedProps);
     const hass = provideHass(this);
     hass.updateTranslations(null, "en");
-    hass.updateTranslations("config", "en");
+    hass.updateTranslations("my-giulio", "en");
     // Normally this string is loaded from backend
     hass.addTranslations(
       {

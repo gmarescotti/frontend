@@ -326,7 +326,7 @@ class DemoHaSelector extends LitElement implements ProvideHassElement {
     super();
     const hass = provideHass(this);
     hass.updateTranslations(null, "en");
-    hass.updateTranslations("config", "en");
+    hass.updateTranslations("my-giulio", "en");
     hass.addEntities(ENTITIES);
     mockEntityRegistry(hass);
     mockDeviceRegistry(hass, DEVICES);

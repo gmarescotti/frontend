@@ -356,7 +356,7 @@ export const demoEntitiesKernehed: DemoConfig["entities"] = () =>
             name: "Hass.io",
             enabled: true,
             code: "****",
-            picture: "/local/images/ha.png",
+            picture: "/my.giulio/images/ha.png",
             disable_animations: false,
           },
           {
@@ -364,7 +364,7 @@ export const demoEntitiesKernehed: DemoConfig["entities"] = () =>
             name: "Our Manison",
             enabled: true,
             code: "****",
-            picture: "/local/images/ha.png",
+            picture: "/my.giulio/images/ha.png",
             disable_animations: false,
           },
           {
@@ -372,7 +372,7 @@ export const demoEntitiesKernehed: DemoConfig["entities"] = () =>
             name: "Legacy API password user",
             enabled: false,
             code: "****",
-            picture: "/local/images/ha.png",
+            picture: "/my.giulio/images/ha.png",
             disable_animations: false,
           },
         ],

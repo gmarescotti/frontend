@@ -113,7 +113,7 @@ export class CloudAlexaPref extends LitElement {
               `}
         </div>
         <div class="card-actions">
-          <a href="/config/cloud/alexa">
+          <a href="/my-giulio/cloud/alexa">
             <mwc-button
               >${this.hass!.localize(
                 "ui.panel.config.cloud.account.alexa.manage_entities"

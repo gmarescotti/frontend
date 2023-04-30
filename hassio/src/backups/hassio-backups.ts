@@ -191,8 +191,8 @@ export class HassioBackups extends LitElement {
         hasFab
         .mainPage=${!atLeastVersion(this.hass.config.version, 2021, 12)}
         back-path=${atLeastVersion(this.hass.config.version, 2022, 5)
-          ? "/config/system"
-          : "/config"}
+          ? "/my-giulio/system"
+          : "/my-giulio"}
         supervisor
       >
         <ha-button-menu

@@ -71,7 +71,7 @@ export class HaScriptTrace extends LitElement {
 
   @state() private _view:
     | "details"
-    | "config"
+    | "my-giulio"
     | "timeline"
     | "logbook"
     | "blueprint" = "details";
@@ -104,7 +104,7 @@ export class HaScriptTrace extends LitElement {
           ? html`
               <a
                 class="trace-link"
-                href="/config/script/edit/${this.scriptId}"
+                href="/my-giulio/script/edit/${this.scriptId}"
                 slot="toolbar-icon"
               >
                 <mwc-button>
@@ -139,7 +139,7 @@ export class HaScriptTrace extends LitElement {
             ? html`
                 <a
                   class="trace-link"
-                  href="/config/script/edit/${this.scriptId}"
+                  href="/my-giulio/script/edit/${this.scriptId}"
                 >
                   <mwc-list-item graphic="icon">
                     ${this.hass.localize(
@@ -228,7 +228,7 @@ export class HaScriptTrace extends LitElement {
                       ["details", "Step Details"],
                       ["timeline", "Trace Timeline"],
                       ["logbook", "Related logbook entries"],
-                      ["config", "Script Config"],
+                      ["my-giulio", "Script Config"],
                     ].map(
                       ([view, label]) => html`
                         <button
@@ -272,7 +272,7 @@ export class HaScriptTrace extends LitElement {
                           .renderedNodes=${renderedNodes!}
                         ></ha-trace-path-details>
                       `
-                    : this._view === "config"
+                    : this._view === "my-giulio"
                     ? html`
                         <ha-trace-config
                           .hass=${this.hass}

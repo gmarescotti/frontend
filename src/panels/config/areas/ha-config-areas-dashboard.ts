@@ -104,7 +104,7 @@ export class HaConfigAreasDashboard extends SubscribeMixin(LitElement) {
         .hass=${this.hass}
         .narrow=${this.narrow}
         .isWide=${this.isWide}
-        back-path="/config"
+        back-path="/my-giulio"
         .tabs=${configSections.areas}
         .route=${this.route}
       >
@@ -203,7 +203,7 @@ export class HaConfigAreasDashboard extends SubscribeMixin(LitElement) {
         <p>
           ${this.hass.localize("ui.panel.config.areas.picker.introduction2")}
         </p>
-        <a href="/config/integrations/dashboard">
+        <a href="/my-giulio/integrations/dashboard">
           ${this.hass.localize(
             "ui.panel.config.areas.picker.integrations_page"
           )}

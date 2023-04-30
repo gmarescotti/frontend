@@ -266,7 +266,7 @@ export const demoEntitiesJimpower: DemoConfig["entities"] = () =>
       attributes: {
         friendly_name: "James",
         icon: "mdi:walk",
-        entity_picture: "/local/james.jpg",
+        entity_picture: "/my.giulio/james.jpg",
       },
     },
     "sensor.tina": {
@@ -275,7 +275,7 @@ export const demoEntitiesJimpower: DemoConfig["entities"] = () =>
       attributes: {
         friendly_name: "Tina",
         icon: "mdi:walk",
-        entity_picture: "/local/tina.jpg",
+        entity_picture: "/my.giulio/tina.jpg",
       },
     },
     "sensor.aqi": {

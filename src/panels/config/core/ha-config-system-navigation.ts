@@ -117,7 +117,7 @@ class HaConfigSystemNavigation extends LitElement {
     return html`
       <hass-subpage
         .hass=${this.hass}
-        back-path="/config"
+        back-path="/my-giulio"
         .header=${this.hass.localize("ui.panel.config.dashboard.system.main")}
       >
         <ha-icon-button

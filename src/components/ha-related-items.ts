@@ -117,7 +117,7 @@ export class HaRelatedItems extends SubscribeMixin(LitElement) {
                 ${this.hass.localize("ui.components.related-items.device")}:
               </h3>
               <a
-                href="/config/devices/device/${relatedDeviceId}"
+                href="/my-giulio/devices/device/${relatedDeviceId}"
                 @click=${this._navigateAwayClose}
               >
                 ${device.name_by_user || device.name}
@@ -138,7 +138,7 @@ export class HaRelatedItems extends SubscribeMixin(LitElement) {
                 ${this.hass.localize("ui.components.related-items.area")}:
               </h3>
               <a
-                href="/config/areas/area/${relatedAreaId}"
+                href="/my-giulio/areas/area/${relatedAreaId}"
                 @click=${this._navigateAwayClose}
               >
                 ${area.name}

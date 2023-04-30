@@ -59,7 +59,7 @@ class SupervisorErrorScreen extends LitElement {
               </li>
               <li>${this.hass.localize("ui.errors.supervisor.reboot")}</li>
               <li>
-                <a href="/config/info" target="_parent">
+                <a href="/my-giulio/info" target="_parent">
                   ${this.hass.localize("ui.errors.supervisor.system_health")}
                 </a>
               </li>
