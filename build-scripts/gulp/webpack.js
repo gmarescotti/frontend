@@ -8,6 +8,7 @@ const path = require("path");
 const paths = require("../paths");
 const {
   createAppConfig,
+  createSimgaAppConfig,
   createDemoConfig,
   createCastConfig,
   createHassioConfig,
@@ -104,6 +105,16 @@ gulp.task("webpack-prod-app", () =>
   prodBuild(
     bothBuilds(createAppConfig, {
       isProdBuild: true,
+    })
+  )
+);
+
+gulp.task("webpack-simga-app", () =>
+  prodBuild(
+    createSimgaAppConfig({
+      isProdBuild: true,
+      latestBuild: true,
+      isStatsBuild: true,
     })
   )
 );

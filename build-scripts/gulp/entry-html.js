@@ -63,6 +63,31 @@ gulp.task("gen-pages-dev", (done) => {
   done();
 });
 
+gulp.task("gen-pages-simga-prod", (done) => {
+  const latestManifest = require(path.resolve(
+    paths.app_output_latest,
+    "manifest.json"
+  ));
+  const es5Manifest = require(path.resolve(
+    paths.app_output_es5,
+    "manifest.json"
+  ));
+
+  for (const page of PAGES) {
+    const content = renderTemplate(page, {
+      latestPageJS: latestManifest[`${page}.js`],
+
+      es5PageJS: es5Manifest[`${page}.js`],
+    });
+
+    fs.outputFileSync(
+      path.resolve(paths.app_output_root, `${page}.html`),
+      minifyHtml(content)
+    );
+  }
+  done();
+});
+
 gulp.task("gen-pages-prod", (done) => {
   const latestManifest = require(path.resolve(
     paths.app_output_latest,

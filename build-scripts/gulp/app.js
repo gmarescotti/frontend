@@ -58,3 +58,22 @@ gulp.task(
     )
   )
 );
+
+gulp.task(
+  "build-simga",
+  gulp.series(
+    async function setEnv() {
+      process.env.NODE_ENV = "production";
+    },
+    gulp.parallel("gen-icons-json", "build-translations", "build-locale-data"),
+    "copy-static-app",
+    "webpack-simga-app",
+    "compress-app",
+    gulp.parallel(
+      "gen-pages-simga-prod",
+      "gen-pages-prod",
+      "gen-index-app-prod",
+      "gen-service-worker-app-prod"
+    )
+  )
+);

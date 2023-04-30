@@ -342,7 +342,7 @@ class HaAutomationPicker extends LitElement {
       });
       return;
     }
-    navigate(`/config/automation/trace/${automation.attributes.id}`);
+    navigate(`/local/automation/trace/${automation.attributes.id}`);
   }
 
   private async _toggle(automation): Promise<void> {
@@ -439,9 +439,9 @@ class HaAutomationPicker extends LitElement {
     );
 
     if (automation?.attributes.id) {
-      navigate(`/config/automation/edit/${automation.attributes.id}`);
+      navigate(`/local/automation/edit/${automation.attributes.id}`);
     } else {
-      navigate(`/config/automation/show/${ev.detail.id}`);
+      navigate(`/local/automation/show/${ev.detail.id}`);
     }
   }
 
@@ -449,7 +449,7 @@ class HaAutomationPicker extends LitElement {
     if (isComponentLoaded(this.hass, "blueprint")) {
       showNewAutomationDialog(this);
     } else {
-      navigate("/config/automation/edit/new");
+      navigate("/local/automation/edit/new");
     }
   }
 

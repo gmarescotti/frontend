@@ -20,7 +20,7 @@ const equal = (a: AutomationEntity[], b: AutomationEntity[]): boolean => {
   return a.every((automation, index) => automation === b[index]);
 };
 
-@customElement("ha-config-automation")
+@customElement("simga-automation")
 class HaConfigAutomation extends HassRouterPage {
   @property({ attribute: false }) public hass!: HomeAssistant;
 
@@ -109,6 +109,6 @@ class HaConfigAutomation extends HassRouterPage {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "ha-config-automation": HaConfigAutomation;
+    "simga-automation": HaConfigAutomation;
   }
 }

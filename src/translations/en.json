@@ -1983,7 +1983,7 @@
             }
           },
           "dialog_new": {
-            "header": "Create automation",
+            "header": "Create Simga automation",
             "create_empty": "Create new automation",
             "create_empty_description": "Start with an empty automation from scratch",
             "create_blueprint": "Create from blueprint",

@@ -1,0 +1,189 @@
+var gulp = require('gulp')
+    // concat = require('gulp-concat'),
+    // minify = require('gulp-minify');
+    // debug = require('gulp-debug');
+
+
+var ts = require('gulp-typescript');
+ 
+    // return gulp.src('src/**/*.ts')
+
+// gulp.task('compile', function () {
+//   return gulp.src(['dist/**/*.ts', 'typings/**/*.d.ts'])
+//     .pipe(tsCompiler({
+//       noImplicitAny: true,
+//       experimentalDecorators: true,
+//       outFile: 'output.js'
+//     }))
+//     .pipe(gulp.dest(paths.dist));
+// });
+            // module: 'esnext',
+
+
+gulp.task('giulio', function () {
+    return gulp.src(['./src/panels/config/automation/**/*.ts'])
+    .pipe(debug({title: 'unicorn:', showFiles: true}))
+    .pipe(ts({
+            rootDir: '.',
+            noImplicitAny: false,
+            outFile: 'simga.js',
+	    experimentalDecorators: true,
+	    skipLibCheck: true,
+            target: 'es2017',
+            module: 'amd',
+            moduleResolution: 'node',
+            lib: ['es2017', 'dom', 'dom.iterable', 'WebWorker'],
+            noEmit: true,
+            noUnusedLocals: false,
+            noUnusedParameters: false,
+            noImplicitReturns: false,
+            noFallthroughCasesInSwitch: false,
+            strict: false,
+            noImplicitAny: false,
+            skipLibCheck: true,
+            resolveJsonModule: true,
+            allowSyntheticDefaultImports: true,
+	    checkJs: false,
+            plugins: [{
+                name: 'ts-lit-plugin',
+                strict: false,
+                disable: false,
+                rules: {
+                  'no-unknown-tag-name': 'warning',
+                  'no-missing-import': 'warning',
+                  'no-unclosed-tag': 'warning',
+                  'no-incompatible-type-binding': 'warning',
+                  'no-invalid-css': 'warning',
+                  'no-missing-element-type-definition': 'warning',
+                  'no-property-visibility-mismatch': 'warning'
+                }
+              }]
+        }))
+        // .pipe(debug({title: 'bullshit:', showFiles: true}))
+        .pipe(gulp.dest('dist'));
+});
+
+// .pipe(debug({title: 'unicorn:'}))
+// .pipe(gulp.dest('dist'))
+
+        // .pipe(small('index.js', { externalResolve: ['node_modules'] }))
+
+        // .pipe(gulp.dest('built/local'));
+        // .dts.pipe(gulp.dest('.'));
+    // return gulp.src(src) .pipe(typingsProject()) .dts.pipe(gulp.dest(global.TSDist.RootFolder));
+
+
+var tsProject = ts.createProject('tsconfig.json');
+
+gulp.task('vecchio', function () {
+  return tsProject.src()
+  .pipe(tsProject()).js
+  .pipe(gulp.dest('dist'))
+  ;
+});
+
+gulp.task('defaultquelloconerrorimaforsesi', function () {
+    return gulp.src(['src/panels/config/automation/**/*.ts'])
+        .pipe(ts({
+            rootDir: '.',
+            noImplicitAny: false,
+            outFile: 'output.js',
+	    experimentalDecorators: true,
+	    skipLibCheck: true,
+            target: 'es2017',
+            // module: 'esnext',
+            module: 'system',
+            moduleResolution: 'node',
+            lib: ['es2017', 'dom', 'dom.iterable', 'WebWorker'],
+            noEmit: true,
+            noUnusedLocals: false,
+            noUnusedParameters: false,
+            noImplicitReturns: false,
+            noFallthroughCasesInSwitch: false,
+            strict: false,
+            noImplicitAny: false,
+            skipLibCheck: true,
+            resolveJsonModule: false,
+            allowSyntheticDefaultImports: true,
+	    checkJs: false,
+            plugins: [
+              {
+                name: 'ts-lit-plugin',
+                strict: true,
+                disable: false,
+                rules: {
+                  'no-unknown-tag-name': 'warning',
+                  'no-missing-import': 'warning',
+                  'no-unclosed-tag': 'warning',
+                  'no-incompatible-type-binding': 'warning',
+                  'no-invalid-css': 'warning',
+                  'no-missing-element-type-definition': 'warning',
+                  'no-property-visibility-mismatch': 'warning'
+                }
+              }
+            ]
+        }))
+	// .pipe( concat('app-min.js') )
+        .pipe(gulp.dest('./dist'));
+});
+
+
+
+// npm install --global gulp-cli
+// npm install gulp@4
+// npm install gulp-typescript typescript
+// npm install --global gulp-cli
+// npm install gulp@4
+// npm install gulp-typescript typescript
+// npm install -g gulp-cli
+// npm install --save-dev typescript gulp@4.0.0 gulp-typescript
+// npm install --save-dev typescript gulp@4.0.0 gulp-typescript
+// npm install --save-dev typescript gulp@4.0.0 gulp-typescript
+// npm install gulp
+// npm install gulp -h
+// npm install gulp-update
+// npm install gulp -h
+// npm install gulp -v
+// npm install ts-lit-plugin -D
+// npm install small
+// npm install gulp
+// npm install gulp-typescript
+// npm install @mdi/js
+// npm install gulp-typescript typescript
+// npm install ts-lit-plugin
+// npm install gulp-typescript typescript
+// npm install memoize-one
+// npm install --global yarn
+// npm install
+// npm install require-dir
+// npm install vinyl-source-stream
+// npm install vinyl-buffer
+// npm install gulp-flatmap
+// npm install gulp-merge-json
+// npm install gulp-rename
+// npm install gulp-json-transform
+// npm install jszip
+// npm install tar
+// npm install @octokit/rest
+// npm install @octokit/auth-oauth-device
+// npm install object-hash
+// npm install fs-extra
+// npm install gulp-zopfli-green
+// npm install merge-stream
+// npm install webpack
+// npm install webpack-dev-server
+// npm install webpack-manifest-plugin
+// npm install webpackbar
+// npm install workbox-build
+// npm install lodash.template
+// npm install html-minifier
+// npm install serve-handler
+// npm install @rollup/plugin-commonjs
+// npm install @rollup/plugin-json
+// npm install rollup-plugin-visualizer
+// npm install rollup-plugin-string
+// npm install @web/dev-server
+// npm install map-stream
+// npm install marked
+// npm install js-yaml
+// history | grep 'npm install' >> gulpfile.js.ggg 
