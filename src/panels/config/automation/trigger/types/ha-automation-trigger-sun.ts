@@ -8,6 +8,7 @@ import type { TriggerElement } from "../ha-automation-trigger-row";
 import "../../../../../components/ha-form/ha-form";
 import type { LocalizeFunc } from "../../../../../common/translations/localize";
 import type { SchemaUnion } from "../../../../../components/ha-form/types";
+import { hass_localize } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-trigger-sun")
 export class HaSunTrigger extends LitElement implements TriggerElement {
@@ -51,7 +52,7 @@ export class HaSunTrigger extends LitElement implements TriggerElement {
   }
 
   protected render() {
-    const schema = this._schema(this.hass.localize);
+    const schema = this._schema(hass_localize);
     return html`
       <ha-form
         .schema=${schema}
@@ -73,7 +74,7 @@ export class HaSunTrigger extends LitElement implements TriggerElement {
   private _computeLabelCallback = (
     schema: SchemaUnion<ReturnType<typeof this._schema>>
   ): string =>
-    this.hass.localize(
+    hass_localize(
       `ui.panel.config.automation.editor.triggers.type.sun.${schema.name}`
     );
 }

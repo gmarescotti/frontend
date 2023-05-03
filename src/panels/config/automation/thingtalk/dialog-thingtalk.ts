@@ -90,19 +90,19 @@ class DialogThingtalk extends LitElement {
       <ha-dialog
         open
         @closed=${this.closeInitDialog}
-        .heading=${this.hass.localize(
+        .heading=${hass_localize(
           `ui.panel.config.automation.thingtalk.task_selection.header`
         )}
       >
         <div>
           ${this._error ? html` <div class="error">${this._error}</div> ` : ""}
-          ${this.hass.localize(
+          ${hass_localize(
             `ui.panel.config.automation.thingtalk.task_selection.introduction`
           )}<br /><br />
-          ${this.hass.localize(
+          ${hass_localize(
             `ui.panel.config.automation.thingtalk.task_selection.language_note`
           )}<br /><br />
-          ${this.hass.localize(
+          ${hass_localize(
             `ui.panel.config.automation.thingtalk.task_selection.for_example`
           )}
           <ul @click=${this._handleExampleClick}>
@@ -143,7 +143,7 @@ class DialogThingtalk extends LitElement {
           >
         </div>
         <mwc-button class="left" @click=${this._skip} slot="secondaryAction">
-          ${this.hass.localize(`ui.common.skip`)}
+          ${hass_localize(`ui.common.skip`)}
         </mwc-button>
         <mwc-button
           @click=${this._generate}
@@ -157,7 +157,7 @@ class DialogThingtalk extends LitElement {
                 title="Creating your automation..."
               ></ha-circular-progress>`
             : ""}
-          ${this.hass.localize(`ui.panel.config.automation.thingtalk.create`)}
+          ${hass_localize(`ui.panel.config.automation.thingtalk.create`)}
         </mwc-button>
       </ha-dialog>
     `;
@@ -166,7 +166,7 @@ class DialogThingtalk extends LitElement {
   private async _generate() {
     this._value = this._input!.value as string;
     if (!this._value) {
-      this._error = this.hass.localize(
+      this._error = hass_localize(
         `ui.panel.config.automation.thingtalk.task_selection.error_empty`
       );
       return;
@@ -187,7 +187,7 @@ class DialogThingtalk extends LitElement {
     this._submitting = false;
 
     if (!Object.keys(config).length) {
-      this._error = this.hass.localize(
+      this._error = hass_localize(
         `ui.panel.config.automation.thingtalk.task_selection.error_unsupported`
       );
     } else if (Object.keys(placeholders).length) {

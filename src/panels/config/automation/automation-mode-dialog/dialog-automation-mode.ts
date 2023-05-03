@@ -60,11 +60,11 @@ class DialogAutomationMode extends LitElement implements HassDialog {
         @closed=${this.closeDialog}
         .heading=${createCloseHeading(
           this.hass,
-          this.hass.localize("ui.panel.config.automation.editor.change_mode")
+          hass_localize("ui.panel.config.automation.editor.change_mode")
         )}
       >
         <ha-select
-          .label=${this.hass.localize(
+          .label=${hass_localize(
             "ui.panel.config.automation.editor.modes.label"
           )}
           .value=${this._newMode}
@@ -77,7 +77,7 @@ class DialogAutomationMode extends LitElement implements HassDialog {
               href=${documentationUrl(this.hass, "/docs/automation/modes/")}
               target="_blank"
               rel="noreferrer"
-              >${this.hass.localize(
+              >${hass_localize(
                 "ui.panel.config.automation.editor.modes.learn_more"
               )}</a
             >
@@ -86,7 +86,7 @@ class DialogAutomationMode extends LitElement implements HassDialog {
           ${MODES.map(
             (mode) => html`
               <mwc-list-item .value=${mode}>
-                ${this.hass.localize(
+                ${hass_localize(
                   `ui.panel.config.automation.editor.modes.${mode}`
                 ) || mode}
               </mwc-list-item>
@@ -96,7 +96,7 @@ class DialogAutomationMode extends LitElement implements HassDialog {
         ${isMaxMode(this._newMode)
           ? html`
               <br /><ha-textfield
-                .label=${this.hass.localize(
+                .label=${hass_localize(
                   `ui.panel.config.automation.editor.max.${this._newMode}`
                 )}
                 type="number"
@@ -110,10 +110,10 @@ class DialogAutomationMode extends LitElement implements HassDialog {
           : nothing}
 
         <mwc-button @click=${this.closeDialog} slot="secondaryAction">
-          ${this.hass.localize("ui.dialogs.generic.cancel")}
+          ${hass_localize("ui.dialogs.generic.cancel")}
         </mwc-button>
         <mwc-button @click=${this._save} slot="primaryAction">
-          ${this.hass.localize("ui.panel.config.automation.editor.change_mode")}
+          ${hass_localize("ui.panel.config.automation.editor.change_mode")}
         </mwc-button>
       </ha-dialog>
     `;

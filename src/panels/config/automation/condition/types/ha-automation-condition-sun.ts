@@ -68,7 +68,7 @@ export class HaSunCondition extends LitElement implements ConditionElement {
   );
 
   protected render() {
-    const schema = this._schema(this.hass.localize);
+    const schema = this._schema(hass_localize);
     return html`
       <ha-form
         .schema=${schema}
@@ -90,7 +90,7 @@ export class HaSunCondition extends LitElement implements ConditionElement {
   private _computeLabelCallback = (
     schema: SchemaUnion<ReturnType<typeof this._schema>>
   ): string =>
-    this.hass.localize(
+    hass_localize(
       `ui.panel.config.automation.editor.conditions.type.sun.${schema.name}`
     );
 }

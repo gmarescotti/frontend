@@ -10,6 +10,7 @@ import "../../../../../components/ha-form/ha-form";
 import { createDurationData } from "../../../../../common/datetime/create_duration_data";
 import type { LocalizeFunc } from "../../../../../common/translations/localize";
 import type { SchemaUnion } from "../../../../../components/ha-form/types";
+import { hass_localize } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-trigger-calendar")
 export class HaCalendarTrigger extends LitElement implements TriggerElement {
@@ -77,7 +78,7 @@ export class HaCalendarTrigger extends LitElement implements TriggerElement {
   }
 
   protected render() {
-    const schema = this._schema(this.hass.localize);
+    const schema = this._schema(hass_localize);
     // Convert from string representation to ha form duration representation
     const trigger_offset = this.trigger.offset;
     const duration: HaDurationData = createDurationData(trigger_offset)!;
@@ -124,7 +125,7 @@ export class HaCalendarTrigger extends LitElement implements TriggerElement {
   private _computeLabelCallback = (
     schema: SchemaUnion<ReturnType<typeof this._schema>>
   ): string =>
-    this.hass.localize(
+    hass_localize(
       `ui.panel.config.automation.editor.triggers.type.calendar.${schema.name}`
     );
 }

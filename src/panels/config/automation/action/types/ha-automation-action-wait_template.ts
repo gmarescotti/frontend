@@ -53,7 +53,7 @@ export class HaWaitAction extends LitElement implements ActionElement {
   private _computeLabelCallback = (
     schema: SchemaUnion<typeof SCHEMA>
   ): string =>
-    this.hass.localize(
+    hass_localize(
       `ui.panel.config.automation.editor.actions.type.wait_template.${
         schema.name === "continue_on_timeout" ? "continue_timeout" : schema.name
       }`

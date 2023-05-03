@@ -220,3 +220,13 @@ export const loadPolyfillLocales = async (language: string) => {
     // Ignore
   }
 };
+
+export const hass_localize: (key: LocalizeKeys, ...args: any[]) => string =
+  function (key): string {
+    // code for anonymousn function
+    // const v : string = HaConfigAutomation.localize_rel(key);
+    // if (v) {
+    //   return v;
+    // }
+    return "miaoo:" + key;
+  };

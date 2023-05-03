@@ -38,7 +38,7 @@ export class HaServiceAction extends LitElement implements ActionElement {
       fireEvent(
         this,
         "ui-mode-not-available",
-        Error(this.hass.localize("ui.errors.config.no_template_editor_support"))
+        Error(hass_localize("ui.errors.config.no_template_editor_support"))
       );
       return;
     }

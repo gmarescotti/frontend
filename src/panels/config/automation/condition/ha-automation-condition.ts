@@ -116,15 +116,15 @@ export default class HaAutomationCondition extends LitElement {
         ? html`
             <ha-alert
               alert-type="info"
-              .title=${this.hass.localize(
+              .title=${hass_localize(
                 "ui.panel.config.automation.editor.re_order_mode.title"
               )}
             >
-              ${this.hass.localize(
+              ${hass_localize(
                 "ui.panel.config.automation.editor.re_order_mode.description_conditions"
               )}
               <mwc-button slot="action" @click=${this._exitReOrderMode}>
-                ${this.hass.localize(
+                ${hass_localize(
                   "ui.panel.config.automation.editor.re_order_mode.exit"
                 )}
               </mwc-button>
@@ -154,7 +154,7 @@ export default class HaAutomationCondition extends LitElement {
                     <ha-icon-button
                       .index=${idx}
                       slot="icons"
-                      .label=${this.hass.localize(
+                      .label=${hass_localize(
                         "ui.panel.config.automation.editor.move_up"
                       )}
                       .path=${mdiArrowUp}
@@ -164,7 +164,7 @@ export default class HaAutomationCondition extends LitElement {
                     <ha-icon-button
                       .index=${idx}
                       slot="icons"
-                      .label=${this.hass.localize(
+                      .label=${hass_localize(
                         "ui.panel.config.automation.editor.move_down"
                       )}
                       .path=${mdiArrowDown}
@@ -189,13 +189,13 @@ export default class HaAutomationCondition extends LitElement {
           slot="trigger"
           outlined
           .disabled=${this.disabled}
-          .label=${this.hass.localize(
+          .label=${hass_localize(
             "ui.panel.config.automation.editor.conditions.add"
           )}
         >
           <ha-svg-icon .path=${mdiPlus} slot="icon"></ha-svg-icon>
         </ha-button>
-        ${this._processedTypes(this.hass.localize).map(
+        ${this._processedTypes(hass_localize).map(
           ([opt, label, icon]) => html`
             <mwc-list-item .value=${opt} graphic="icon">
               ${label}<ha-svg-icon slot="graphic" .path=${icon}></ha-svg-icon

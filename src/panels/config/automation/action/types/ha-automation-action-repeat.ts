@@ -40,7 +40,7 @@ export class HaRepeatAction extends LitElement implements ActionElement {
 
     return html`
       <ha-select
-        .label=${this.hass.localize(
+        .label=${hass_localize(
           "ui.panel.config.automation.editor.actions.type.repeat.type_select"
         )}
         .value=${type}
@@ -50,7 +50,7 @@ export class HaRepeatAction extends LitElement implements ActionElement {
         ${OPTIONS.map(
           (opt) => html`
             <mwc-list-item .value=${opt}>
-              ${this.hass.localize(
+              ${hass_localize(
                 `ui.panel.config.automation.editor.actions.type.repeat.type.${opt}.label`
               )}
             </mwc-list-item>
@@ -61,7 +61,7 @@ export class HaRepeatAction extends LitElement implements ActionElement {
         ${type === "count"
           ? html`
               <ha-textfield
-                .label=${this.hass.localize(
+                .label=${hass_localize(
                   "ui.panel.config.automation.editor.actions.type.repeat.type.count.label"
                 )}
                 name="count"
@@ -72,7 +72,7 @@ export class HaRepeatAction extends LitElement implements ActionElement {
             `
           : type === "while"
           ? html` <h3>
-                ${this.hass.localize(
+                ${hass_localize(
                   `ui.panel.config.automation.editor.actions.type.repeat.type.while.conditions`
                 )}:
               </h3>
@@ -85,7 +85,7 @@ export class HaRepeatAction extends LitElement implements ActionElement {
               ></ha-automation-condition>`
           : type === "until"
           ? html` <h3>
-                ${this.hass.localize(
+                ${hass_localize(
                   `ui.panel.config.automation.editor.actions.type.repeat.type.until.conditions`
                 )}:
               </h3>
@@ -99,7 +99,7 @@ export class HaRepeatAction extends LitElement implements ActionElement {
           : ""}
       </div>
       <h3>
-        ${this.hass.localize(
+        ${hass_localize(
           "ui.panel.config.automation.editor.actions.type.repeat.sequence"
         )}:
       </h3>

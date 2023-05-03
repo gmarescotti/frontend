@@ -9,6 +9,7 @@ import type { ZoneTrigger } from "../../../../../data/automation";
 import type { PolymerChangedEvent } from "../../../../../polymer-types";
 import type { HomeAssistant } from "../../../../../types";
 import type { HaRadio } from "../../../../../components/ha-radio";
+import { hass_localize } from "../../../../../common/translations/localize";
 
 function zoneAndLocationFilter(stateObj) {
   return hasLocation(stateObj) && computeStateDomain(stateObj) !== "zone";
@@ -36,7 +37,7 @@ export class HaZoneTrigger extends LitElement {
     const { entity_id, zone, event } = this.trigger;
     return html`
       <ha-entity-picker
-        .label=${this.hass.localize(
+        .label=${hass_localize(
           "ui.panel.config.automation.editor.triggers.type.zone.entity"
         )}
         .value=${entity_id}
@@ -47,7 +48,7 @@ export class HaZoneTrigger extends LitElement {
         .entityFilter=${zoneAndLocationFilter}
       ></ha-entity-picker>
       <ha-entity-picker
-        .label=${this.hass.localize(
+        .label=${hass_localize(
           "ui.panel.config.automation.editor.triggers.type.zone.zone"
         )}
         .value=${zone}
@@ -59,12 +60,12 @@ export class HaZoneTrigger extends LitElement {
       ></ha-entity-picker>
 
       <label>
-        ${this.hass.localize(
+        ${hass_localize(
           "ui.panel.config.automation.editor.triggers.type.zone.event"
         )}
         <ha-formfield
           .disabled=${this.disabled}
-          .label=${this.hass.localize(
+          .label=${hass_localize(
             "ui.panel.config.automation.editor.triggers.type.zone.enter"
           )}
         >
@@ -78,7 +79,7 @@ export class HaZoneTrigger extends LitElement {
         </ha-formfield>
         <ha-formfield
           .disabled=${this.disabled}
-          .label=${this.hass.localize(
+          .label=${hass_localize(
             "ui.panel.config.automation.editor.triggers.type.zone.leave"
           )}
         >

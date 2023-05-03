@@ -7,6 +7,7 @@ import type { GeoLocationTrigger } from "../../../../../data/automation";
 import type { HomeAssistant } from "../../../../../types";
 import type { LocalizeFunc } from "../../../../../common/translations/localize";
 import type { SchemaUnion } from "../../../../../components/ha-form/types";
+import { hass_localize } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-trigger-geo_location")
 export class HaGeolocationTrigger extends LitElement {
@@ -54,7 +55,7 @@ export class HaGeolocationTrigger extends LitElement {
   protected render() {
     return html`
       <ha-form
-        .schema=${this._schema(this.hass.localize)}
+        .schema=${this._schema(hass_localize)}
         .data=${this.trigger}
         .hass=${this.hass}
         .disabled=${this.disabled}
@@ -73,7 +74,7 @@ export class HaGeolocationTrigger extends LitElement {
   private _computeLabelCallback = (
     schema: SchemaUnion<ReturnType<typeof this._schema>>
   ): string =>
-    this.hass.localize(
+    hass_localize(
       `ui.panel.config.automation.editor.triggers.type.geo_location.${schema.name}`
     );
 }

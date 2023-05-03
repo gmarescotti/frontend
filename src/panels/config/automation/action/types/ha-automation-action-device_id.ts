@@ -56,7 +56,7 @@ export class HaDeviceAction extends LitElement {
         .disabled=${this.disabled}
         @value-changed=${this._devicePicked}
         .hass=${this.hass}
-        label=${this.hass.localize(
+        label=${hass_localize(
           "ui.panel.config.automation.editor.actions.type.device_id.label"
         )}
       ></ha-device-picker>
@@ -66,7 +66,7 @@ export class HaDeviceAction extends LitElement {
         .disabled=${this.disabled}
         @value-changed=${this._deviceActionPicked}
         .hass=${this.hass}
-        label=${this.hass.localize(
+        label=${hass_localize(
           "ui.panel.config.automation.editor.actions.type.device_id.action"
         )}
       ></ha-device-action-picker>
@@ -78,7 +78,7 @@ export class HaDeviceAction extends LitElement {
               .schema=${this._capabilities.extra_fields}
               .disabled=${this.disabled}
               .computeLabel=${this._extraFieldsComputeLabelCallback(
-                this.hass.localize
+                hass_localize
               )}
               @value-changed=${this._extraFieldsChanged}
             ></ha-form>

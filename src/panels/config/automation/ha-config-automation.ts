@@ -12,6 +12,8 @@ import {
 import { HomeAssistant } from "../../../types";
 import "./ha-automation-editor";
 import "./ha-automation-picker";
+// import { LocalizeFunc } from "../../../common/translations/localize";
+// import { computeLocalize } from "../../../common/translations/localize";
 
 const equal = (a: AutomationEntity[], b: AutomationEntity[]): boolean => {
   if (a.length !== b.length) {
@@ -23,6 +25,10 @@ const equal = (a: AutomationEntity[], b: AutomationEntity[]): boolean => {
 @customElement("simga-automation")
 class HaConfigAutomation extends HassRouterPage {
   @property({ attribute: false }) public hass!: HomeAssistant;
+  // @property({ hasChanged(newVal: HomeAssistant, _oldVal: HomeAssistant) {
+  //   HaConfigAutomation.setlocalize(newVal);
+  //   return true;
+  // } }) public hass!: HomeAssistant;
 
   @property() public narrow!: boolean;
 
@@ -32,12 +38,34 @@ class HaConfigAutomation extends HassRouterPage {
 
   @property() public automations: AutomationEntity[] = [];
 
+  // @property() public static localize_rel: LocalizeFunc;
+
   private _debouncedUpdateAutomations = debounce((pageEl) => {
     const newAutomations = this._getAutomations(this.hass.states);
     if (!equal(newAutomations, pageEl.automations)) {
       pageEl.automations = newAutomations;
     }
   }, 10);
+
+  // public static setlocalize(hass: HomeAssistant) {
+
+  //   const demo: (key: LocalizeKeys) => string = function (key): string {
+  //       // code for anonymousn function
+  //       const v : string = HaConfigAutomation.localize_rel(key);
+  //       if (v) {
+  //         return v;
+  //       }
+  //       return "miaoo:" + key;
+  //   };
+
+  //   HaConfigAutomation.localize_rel = hass.localize;
+
+  //   hass.localize = demo;
+  // }
+
+  // private constructor() {
+  //   super();
+  // }
 
   protected routerOptions: RouterOptions = {
     defaultPage: "dashboard",

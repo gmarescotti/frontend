@@ -33,7 +33,7 @@ export class HaIfAction extends LitElement implements ActionElement {
 
     return html`
       <h3>
-        ${this.hass.localize(
+        ${hass_localize(
           "ui.panel.config.automation.editor.actions.type.if.if"
         )}*:
       </h3>
@@ -47,7 +47,7 @@ export class HaIfAction extends LitElement implements ActionElement {
       ></ha-automation-condition>
 
       <h3>
-        ${this.hass.localize(
+        ${hass_localize(
           "ui.panel.config.automation.editor.actions.type.if.then"
         )}*:
       </h3>
@@ -62,7 +62,7 @@ export class HaIfAction extends LitElement implements ActionElement {
       ${this._showElse || action.else
         ? html`
             <h3>
-              ${this.hass.localize(
+              ${hass_localize(
                 "ui.panel.config.automation.editor.actions.type.if.else"
               )}:
             </h3>
@@ -81,7 +81,7 @@ export class HaIfAction extends LitElement implements ActionElement {
               @click=${this._addElse}
               .disabled=${this.disabled}
             >
-              ${this.hass.localize(
+              ${hass_localize(
                 "ui.panel.config.automation.editor.actions.type.if.add_else"
               )}
             </button>

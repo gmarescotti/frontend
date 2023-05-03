@@ -37,21 +37,21 @@ export class HaChooseAction extends LitElement implements ActionElement {
             .idx=${idx}
             .disabled=${this.disabled}
             @click=${this._removeOption}
-            .label=${this.hass.localize(
+            .label=${hass_localize(
               "ui.panel.config.automation.editor.actions.type.choose.remove_option"
             )}
             .path=${mdiDelete}
           ></ha-icon-button>
           <div class="card-content">
             <h2>
-              ${this.hass.localize(
+              ${hass_localize(
                 "ui.panel.config.automation.editor.actions.type.choose.option",
                 "number",
                 idx + 1
               )}:
             </h2>
             <h3>
-              ${this.hass.localize(
+              ${hass_localize(
                 "ui.panel.config.automation.editor.actions.type.choose.conditions"
               )}:
             </h3>
@@ -65,7 +65,7 @@ export class HaChooseAction extends LitElement implements ActionElement {
               @value-changed=${this._conditionChanged}
             ></ha-automation-condition>
             <h3>
-              ${this.hass.localize(
+              ${hass_localize(
                 "ui.panel.config.automation.editor.actions.type.choose.sequence"
               )}:
             </h3>
@@ -83,7 +83,7 @@ export class HaChooseAction extends LitElement implements ActionElement {
       )}
       <ha-button
         outlined
-        .label=${this.hass.localize(
+        .label=${hass_localize(
           "ui.panel.config.automation.editor.actions.type.choose.add_option"
         )}
         .disabled=${this.disabled}
@@ -94,7 +94,7 @@ export class HaChooseAction extends LitElement implements ActionElement {
       ${this._showDefault || action.default
         ? html`
             <h2>
-              ${this.hass.localize(
+              ${hass_localize(
                 "ui.panel.config.automation.editor.actions.type.choose.default"
               )}:
             </h2>
@@ -113,7 +113,7 @@ export class HaChooseAction extends LitElement implements ActionElement {
               @click=${this._addDefault}
               .disabled=${this.disabled}
             >
-              ${this.hass.localize(
+              ${hass_localize(
                 "ui.panel.config.automation.editor.actions.type.choose.add_default"
               )}
             </button>

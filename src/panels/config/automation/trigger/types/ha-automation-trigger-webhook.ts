@@ -15,6 +15,7 @@ import {
 } from "../../../../../data/automation";
 import { HomeAssistant } from "../../../../../types";
 import { handleChangeEvent } from "../ha-automation-trigger-row";
+import { hass_localize } from "../../../../../common/translations/localize";
 
 const DEFAULT_WEBHOOK_ID = "";
 
@@ -84,10 +85,10 @@ export class HaWebhookTrigger extends LitElement {
     return html`
       <ha-textfield
         name="webhook_id"
-        .label=${this.hass.localize(
+        .label=${hass_localize(
           "ui.panel.config.automation.editor.triggers.type.webhook.webhook_id"
         )}
-        .helper=${this.hass.localize(
+        .helper=${hass_localize(
           "ui.panel.config.automation.editor.triggers.type.webhook.webhook_id_helper"
         )}
         .disabled=${this.disabled}
@@ -98,7 +99,7 @@ export class HaWebhookTrigger extends LitElement {
         <ha-icon-button
           @click=${this._copyUrl}
           slot="trailingIcon"
-          .label=${this.hass.localize(
+          .label=${hass_localize(
             "ui.panel.config.automation.editor.triggers.type.webhook.copy_url"
           )}
           .path=${mdiContentCopy}
@@ -117,7 +118,7 @@ export class HaWebhookTrigger extends LitElement {
 
     await copyToClipboard(url);
     showToast(this, {
-      message: this.hass.localize("ui.common.copied_clipboard"),
+      message: hass_localize("ui.common.copied_clipboard"),
     });
   }
 

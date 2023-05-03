@@ -43,7 +43,7 @@ export class HaEventAction extends LitElement implements ActionElement {
 
     return html`
       <ha-textfield
-        .label=${this.hass.localize(
+        .label=${hass_localize(
           "ui.panel.config.automation.editor.actions.type.event.event"
         )}
         .value=${event}
@@ -52,7 +52,7 @@ export class HaEventAction extends LitElement implements ActionElement {
       ></ha-textfield>
       <ha-yaml-editor
         .hass=${this.hass}
-        .label=${this.hass.localize(
+        .label=${hass_localize(
           "ui.panel.config.automation.editor.actions.type.event.event_data"
         )}
         .name=${"event_data"}

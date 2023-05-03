@@ -22,6 +22,7 @@ import { TriggerElement } from "../ha-automation-trigger-row";
 import "../../../../../components/ha-form/ha-form";
 import { createDurationData } from "../../../../../common/datetime/create_duration_data";
 import type { SchemaUnion } from "../../../../../components/ha-form/types";
+import { hass_localize } from "../../../../../common/translations/localize";
 
 const stateTriggerStruct = assign(
   baseTriggerStruct,
@@ -128,7 +129,7 @@ export class HaStateTrigger extends LitElement implements TriggerElement {
       fireEvent(
         this,
         "ui-mode-not-available",
-        Error(this.hass.localize("ui.errors.config.no_template_editor_support"))
+        Error(hass_localize("ui.errors.config.no_template_editor_support"))
       );
       return false;
     }
@@ -179,7 +180,7 @@ export class HaStateTrigger extends LitElement implements TriggerElement {
   private _computeLabelCallback = (
     schema: SchemaUnion<ReturnType<typeof this._schema>>
   ): string =>
-    this.hass.localize(
+    hass_localize(
       schema.name === "entity_id"
         ? "ui.components.entity.entity-picker.entity"
         : `ui.panel.config.automation.editor.triggers.type.state.${schema.name}`

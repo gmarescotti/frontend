@@ -8,6 +8,7 @@ import { TagTrigger } from "../../../../../data/automation";
 import { fetchTags, Tag } from "../../../../../data/tag";
 import { HomeAssistant } from "../../../../../types";
 import { TriggerElement } from "../ha-automation-trigger-row";
+import { hass_localize } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-trigger-tag")
 export class HaTagTrigger extends LitElement implements TriggerElement {
@@ -34,7 +35,7 @@ export class HaTagTrigger extends LitElement implements TriggerElement {
     }
     return html`
       <ha-select
-        .label=${this.hass.localize(
+        .label=${hass_localize(
           "ui.panel.config.automation.editor.triggers.type.tag.label"
         )}
         .disabled=${this.disabled || this._tags.length === 0}

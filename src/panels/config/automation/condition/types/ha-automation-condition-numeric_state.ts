@@ -212,7 +212,7 @@ export default class HaNumericStateCondition extends LitElement {
           (this.condition.below as string).startsWith("sensor.")));
 
     const schema = this._schema(
-      this.hass.localize,
+      hass_localize,
       inputAboveIsEntity,
       inputBelowIsEntity
     );
@@ -253,13 +253,13 @@ export default class HaNumericStateCondition extends LitElement {
   ): string => {
     switch (schema.name) {
       case "entity_id":
-        return this.hass.localize("ui.components.entity.entity-picker.entity");
+        return hass_localize("ui.components.entity.entity-picker.entity");
       case "attribute":
-        return this.hass.localize(
+        return hass_localize(
           "ui.components.entity.entity-attribute-picker.attribute"
         );
       default:
-        return this.hass.localize(
+        return hass_localize(
           `ui.panel.config.automation.editor.triggers.type.numeric_state.${schema.name}`
         );
     }

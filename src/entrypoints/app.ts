@@ -3,9 +3,7 @@ import {
   setCancelSyntheticClickEvents,
 } from "@polymer/polymer/lib/utils/settings";
 import "@webcomponents/scoped-custom-element-registry/scoped-custom-element-registry.min";
-// import "../layouts/home-assistant";
-// import "../panels/config/automation/ha-automation-editor";
-import "../panels/config/automation/ha-config-automation";
+import "../layouts/home-assistant";
 import "../resources/ha-style";
 import "../resources/roboto";
 import "../util/legacy-support";

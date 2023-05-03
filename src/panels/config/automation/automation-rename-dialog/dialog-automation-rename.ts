@@ -30,7 +30,7 @@ class DialogAutomationRename extends LitElement implements HassDialog {
     this._params = params;
     this._newName =
       params.config.alias ||
-      this.hass.localize("ui.panel.config.automation.editor.default_name");
+      hass_localize("ui.panel.config.automation.editor.default_name");
     this._newDescription = params.config.description || "";
   }
 
@@ -54,7 +54,7 @@ class DialogAutomationRename extends LitElement implements HassDialog {
         @closed=${this.closeDialog}
         .heading=${createCloseHeading(
           this.hass,
-          this.hass.localize(
+          hass_localize(
             this._params.config.alias
               ? "ui.panel.config.automation.editor.rename"
               : "ui.panel.config.automation.editor.save"
@@ -63,7 +63,7 @@ class DialogAutomationRename extends LitElement implements HassDialog {
       >
         ${this._error
           ? html`<ha-alert alert-type="error"
-              >${this.hass.localize(
+              >${hass_localize(
                 "ui.panel.config.automation.editor.missing_name"
               )}</ha-alert
             >`
@@ -71,22 +71,20 @@ class DialogAutomationRename extends LitElement implements HassDialog {
         <ha-textfield
           dialogInitialFocus
           .value=${this._newName}
-          .placeholder=${this.hass.localize(
+          .placeholder=${hass_localize(
             "ui.panel.config.automation.editor.default_name"
           )}
-          .label=${this.hass.localize(
-            "ui.panel.config.automation.editor.alias"
-          )}
+          .label=${hass_localize("ui.panel.config.automation.editor.alias")}
           required
           type="string"
           @input=${this._valueChanged}
         ></ha-textfield>
 
         <ha-textarea
-          .label=${this.hass.localize(
+          .label=${hass_localize(
             "ui.panel.config.automation.editor.description.label"
           )}
-          .placeholder=${this.hass.localize(
+          .placeholder=${hass_localize(
             "ui.panel.config.automation.editor.description.placeholder"
           )}
           name="description"
@@ -96,10 +94,10 @@ class DialogAutomationRename extends LitElement implements HassDialog {
         ></ha-textarea>
 
         <mwc-button @click=${this.closeDialog} slot="secondaryAction">
-          ${this.hass.localize("ui.dialogs.generic.cancel")}
+          ${hass_localize("ui.dialogs.generic.cancel")}
         </mwc-button>
         <mwc-button @click=${this._save} slot="primaryAction">
-          ${this.hass.localize(
+          ${hass_localize(
             this._params.config.alias
               ? "ui.panel.config.automation.editor.rename"
               : "ui.panel.config.automation.editor.save"

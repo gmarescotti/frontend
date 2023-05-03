@@ -18,6 +18,7 @@ import { documentationUrl } from "../../../util/documentation-url";
 import "./action/ha-automation-action";
 import "./condition/ha-automation-condition";
 import "./trigger/ha-automation-trigger";
+import { hass_localize } from "../../../common/translations/localize";
 
 @customElement("manual-automation-editor")
 export class HaManualAutomationEditor extends LitElement {
@@ -37,22 +38,18 @@ export class HaManualAutomationEditor extends LitElement {
     return html`
       ${this.disabled
         ? html`<ha-alert alert-type="warning">
-            ${this.hass.localize("ui.panel.config.automation.editor.read_only")}
+            ${hass_localize("ui.panel.config.automation.editor.read_only")}
             <mwc-button slot="action" @click=${this._duplicate}>
-              ${this.hass.localize("ui.panel.config.automation.editor.migrate")}
+              ${hass_localize("ui.panel.config.automation.editor.migrate")}
             </mwc-button>
           </ha-alert>`
         : ""}
       ${this.stateObj?.state === "off"
         ? html`
             <ha-alert alert-type="info">
-              ${this.hass.localize(
-                "ui.panel.config.automation.editor.disabled"
-              )}
+              ${hass_localize("ui.panel.config.automation.editor.disabled")}
               <mwc-button slot="action" @click=${this._enable}>
-                ${this.hass.localize(
-                  "ui.panel.config.automation.editor.enable"
-                )}
+                ${hass_localize("ui.panel.config.automation.editor.enable")}
               </mwc-button>
             </ha-alert>
           `
@@ -66,9 +63,7 @@ export class HaManualAutomationEditor extends LitElement {
         : ""}
       <div class="header">
         <h2 id="triggers-heading" class="name">
-          ${this.hass.localize(
-            "ui.panel.config.automation.editor.triggers.header"
-          )}
+          ${hass_localize("ui.panel.config.automation.editor.triggers.header")}
         </h2>
         <a
           href=${documentationUrl(this.hass, "/docs/automation/trigger/")}
@@ -77,7 +72,7 @@ export class HaManualAutomationEditor extends LitElement {
         >
           <ha-icon-button
             .path=${mdiHelpCircle}
-            .label=${this.hass.localize(
+            .label=${hass_localize(
               "ui.panel.config.automation.editor.triggers.learn_more"
             )}
           ></ha-icon-button>
@@ -95,7 +90,7 @@ export class HaManualAutomationEditor extends LitElement {
 
       <div class="header">
         <h2 id="conditions-heading" class="name">
-          ${this.hass.localize(
+          ${hass_localize(
             "ui.panel.config.automation.editor.conditions.header"
           )}
         </h2>
@@ -106,7 +101,7 @@ export class HaManualAutomationEditor extends LitElement {
         >
           <ha-icon-button
             .path=${mdiHelpCircle}
-            .label=${this.hass.localize(
+            .label=${hass_localize(
               "ui.panel.config.automation.editor.conditions.learn_more"
             )}
           ></ha-icon-button>
@@ -124,9 +119,7 @@ export class HaManualAutomationEditor extends LitElement {
 
       <div class="header">
         <h2 id="actions-heading" class="name">
-          ${this.hass.localize(
-            "ui.panel.config.automation.editor.actions.header"
-          )}
+          ${hass_localize("ui.panel.config.automation.editor.actions.header")}
         </h2>
         <div>
           <a
@@ -136,7 +129,7 @@ export class HaManualAutomationEditor extends LitElement {
           >
             <ha-icon-button
               .path=${mdiHelpCircle}
-              .label=${this.hass.localize(
+              .label=${hass_localize(
                 "ui.panel.config.automation.editor.actions.learn_more"
               )}
             ></ha-icon-button>

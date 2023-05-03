@@ -29,6 +29,7 @@ import { HassDialog } from "../../../dialogs/make-dialog-manager";
 import { haStyle, haStyleDialog } from "../../../resources/styles";
 import type { HomeAssistant } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
+import { hass_localize } from "../../../common/translations/localize";
 
 const SOURCE_TYPE_ICONS: Record<BlueprintSourceType, string> = {
   local: mdiFile,
@@ -92,13 +93,13 @@ class DialogNewAutomation extends LitElement implements HassDialog {
         @closed=${this.closeDialog}
         .heading=${createCloseHeading(
           this.hass,
-          this.hass.localize("ui.panel.config.automation.dialog_new.header")
+          hass_localize("ui.panel.config.automation.dialog_new.header")
         )}
       >
         <mwc-list
           innerRole="listbox"
           itemRoles="option"
-          innerAriaLabel=${this.hass.localize(
+          innerAriaLabel=${hass_localize(
             "ui.panel.config.automation.dialog_new.header"
           )}
           rootTabbable
@@ -111,11 +112,11 @@ class DialogNewAutomation extends LitElement implements HassDialog {
             @request-selected=${this._blank}
           >
             <ha-svg-icon slot="graphic" .path=${mdiPencilOutline}></ha-svg-icon>
-            ${this.hass.localize(
+            ${hass_localize(
               "ui.panel.config.automation.dialog_new.create_empty"
             )}
             <span slot="secondary">
-              ${this.hass.localize(
+              ${hass_localize(
                 "ui.panel.config.automation.dialog_new.create_empty_description"
               )}
             </span>
@@ -138,11 +139,11 @@ class DialogNewAutomation extends LitElement implements HassDialog {
                 ${blueprint.name}
                 <span slot="secondary">
                   ${blueprint.author
-                    ? this.hass.localize(
+                    ? hass_localize(
                         `ui.panel.config.automation.dialog_new.blueprint_source.author`,
                         { author: blueprint.author }
                       )
-                    : this.hass.localize(
+                    : hass_localize(
                         `ui.panel.config.automation.dialog_new.blueprint_source.${blueprint.sourceType}`
                       )}
                 </span>
@@ -160,11 +161,11 @@ class DialogNewAutomation extends LitElement implements HassDialog {
                 >
                   <ha-list-item hasmeta twoline graphic="icon">
                     <ha-svg-icon slot="graphic" .path=${mdiWeb}></ha-svg-icon>
-                    ${this.hass.localize(
+                    ${hass_localize(
                       "ui.panel.config.automation.dialog_new.create_blueprint"
                     )}
                     <span slot="secondary">
-                      ${this.hass.localize(
+                      ${hass_localize(
                         "ui.panel.config.automation.dialog_new.create_blueprint_description"
                       )}
                     </span>
@@ -179,7 +180,7 @@ class DialogNewAutomation extends LitElement implements HassDialog {
                     target="_blank"
                     rel="noreferrer noopener"
                   >
-                    ${this.hass.localize(
+                    ${hass_localize(
                       "ui.panel.config.automation.dialog_new.discover_blueprint_tip"
                     )}
                   </a>

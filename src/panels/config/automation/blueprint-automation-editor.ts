@@ -20,6 +20,7 @@ import {
 import { haStyle } from "../../../resources/styles";
 import { HomeAssistant } from "../../../types";
 import "../ha-config-section";
+import { hass_localize } from "../../../common/translations/localize";
 
 @customElement("blueprint-automation-editor")
 export class HaBlueprintAutomationEditor extends LitElement {
@@ -54,22 +55,18 @@ export class HaBlueprintAutomationEditor extends LitElement {
     return html`
       ${this.disabled
         ? html`<ha-alert alert-type="warning">
-            ${this.hass.localize("ui.panel.config.automation.editor.read_only")}
+            ${hass_localize("ui.panel.config.automation.editor.read_only")}
             <mwc-button slot="action" @click=${this._duplicate}>
-              ${this.hass.localize("ui.panel.config.automation.editor.migrate")}
+              ${hass_localize("ui.panel.config.automation.editor.migrate")}
             </mwc-button>
           </ha-alert>`
         : ""}
       ${this.stateObj?.state === "off"
         ? html`
             <ha-alert alert-type="info">
-              ${this.hass.localize(
-                "ui.panel.config.automation.editor.disabled"
-              )}
+              ${hass_localize("ui.panel.config.automation.editor.disabled")}
               <mwc-button slot="action" @click=${this._enable}>
-                ${this.hass.localize(
-                  "ui.panel.config.automation.editor.enable"
-                )}
+                ${hass_localize("ui.panel.config.automation.editor.enable")}
               </mwc-button>
             </ha-alert>
           `
@@ -80,7 +77,7 @@ export class HaBlueprintAutomationEditor extends LitElement {
       <ha-card
         outlined
         class="blueprint"
-        .header=${this.hass.localize(
+        .header=${hass_localize(
           "ui.panel.config.automation.editor.blueprint.header"
         )}
       >
@@ -90,7 +87,7 @@ export class HaBlueprintAutomationEditor extends LitElement {
               ? html`
                   <ha-blueprint-picker
                     .hass=${this.hass}
-                    .label=${this.hass.localize(
+                    .label=${hass_localize(
                       "ui.panel.config.automation.editor.blueprint.blueprint_to_use"
                     )}
                     .blueprints=${this._blueprints}
@@ -99,7 +96,7 @@ export class HaBlueprintAutomationEditor extends LitElement {
                     @value-changed=${this._blueprintChanged}
                   ></ha-blueprint-picker>
                 `
-              : this.hass.localize(
+              : hass_localize(
                   "ui.panel.config.automation.editor.blueprint.no_blueprints"
                 )
             : html`<ha-circular-progress active></ha-circular-progress>`}
@@ -152,7 +149,7 @@ export class HaBlueprintAutomationEditor extends LitElement {
                       </ha-settings-row>`
                   )
                 : html`<p class="padding">
-                    ${this.hass.localize(
+                    ${hass_localize(
                       "ui.panel.config.automation.editor.blueprint.no_inputs"
                     )}
                   </p>`}`

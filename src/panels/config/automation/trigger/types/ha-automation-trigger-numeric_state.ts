@@ -9,6 +9,7 @@ import "../../../../../components/ha-form/ha-form";
 import type { SchemaUnion } from "../../../../../components/ha-form/types";
 import type { NumericStateTrigger } from "../../../../../data/automation";
 import type { HomeAssistant } from "../../../../../types";
+import { hass_localize } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-trigger-numeric_state")
 export class HaNumericStateTrigger extends LitElement {
@@ -203,7 +204,7 @@ export class HaNumericStateTrigger extends LitElement {
       fireEvent(
         this,
         "ui-mode-not-available",
-        Error(this.hass.localize("ui.errors.config.no_template_editor_support"))
+        Error(hass_localize("ui.errors.config.no_template_editor_support"))
       );
     }
   }
@@ -231,7 +232,7 @@ export class HaNumericStateTrigger extends LitElement {
           (this.trigger.below as string).startsWith("sensor.")));
 
     const schema = this._schema(
-      this.hass.localize,
+      hass_localize,
       inputAboveIsEntity,
       inputBelowIsEntity
     );
@@ -273,17 +274,17 @@ export class HaNumericStateTrigger extends LitElement {
   ): string => {
     switch (schema.name) {
       case "entity_id":
-        return this.hass.localize("ui.components.entity.entity-picker.entity");
+        return hass_localize("ui.components.entity.entity-picker.entity");
       case "attribute":
-        return this.hass.localize(
+        return hass_localize(
           "ui.components.entity.entity-attribute-picker.attribute"
         );
       case "for":
-        return this.hass.localize(
+        return hass_localize(
           `ui.panel.config.automation.editor.triggers.type.state.for`
         );
       default:
-        return this.hass.localize(
+        return hass_localize(
           `ui.panel.config.automation.editor.triggers.type.numeric_state.${schema.name}`
         );
     }
