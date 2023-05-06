@@ -37,7 +37,7 @@ import "./types/ha-automation-trigger-time";
 import "./types/ha-automation-trigger-time_pattern";
 import "./types/ha-automation-trigger-webhook";
 import "./types/ha-automation-trigger-zone";
-import { hass_localize } from "../../../../common/translations/localize";
+import { myhass } from "../../../../common/translations/localize";
 
 @customElement("ha-automation-trigger")
 export default class HaAutomationTrigger extends LitElement {
@@ -64,15 +64,15 @@ export default class HaAutomationTrigger extends LitElement {
           ? html`
               <ha-alert
                 alert-type="info"
-                .title=${hass_localize(
+                .title=${myhass.localize(
                   "ui.panel.config.automation.editor.re_order_mode.title"
                 )}
               >
-                ${hass_localize(
+                ${myhass.localize(
                   "ui.panel.config.automation.editor.re_order_mode.description_triggers"
                 )}
                 <mwc-button slot="action" @click=${this._exitReOrderMode}>
-                  ${hass_localize(
+                  ${myhass.localize(
                     "ui.panel.config.automation.editor.re_order_mode.exit"
                   )}
                 </mwc-button>
@@ -100,7 +100,7 @@ export default class HaAutomationTrigger extends LitElement {
                     <ha-icon-button
                       .index=${idx}
                       slot="icons"
-                      .label=${hass_localize(
+                      .label=${myhass.localize(
                         "ui.panel.config.automation.editor.move_up"
                       )}
                       .path=${mdiArrowUp}
@@ -110,7 +110,7 @@ export default class HaAutomationTrigger extends LitElement {
                     <ha-icon-button
                       .index=${idx}
                       slot="icons"
-                      .label=${hass_localize(
+                      .label=${myhass.localize(
                         "ui.panel.config.automation.editor.move_down"
                       )}
                       .path=${mdiArrowDown}
@@ -130,14 +130,14 @@ export default class HaAutomationTrigger extends LitElement {
           <ha-button
             slot="trigger"
             outlined
-            .label=${hass_localize(
+            .label=${myhass.localize(
               "ui.panel.config.automation.editor.triggers.add"
             )}
             .disabled=${this.disabled}
           >
             <ha-svg-icon .path=${mdiPlus} slot="icon"></ha-svg-icon>
           </ha-button>
-          ${this._processedTypes(hass_localize).map(
+          ${this._processedTypes(myhass.localize).map(
             ([opt, label, icon]) => html`
               <mwc-list-item .value=${opt} graphic="icon">
                 ${label}<ha-svg-icon slot="graphic" .path=${icon}></ha-svg-icon

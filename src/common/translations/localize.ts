@@ -5,6 +5,9 @@ import { shouldPolyfill as shouldPolyfillDateTime } from "@formatjs/intl-datetim
 import IntlMessageFormat from "intl-messageformat";
 import { Resources, TranslationDict } from "../../types";
 import { getLocalLanguage } from "../../util/common-translation";
+// import { getTranslation } from "../../util/common-translation";
+// import { HomeAssistantAppEl } from "../../layouts/home-assistant";
+// import { CircularProgress } from "@material/mwc-circular-progress";
 
 // Exclude some patterns from key type checking for now
 // These are intended to be removed as errors are fixed
@@ -221,12 +224,70 @@ export const loadPolyfillLocales = async (language: string) => {
   }
 };
 
-export const hass_localize: (key: LocalizeKeys, ...args: any[]) => string =
-  function (key): string {
-    // code for anonymousn function
-    // const v : string = HaConfigAutomation.localize_rel(key);
-    // if (v) {
-    //   return v;
-    // }
+// const _initializeLocalize = (c) => {
+//   const { language, data } = getTranslation(
+//     null,
+//     "en",
+//     "/api/hassio/app/static/translations"
+//   );
+
+//   c.myhass.localize = computeLocalize(
+//     null,
+//     language,
+//     {
+//       [language]: data,
+//     }
+//   );
+//   // return localize;
+// }
+
+export class MyHassClass {
+  // @property() public localize: LocalizeFunc;
+
+  // public constructor() {
+  //   this.localize = this.mylocalize;
+  // }
+
+  public localize(key: LocalizeKeys, ..._args: any[]) {
+    switch (key) {
+      case "ui.panel.config.automation.caption":
+        return "Automations";
+      case "ui.panel.config.scene.caption":
+        return "Scenes";
+      case "ui.panel.config.script.caption":
+        return "Scripts";
+      case "ui.panel.config.blueprint.caption":
+        return "Blueprints";
+      case "ui.panel.config.automation.picker.headers.name":
+        return "Name";
+      case "ui.card.automation.last_triggered":
+        return "Last triggered";
+      case "ui.panel.config.automation.picker.no_automations":
+        return "We couldn't find any automations";
+      case "ui.panel.config.automation.picker.add_automation":
+        return "Create Simga automation";
+      default:
+        return "???" + key;
+    }
     return "miaoo:" + key;
-  };
+  }
+
+  // public localize (key: LocalizeKeys, ..._args: any[]) {
+  //   // code for anonymousn function
+  //   // const v : string = HaConfigAutomation.localize_rel(key);
+  //   // if (v) {
+  //   //   return v;
+  //   // }
+  //   // let x : string;
+
+  //   // (async() => {
+  //   //   const locali : LocalizeFunc = await _initializeLocalize();
+  //   //   let x = "miaoo:" + locali(key);
+  //   // })(); // .then((res) => {x=res;return x});
+
+  //   // return x;
+  //   return "miaoo:" + key;
+  // };
+}
+
+export const myhass: MyHassClass = new MyHassClass();

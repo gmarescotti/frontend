@@ -8,7 +8,7 @@ import { createDurationData } from "../../../../../common/datetime/create_durati
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import { hasTemplate } from "../../../../../common/string/has-template";
 import type { SchemaUnion } from "../../../../../components/ha-form/types";
-import { hass_localize } from "../../../../../common/translations/localize";
+import { myhass } from "../../../../../common/translations/localize";
 
 const SCHEMA = [
   { name: "value_template", required: true, selector: { template: {} } },
@@ -36,7 +36,7 @@ export class HaTemplateTrigger extends LitElement {
       fireEvent(
         this,
         "ui-mode-not-available",
-        Error(hass_localize("ui.errors.config.no_template_editor_support"))
+        Error(myhass.localize("ui.errors.config.no_template_editor_support"))
       );
     }
   }
@@ -78,7 +78,7 @@ export class HaTemplateTrigger extends LitElement {
   private _computeLabelCallback = (
     schema: SchemaUnion<typeof SCHEMA>
   ): string =>
-    hass_localize(
+    myhass.localize(
       `ui.panel.config.automation.editor.triggers.type.template.${schema.name}`
     );
 }

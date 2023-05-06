@@ -48,12 +48,12 @@ export class HaTriggerCondition extends LitElement {
     const { id } = this.condition;
 
     if (!this._triggers.length) {
-      return hass_localize(
+      return myhass.localize(
         "ui.panel.config.automation.editor.conditions.type.trigger.no_triggers"
       );
     }
     return html`<ha-select
-      .label=${hass_localize(
+      .label=${myhass.localize(
         "ui.panel.config.automation.editor.conditions.type.trigger.id"
       )}
       .value=${id}

@@ -6,7 +6,7 @@ import type { SchemaUnion } from "../../../../../components/ha-form/types";
 import { MqttTrigger } from "../../../../../data/automation";
 import { HomeAssistant } from "../../../../../types";
 import type { TriggerElement } from "../ha-automation-trigger-row";
-import { hass_localize } from "../../../../../common/translations/localize";
+import { myhass } from "../../../../../common/translations/localize";
 
 const SCHEMA = [
   { name: "topic", required: true, selector: { text: {} } },
@@ -47,7 +47,7 @@ export class HaMQTTTrigger extends LitElement implements TriggerElement {
   private _computeLabelCallback = (
     schema: SchemaUnion<typeof SCHEMA>
   ): string =>
-    hass_localize(
+    myhass.localize(
       `ui.panel.config.automation.editor.triggers.type.mqtt.${schema.name}`
     );
 }

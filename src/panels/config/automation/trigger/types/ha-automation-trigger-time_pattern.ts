@@ -6,7 +6,7 @@ import type { SchemaUnion } from "../../../../../components/ha-form/types";
 import type { TimePatternTrigger } from "../../../../../data/automation";
 import type { HomeAssistant } from "../../../../../types";
 import type { TriggerElement } from "../ha-automation-trigger-row";
-import { hass_localize } from "../../../../../common/translations/localize";
+import { myhass } from "../../../../../common/translations/localize";
 
 const SCHEMA = [
   { name: "hours", selector: { text: {} } },
@@ -48,7 +48,7 @@ export class HaTimePatternTrigger extends LitElement implements TriggerElement {
   private _computeLabelCallback = (
     schema: SchemaUnion<typeof SCHEMA>
   ): string =>
-    hass_localize(
+    myhass.localize(
       `ui.panel.config.automation.editor.triggers.type.time_pattern.${schema.name}`
     );
 }

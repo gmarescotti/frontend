@@ -53,7 +53,7 @@ import "./types/ha-automation-trigger-time";
 import "./types/ha-automation-trigger-time_pattern";
 import "./types/ha-automation-trigger-webhook";
 import "./types/ha-automation-trigger-zone";
-import { hass_localize } from "../../../../common/translations/localize";
+import { myhass } from "../../../../common/translations/localize";
 
 export interface TriggerElement extends LitElement {
   trigger: Trigger;
@@ -119,7 +119,7 @@ export default class HaAutomationTriggerRow extends LitElement {
         ${this.trigger.enabled === false
           ? html`
               <div class="disabled-bar">
-                ${hass_localize(
+                ${myhass.localize(
                   "ui.panel.config.automation.editor.actions.disabled"
                 )}
               </div>
@@ -148,12 +148,12 @@ export default class HaAutomationTriggerRow extends LitElement {
                 >
                   <ha-icon-button
                     slot="trigger"
-                    .label=${hass_localize("ui.common.menu")}
+                    .label=${myhass.localize("ui.common.menu")}
                     .path=${mdiDotsVertical}
                   ></ha-icon-button>
 
                   <mwc-list-item graphic="icon" .disabled=${this.disabled}>
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.triggers.rename"
                     )}
                     <ha-svg-icon
@@ -163,14 +163,14 @@ export default class HaAutomationTriggerRow extends LitElement {
                   </mwc-list-item>
 
                   <mwc-list-item graphic="icon" .disabled=${this.disabled}>
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.triggers.re_order"
                     )}
                     <ha-svg-icon slot="graphic" .path=${mdiSort}></ha-svg-icon>
                   </mwc-list-item>
 
                   <mwc-list-item graphic="icon" .disabled=${this.disabled}>
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.triggers.duplicate"
                     )}
                     <ha-svg-icon
@@ -180,7 +180,7 @@ export default class HaAutomationTriggerRow extends LitElement {
                   </mwc-list-item>
 
                   <mwc-list-item graphic="icon" .disabled=${this.disabled}>
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.triggers.edit_id"
                     )}
                     <ha-svg-icon
@@ -192,7 +192,7 @@ export default class HaAutomationTriggerRow extends LitElement {
                   <li divider role="separator"></li>
 
                   <mwc-list-item .disabled=${!supported} graphic="icon">
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.edit_ui"
                     )}
                     ${!yamlMode
@@ -205,7 +205,7 @@ export default class HaAutomationTriggerRow extends LitElement {
                   </mwc-list-item>
 
                   <mwc-list-item .disabled=${!supported} graphic="icon">
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.edit_yaml"
                     )}
                     ${yamlMode
@@ -221,10 +221,10 @@ export default class HaAutomationTriggerRow extends LitElement {
 
                   <mwc-list-item graphic="icon" .disabled=${this.disabled}>
                     ${this.trigger.enabled === false
-                      ? hass_localize(
+                      ? myhass.localize(
                           "ui.panel.config.automation.editor.actions.enable"
                         )
-                      : hass_localize(
+                      : myhass.localize(
                           "ui.panel.config.automation.editor.actions.disable"
                         )}
                     <ha-svg-icon
@@ -239,7 +239,7 @@ export default class HaAutomationTriggerRow extends LitElement {
                     graphic="icon"
                     .disabled=${this.disabled}
                   >
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.actions.delete"
                     )}
                     <ha-svg-icon
@@ -259,7 +259,7 @@ export default class HaAutomationTriggerRow extends LitElement {
             ${this._warnings
               ? html`<ha-alert
                   alert-type="warning"
-                  .title=${hass_localize(
+                  .title=${myhass.localize(
                     "ui.errors.config.editor_not_supported"
                   )}
                 >
@@ -270,14 +270,14 @@ export default class HaAutomationTriggerRow extends LitElement {
                         )}
                       </ul>`
                     : ""}
-                  ${hass_localize("ui.errors.config.edit_in_yaml_supported")}
+                  ${myhass.localize("ui.errors.config.edit_in_yaml_supported")}
                 </ha-alert>`
               : ""}
             ${yamlMode
               ? html`
                   ${!supported
                     ? html`
-                        ${hass_localize(
+                        ${myhass.localize(
                           "ui.panel.config.automation.editor.triggers.unsupported_platform",
                           "platform",
                           this.trigger.platform
@@ -295,7 +295,7 @@ export default class HaAutomationTriggerRow extends LitElement {
                   ${showId
                     ? html`
                         <ha-textfield
-                          .label=${hass_localize(
+                          .label=${myhass.localize(
                             "ui.panel.config.automation.editor.triggers.id"
                           )}
                           .value=${this.trigger.id || ""}
@@ -326,7 +326,7 @@ export default class HaAutomationTriggerRow extends LitElement {
           })}"
           @click=${this._showTriggeredInfo}
         >
-          ${hass_localize(
+          ${myhass.localize(
             "ui.panel.config.automation.editor.triggers.triggered"
           )}
         </div>
@@ -453,14 +453,14 @@ export default class HaAutomationTriggerRow extends LitElement {
 
   private _onDelete() {
     showConfirmationDialog(this, {
-      title: hass_localize(
+      title: myhass.localize(
         "ui.panel.config.automation.editor.triggers.delete_confirm_title"
       ),
-      text: hass_localize(
+      text: myhass.localize(
         "ui.panel.config.automation.editor.triggers.delete_confirm_text"
       ),
-      dismissText: hass_localize("ui.common.cancel"),
-      confirmText: hass_localize("ui.common.delete"),
+      dismissText: myhass.localize("ui.common.cancel"),
+      confirmText: myhass.localize("ui.common.delete"),
       destructive: true,
       confirm: () => {
         fireEvent(this, "value-changed", { value: null });
@@ -527,10 +527,10 @@ export default class HaAutomationTriggerRow extends LitElement {
 
   private async _renameTrigger(): Promise<void> {
     const alias = await showPromptDialog(this, {
-      title: hass_localize(
+      title: myhass.localize(
         "ui.panel.config.automation.editor.triggers.change_alias"
       ),
-      inputLabel: hass_localize(
+      inputLabel: myhass.localize(
         "ui.panel.config.automation.editor.triggers.alias"
       ),
       inputType: "string",
@@ -538,7 +538,7 @@ export default class HaAutomationTriggerRow extends LitElement {
         describeTrigger(this.trigger, this.hass, true)
       ),
       defaultValue: this.trigger.alias,
-      confirmText: hass_localize("ui.common.submit"),
+      confirmText: myhass.localize("ui.common.submit"),
     });
 
     const value = { ...this.trigger };

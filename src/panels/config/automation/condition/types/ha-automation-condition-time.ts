@@ -133,7 +133,7 @@ export class HaTimeCondition extends LitElement implements ConditionElement {
         this.condition.after?.startsWith("sensor."));
 
     const schema = this._schema(
-      hass_localize,
+      myhass.localize,
       this.hass.locale,
       inputModeAfter,
       inputModeBefore
@@ -181,7 +181,7 @@ export class HaTimeCondition extends LitElement implements ConditionElement {
   private _computeLabelCallback = (
     schema: SchemaUnion<ReturnType<typeof this._schema>>
   ): string =>
-    hass_localize(
+    myhass.localize(
       `ui.panel.config.automation.editor.conditions.type.time.${schema.name}`
     );
 }

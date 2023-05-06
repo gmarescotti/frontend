@@ -8,7 +8,7 @@ import type { SchemaUnion } from "../../../../../components/ha-form/types";
 import type { TimeTrigger } from "../../../../../data/automation";
 import type { HomeAssistant } from "../../../../../types";
 import type { TriggerElement } from "../ha-automation-trigger-row";
-import { hass_localize } from "../../../../../common/translations/localize";
+import { myhass } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-trigger-time")
 export class HaTimeTrigger extends LitElement implements TriggerElement {
@@ -71,7 +71,7 @@ export class HaTimeTrigger extends LitElement implements TriggerElement {
       fireEvent(
         this,
         "ui-mode-not-available",
-        Error(hass_localize("ui.errors.config.editor_not_supported"))
+        Error(myhass.localize("ui.errors.config.editor_not_supported"))
       );
     }
   }
@@ -87,7 +87,7 @@ export class HaTimeTrigger extends LitElement implements TriggerElement {
       this._inputMode ??
       (at?.startsWith("input_datetime.") || at?.startsWith("sensor."));
 
-    const schema = this._schema(hass_localize, inputMode);
+    const schema = this._schema(myhass.localize, inputMode);
 
     const data = {
       mode: inputMode ? "input" : "value",
@@ -125,7 +125,7 @@ export class HaTimeTrigger extends LitElement implements TriggerElement {
   private _computeLabelCallback = (
     schema: SchemaUnion<ReturnType<typeof this._schema>>
   ): string =>
-    hass_localize(
+    myhass.localize(
       `ui.panel.config.automation.editor.triggers.type.time.${schema.name}`
     );
 }

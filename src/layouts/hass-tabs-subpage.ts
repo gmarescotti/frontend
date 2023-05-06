@@ -12,7 +12,7 @@ import { classMap } from "lit/directives/class-map";
 import memoizeOne from "memoize-one";
 import { isComponentLoaded } from "../common/config/is_component_loaded";
 import { restoreScroll } from "../common/decorators/restore-scroll";
-import { LocalizeFunc, hass_localize } from "../common/translations/localize";
+import { LocalizeFunc, myhass } from "../common/translations/localize";
 import { computeRTL } from "../common/util/compute_rtl";
 import "../components/ha-icon-button-arrow-prev";
 import "../components/ha-menu-button";
@@ -142,7 +142,7 @@ class HassTabsSubpage extends LitElement {
       this.hass.config.components,
       this.hass.language,
       this.narrow,
-      this.localizeFunc || hass_localize
+      this.localizeFunc || myhass.localize
     );
     const showTabs = tabs.length > 1;
     return html`

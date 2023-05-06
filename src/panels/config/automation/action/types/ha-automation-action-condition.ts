@@ -28,7 +28,7 @@ export class HaConditionAction extends LitElement implements ActionElement {
     return html`
       <ha-select
         fixedMenuPosition
-        .label=${hass_localize(
+        .label=${myhass.localize(
           "ui.panel.config.automation.editor.conditions.type_select"
         )}
         .disabled=${this.disabled}
@@ -36,7 +36,7 @@ export class HaConditionAction extends LitElement implements ActionElement {
         naturalMenuWidth
         @selected=${this._typeChanged}
       >
-        ${this._processedTypes(hass_localize).map(
+        ${this._processedTypes(myhass.localize).map(
           ([opt, label, icon]) => html`
             <mwc-list-item .value=${opt} graphic="icon">
               ${label}<ha-svg-icon slot="graphic" .path=${icon}></ha-svg-icon

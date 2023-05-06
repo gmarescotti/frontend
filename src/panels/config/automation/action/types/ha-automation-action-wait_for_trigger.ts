@@ -34,7 +34,7 @@ export class HaWaitForTriggerAction
 
     return html`
       <ha-duration-input
-        .label=${hass_localize(
+        .label=${myhass.localize(
           "ui.panel.config.automation.editor.actions.type.wait_for_trigger.timeout"
         )}
         .data=${timeData}
@@ -44,7 +44,7 @@ export class HaWaitForTriggerAction
       ></ha-duration-input>
       <ha-formfield
         .disabled=${this.disabled}
-        .label=${hass_localize(
+        .label=${myhass.localize(
           "ui.panel.config.automation.editor.actions.type.wait_for_trigger.continue_timeout"
         )}
       >

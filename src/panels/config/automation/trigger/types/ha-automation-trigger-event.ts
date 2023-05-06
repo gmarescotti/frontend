@@ -10,7 +10,7 @@ import {
   handleChangeEvent,
   TriggerElement,
 } from "../ha-automation-trigger-row";
-import { hass_localize } from "../../../../../common/translations/localize";
+import { myhass } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-trigger-event")
 export class HaEventTrigger extends LitElement implements TriggerElement {
@@ -28,7 +28,7 @@ export class HaEventTrigger extends LitElement implements TriggerElement {
     const { event_type, event_data, context } = this.trigger;
     return html`
       <ha-textfield
-        .label=${hass_localize(
+        .label=${myhass.localize(
           "ui.panel.config.automation.editor.triggers.type.event.event_type"
         )}
         name="event_type"
@@ -38,7 +38,7 @@ export class HaEventTrigger extends LitElement implements TriggerElement {
       ></ha-textfield>
       <ha-yaml-editor
         .hass=${this.hass}
-        .label=${hass_localize(
+        .label=${myhass.localize(
           "ui.panel.config.automation.editor.triggers.type.event.event_data"
         )}
         .name=${"event_data"}
@@ -47,14 +47,14 @@ export class HaEventTrigger extends LitElement implements TriggerElement {
         @value-changed=${this._dataChanged}
       ></ha-yaml-editor>
       <br />
-      ${hass_localize(
+      ${myhass.localize(
         "ui.panel.config.automation.editor.triggers.type.event.context_users"
       )}
       <ha-users-picker
-        .pickedUserLabel=${hass_localize(
+        .pickedUserLabel=${myhass.localize(
           "ui.panel.config.automation.editor.triggers.type.event.context_user_picked"
         )}
-        .pickUserLabel=${hass_localize(
+        .pickUserLabel=${myhass.localize(
           "ui.panel.config.automation.editor.triggers.type.event.context_user_pick"
         )}
         .hass=${this.hass}

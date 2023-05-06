@@ -12,7 +12,7 @@ import {
   fetchDeviceTriggerCapabilities,
 } from "../../../../../data/device_automation";
 import { HomeAssistant } from "../../../../../types";
-import { hass_localize } from "../../../../../common/translations/localize";
+import { myhass } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-trigger-device")
 export class HaDeviceTrigger extends LitElement {
@@ -57,7 +57,7 @@ export class HaDeviceTrigger extends LitElement {
         @value-changed=${this._devicePicked}
         .hass=${this.hass}
         .disabled=${this.disabled}
-        label=${hass_localize(
+        label=${myhass.localize(
           "ui.panel.config.automation.editor.triggers.type.device.label"
         )}
       ></ha-device-picker>
@@ -67,7 +67,7 @@ export class HaDeviceTrigger extends LitElement {
         @value-changed=${this._deviceTriggerPicked}
         .hass=${this.hass}
         .disabled=${this.disabled}
-        label=${hass_localize(
+        label=${myhass.localize(
           "ui.panel.config.automation.editor.triggers.type.device.trigger"
         )}
       ></ha-device-trigger-picker>
@@ -79,7 +79,7 @@ export class HaDeviceTrigger extends LitElement {
               .schema=${this._capabilities.extra_fields}
               .disabled=${this.disabled}
               .computeLabel=${this._extraFieldsComputeLabelCallback(
-                hass_localize
+                myhass.localize
               )}
               @value-changed=${this._extraFieldsChanged}
             ></ha-form>

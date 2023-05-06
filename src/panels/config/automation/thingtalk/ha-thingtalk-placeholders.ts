@@ -126,7 +126,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
       <ha-dialog
         open
         scrimClickAction
-        .heading=${hass_localize(
+        .heading=${myhass.localize(
           `ui.panel.config.automation.thingtalk.link_devices.header`
         )}
       >
@@ -136,7 +136,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
             ([type, placeholders]) =>
               html`
                 <h3>
-                  ${hass_localize(
+                  ${myhass.localize(
                     `ui.panel.config.automation.editor.${type}s.name`
                   )}:
                 </h3>
@@ -166,7 +166,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
                       ${extraInfo && extraInfo.manualEntity
                         ? html`
                             <h3>
-                              ${hass_localize(
+                              ${myhass.localize(
                                 `ui.panel.config.automation.thingtalk.link_devices.ambiguous_entities`
                               )}
                             </h3>
@@ -226,7 +226,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
                   }
                   return html`
                     <div class="error">
-                      ${hass_localize(
+                      ${myhass.localize(
                         `ui.panel.config.automation.thingtalk.link_devices.unknown_placeholder`
                       )}<br />
                       ${placeholder.domains}<br />
@@ -240,14 +240,14 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
           )}
         </div>
         <mwc-button @click=${this.skip} slot="secondaryAction">
-          ${hass_localize(`ui.common.skip`)}
+          ${myhass.localize(`ui.common.skip`)}
         </mwc-button>
         <mwc-button
           @click=${this._done}
           .disabled=${!this._isDone}
           slot="primaryAction"
         >
-          ${hass_localize(`ui.panel.config.automation.thingtalk.create`)}
+          ${myhass.localize(`ui.panel.config.automation.thingtalk.create`)}
         </mwc-button>
       </ha-dialog>
     `;
@@ -327,7 +327,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
 
   private _getLabel(domains: string[], deviceClasses?: string[]) {
     return `${domains
-      .map((domain) => domainToName(hass_localize, domain))
+      .map((domain) => domainToName(myhass.localize, domain))
       .join(", ")}${
       deviceClasses ? ` of type ${deviceClasses.join(", ")}` : ""
     }`;
@@ -417,7 +417,7 @@ export class ThingTalkPlaceholders extends SubscribeMixin(LitElement) {
       if (entities.length === 0) {
         // Should not happen because we filter the device picker on domain
         this._error = `No ${placeholder.domains
-          .map((domain) => domainToName(hass_localize, domain))
+          .map((domain) => domainToName(myhass.localize, domain))
           .join(", ")} entities found in this device.`;
       } else if (entities.length === 1) {
         applyPatch(

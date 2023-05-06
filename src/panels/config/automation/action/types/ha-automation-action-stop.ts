@@ -23,7 +23,7 @@ export class HaStopAction extends LitElement implements ActionElement {
 
     return html`
       <ha-textfield
-        .label=${hass_localize(
+        .label=${myhass.localize(
           "ui.panel.config.automation.editor.actions.type.stop.stop"
         )}
         .value=${stop}
@@ -32,7 +32,7 @@ export class HaStopAction extends LitElement implements ActionElement {
       ></ha-textfield>
       <ha-formfield
         .disabled=${this.disabled}
-        .label=${hass_localize(
+        .label=${myhass.localize(
           "ui.panel.config.automation.editor.actions.type.stop.error"
         )}
       >

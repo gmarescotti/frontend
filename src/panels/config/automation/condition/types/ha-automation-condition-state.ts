@@ -141,17 +141,17 @@ export class HaStateCondition extends LitElement implements ConditionElement {
   ): string => {
     switch (schema.name) {
       case "entity_id":
-        return hass_localize("ui.components.entity.entity-picker.entity");
+        return myhass.localize("ui.components.entity.entity-picker.entity");
       case "attribute":
-        return hass_localize(
+        return myhass.localize(
           "ui.components.entity.entity-attribute-picker.attribute"
         );
       case "for":
-        return hass_localize(
+        return myhass.localize(
           `ui.panel.config.automation.editor.triggers.type.state.for`
         );
       default:
-        return hass_localize(
+        return myhass.localize(
           `ui.panel.config.automation.editor.conditions.type.state.${schema.name}`
         );
     }

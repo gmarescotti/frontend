@@ -56,7 +56,7 @@ export class HaDeviceCondition extends LitElement {
         @value-changed=${this._devicePicked}
         .hass=${this.hass}
         .disabled=${this.disabled}
-        .label=${hass_localize(
+        .label=${myhass.localize(
           "ui.panel.config.automation.editor.conditions.type.device.label"
         )}
       ></ha-device-picker>
@@ -66,7 +66,7 @@ export class HaDeviceCondition extends LitElement {
         @value-changed=${this._deviceConditionPicked}
         .hass=${this.hass}
         .disabled=${this.disabled}
-        .label=${hass_localize(
+        .label=${myhass.localize(
           "ui.panel.config.automation.editor.conditions.type.device.condition"
         )}
       ></ha-device-condition-picker>
@@ -78,7 +78,7 @@ export class HaDeviceCondition extends LitElement {
               .schema=${this._capabilities.extra_fields}
               .disabled=${this.disabled}
               .computeLabel=${this._extraFieldsComputeLabelCallback(
-                hass_localize
+                myhass.localize
               )}
               @value-changed=${this._extraFieldsChanged}
             ></ha-form>

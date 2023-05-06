@@ -21,7 +21,7 @@ export class HaTemplateCondition extends LitElement {
     const { value_template } = this.condition;
     return html`
       <p>
-        ${hass_localize(
+        ${myhass.localize(
           "ui.panel.config.automation.editor.conditions.type.template.value_template"
         )}
         *

@@ -32,7 +32,7 @@ export class HaDelayAction extends LitElement implements ActionElement {
       fireEvent(
         this,
         "ui-mode-not-available",
-        Error(hass_localize("ui.errors.config.no_template_editor_support"))
+        Error(myhass.localize("ui.errors.config.no_template_editor_support"))
       );
       return;
     }
@@ -42,7 +42,7 @@ export class HaDelayAction extends LitElement implements ActionElement {
 
   protected render() {
     return html`<ha-duration-input
-      .label=${hass_localize(
+      .label=${myhass.localize(
         `ui.panel.config.automation.editor.actions.type.delay.delay`
       )}
       .disabled=${this.disabled}

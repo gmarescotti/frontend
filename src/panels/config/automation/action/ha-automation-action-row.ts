@@ -57,7 +57,7 @@ import "./types/ha-automation-action-stop";
 import "./types/ha-automation-action-wait_for_trigger";
 import "./types/ha-automation-action-wait_template";
 
-import { hass_localize } from "../../../../common/translations/localize";
+import { myhass } from "../../../../common/translations/localize";
 
 const getType = (action: Action | undefined) => {
   if (!action) {
@@ -162,7 +162,7 @@ export default class HaAutomationActionRow extends LitElement {
       <ha-card outlined>
         ${this.action.enabled === false
           ? html`<div class="disabled-bar">
-              ${hass_localize(
+              ${myhass.localize(
                 "ui.panel.config.automation.editor.actions.disabled"
               )}
             </div>`
@@ -191,18 +191,18 @@ export default class HaAutomationActionRow extends LitElement {
                 >
                   <ha-icon-button
                     slot="trigger"
-                    .label=${hass_localize("ui.common.menu")}
+                    .label=${myhass.localize("ui.common.menu")}
                     .path=${mdiDotsVertical}
                   ></ha-icon-button>
                   <mwc-list-item graphic="icon">
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.actions.run"
                     )}
                     <ha-svg-icon slot="graphic" .path=${mdiPlay}></ha-svg-icon>
                   </mwc-list-item>
 
                   <mwc-list-item graphic="icon" .disabled=${this.disabled}>
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.actions.rename"
                     )}
                     <ha-svg-icon
@@ -211,13 +211,13 @@ export default class HaAutomationActionRow extends LitElement {
                     ></ha-svg-icon>
                   </mwc-list-item>
                   <mwc-list-item graphic="icon" .disabled=${this.disabled}>
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.actions.re_order"
                     )}
                     <ha-svg-icon slot="graphic" .path=${mdiSort}></ha-svg-icon>
                   </mwc-list-item>
                   <mwc-list-item graphic="icon" .disabled=${this.disabled}>
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.actions.duplicate"
                     )}
                     <ha-svg-icon
@@ -232,7 +232,7 @@ export default class HaAutomationActionRow extends LitElement {
                     .disabled=${!this._uiModeAvailable}
                     graphic="icon"
                   >
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.edit_ui"
                     )}
                     ${!yamlMode
@@ -248,7 +248,7 @@ export default class HaAutomationActionRow extends LitElement {
                     .disabled=${!this._uiModeAvailable}
                     graphic="icon"
                   >
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.edit_yaml"
                     )}
                     ${yamlMode
@@ -264,10 +264,10 @@ export default class HaAutomationActionRow extends LitElement {
 
                   <mwc-list-item graphic="icon" .disabled=${this.disabled}>
                     ${this.action.enabled === false
-                      ? hass_localize(
+                      ? myhass.localize(
                           "ui.panel.config.automation.editor.actions.enable"
                         )
-                      : hass_localize(
+                      : myhass.localize(
                           "ui.panel.config.automation.editor.actions.disable"
                         )}
                     <ha-svg-icon
@@ -282,7 +282,7 @@ export default class HaAutomationActionRow extends LitElement {
                     graphic="icon"
                     .disabled=${this.disabled}
                   >
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.actions.delete"
                     )}
                     <ha-svg-icon
@@ -303,7 +303,7 @@ export default class HaAutomationActionRow extends LitElement {
             ${this._warnings
               ? html`<ha-alert
                   alert-type="warning"
-                  .title=${hass_localize(
+                  .title=${myhass.localize(
                     "ui.errors.config.editor_not_supported"
                   )}
                 >
@@ -315,14 +315,14 @@ export default class HaAutomationActionRow extends LitElement {
                         )}
                       </ul>`
                     : ""}
-                  ${hass_localize("ui.errors.config.edit_in_yaml_supported")}
+                  ${myhass.localize("ui.errors.config.edit_in_yaml_supported")}
                 </ha-alert>`
               : ""}
             ${yamlMode
               ? html`
                   ${type === undefined
                     ? html`
-                        ${hass_localize(
+                        ${myhass.localize(
                           "ui.panel.config.automation.editor.actions.unsupported_action",
                           "action",
                           type
@@ -410,7 +410,7 @@ export default class HaAutomationActionRow extends LitElement {
 
     if (!validated.action.valid) {
       showAlertDialog(this, {
-        title: hass_localize(
+        title: myhass.localize(
           "ui.panel.config.automation.editor.actions.invalid_action"
         ),
         text: validated.action.error,
@@ -422,7 +422,7 @@ export default class HaAutomationActionRow extends LitElement {
       await callExecuteScript(this.hass, this.action);
     } catch (err: any) {
       showAlertDialog(this, {
-        title: hass_localize(
+        title: myhass.localize(
           "ui.panel.config.automation.editor.actions.run_action_error"
         ),
         text: err.message || err,
@@ -431,7 +431,7 @@ export default class HaAutomationActionRow extends LitElement {
     }
 
     showToast(this, {
-      message: hass_localize(
+      message: myhass.localize(
         "ui.panel.config.automation.editor.actions.run_action_success"
       ),
     });
@@ -439,14 +439,14 @@ export default class HaAutomationActionRow extends LitElement {
 
   private _onDelete() {
     showConfirmationDialog(this, {
-      title: hass_localize(
+      title: myhass.localize(
         "ui.panel.config.automation.editor.actions.delete_confirm_title"
       ),
-      text: hass_localize(
+      text: myhass.localize(
         "ui.panel.config.automation.editor.actions.delete_confirm_text"
       ),
-      dismissText: hass_localize("ui.common.cancel"),
-      confirmText: hass_localize("ui.common.delete"),
+      dismissText: myhass.localize("ui.common.cancel"),
+      confirmText: myhass.localize("ui.common.delete"),
       destructive: true,
       confirm: () => {
         fireEvent(this, "value-changed", { value: null });
@@ -474,10 +474,10 @@ export default class HaAutomationActionRow extends LitElement {
 
   private async _renameAction(): Promise<void> {
     const alias = await showPromptDialog(this, {
-      title: hass_localize(
+      title: myhass.localize(
         "ui.panel.config.automation.editor.actions.change_alias"
       ),
-      inputLabel: hass_localize(
+      inputLabel: myhass.localize(
         "ui.panel.config.automation.editor.actions.alias"
       ),
       inputType: "string",
@@ -485,7 +485,7 @@ export default class HaAutomationActionRow extends LitElement {
         describeAction(this.hass, this._entityReg, this.action, undefined, true)
       ),
       defaultValue: this.action.alias,
-      confirmText: hass_localize("ui.common.submit"),
+      confirmText: myhass.localize("ui.common.submit"),
     });
     const value = { ...this.action };
     if (!alias) {

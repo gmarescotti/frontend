@@ -47,7 +47,7 @@ export default class HaAutomationConditionEditor extends LitElement {
         ? html`
             ${!supported
               ? html`
-                  ${hass_localize(
+                  ${myhass.localize(
                     "ui.panel.config.automation.editor.conditions.unsupported_condition",
                     "condition",
                     condition.condition

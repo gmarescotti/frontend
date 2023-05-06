@@ -93,7 +93,7 @@ export default class HaAutomationConditionRow extends LitElement {
       <ha-card outlined>
         ${this.condition.enabled === false
           ? html`<div class="disabled-bar">
-              ${hass_localize(
+              ${myhass.localize(
                 "ui.panel.config.automation.editor.actions.disabled"
               )}
             </div>`
@@ -123,19 +123,19 @@ export default class HaAutomationConditionRow extends LitElement {
                 >
                   <ha-icon-button
                     slot="trigger"
-                    .label=${hass_localize("ui.common.menu")}
+                    .label=${myhass.localize("ui.common.menu")}
                     .path=${mdiDotsVertical}
                   >
                   </ha-icon-button>
 
                   <mwc-list-item graphic="icon">
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.conditions.test"
                     )}
                     <ha-svg-icon slot="graphic" .path=${mdiFlask}></ha-svg-icon>
                   </mwc-list-item>
                   <mwc-list-item graphic="icon" .disabled=${this.disabled}>
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.conditions.rename"
                     )}
                     <ha-svg-icon
@@ -145,14 +145,14 @@ export default class HaAutomationConditionRow extends LitElement {
                   </mwc-list-item>
 
                   <mwc-list-item graphic="icon" .disabled=${this.disabled}>
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.conditions.re_order"
                     )}
                     <ha-svg-icon slot="graphic" .path=${mdiSort}></ha-svg-icon>
                   </mwc-list-item>
 
                   <mwc-list-item graphic="icon" .disabled=${this.disabled}>
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.actions.duplicate"
                     )}
                     <ha-svg-icon
@@ -164,7 +164,7 @@ export default class HaAutomationConditionRow extends LitElement {
                   <li divider role="separator"></li>
 
                   <mwc-list-item graphic="icon">
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.edit_ui"
                     )}
                     ${!this._yamlMode
@@ -177,7 +177,7 @@ export default class HaAutomationConditionRow extends LitElement {
                   </mwc-list-item>
 
                   <mwc-list-item graphic="icon">
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.edit_yaml"
                     )}
                     ${this._yamlMode
@@ -193,10 +193,10 @@ export default class HaAutomationConditionRow extends LitElement {
 
                   <mwc-list-item graphic="icon" .disabled=${this.disabled}>
                     ${this.condition.enabled === false
-                      ? hass_localize(
+                      ? myhass.localize(
                           "ui.panel.config.automation.editor.actions.enable"
                         )
-                      : hass_localize(
+                      : myhass.localize(
                           "ui.panel.config.automation.editor.actions.disable"
                         )}
                     <ha-svg-icon
@@ -211,7 +211,7 @@ export default class HaAutomationConditionRow extends LitElement {
                     graphic="icon"
                     .disabled=${this.disabled}
                   >
-                    ${hass_localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.editor.actions.delete"
                     )}
                     <ha-svg-icon
@@ -232,7 +232,7 @@ export default class HaAutomationConditionRow extends LitElement {
             ${this._warnings
               ? html`<ha-alert
                   alert-type="warning"
-                  .title=${hass_localize(
+                  .title=${myhass.localize(
                     "ui.errors.config.editor_not_supported"
                   )}
                 >
@@ -244,7 +244,7 @@ export default class HaAutomationConditionRow extends LitElement {
                         )}
                       </ul>`
                     : ""}
-                  ${hass_localize("ui.errors.config.edit_in_yaml_supported")}
+                  ${myhass.localize("ui.errors.config.edit_in_yaml_supported")}
                 </ha-alert>`
               : ""}
             <ha-automation-condition-editor
@@ -266,10 +266,10 @@ export default class HaAutomationConditionRow extends LitElement {
           })}"
         >
           ${this._testingResult
-            ? hass_localize(
+            ? myhass.localize(
                 "ui.panel.config.automation.editor.conditions.testing_pass"
               )
-            : hass_localize(
+            : myhass.localize(
                 "ui.panel.config.automation.editor.conditions.testing_error"
               )}
         </div>
@@ -331,14 +331,14 @@ export default class HaAutomationConditionRow extends LitElement {
 
   private _onDelete() {
     showConfirmationDialog(this, {
-      title: hass_localize(
+      title: myhass.localize(
         "ui.panel.config.automation.editor.conditions.delete_confirm_title"
       ),
-      text: hass_localize(
+      text: myhass.localize(
         "ui.panel.config.automation.editor.conditions.delete_confirm_text"
       ),
-      dismissText: hass_localize("ui.common.cancel"),
-      confirmText: hass_localize("ui.common.delete"),
+      dismissText: myhass.localize("ui.common.cancel"),
+      confirmText: myhass.localize("ui.common.delete"),
       destructive: true,
       confirm: () => {
         fireEvent(this, "value-changed", { value: null });
@@ -377,7 +377,7 @@ export default class HaAutomationConditionRow extends LitElement {
 
       if (!validateResult.condition.valid) {
         showAlertDialog(this, {
-          title: hass_localize(
+          title: myhass.localize(
             "ui.panel.config.automation.editor.conditions.invalid_condition"
           ),
           text: validateResult.condition.error,
@@ -396,7 +396,7 @@ export default class HaAutomationConditionRow extends LitElement {
         }
 
         showAlertDialog(this, {
-          title: hass_localize(
+          title: myhass.localize(
             "ui.panel.config.automation.editor.conditions.test_failed"
           ),
           text: err.message,
@@ -415,10 +415,10 @@ export default class HaAutomationConditionRow extends LitElement {
 
   private async _renameCondition(): Promise<void> {
     const alias = await showPromptDialog(this, {
-      title: hass_localize(
+      title: myhass.localize(
         "ui.panel.config.automation.editor.conditions.change_alias"
       ),
-      inputLabel: hass_localize(
+      inputLabel: myhass.localize(
         "ui.panel.config.automation.editor.conditions.alias"
       ),
       inputType: "string",
@@ -426,7 +426,7 @@ export default class HaAutomationConditionRow extends LitElement {
         describeCondition(this.condition, this.hass, true)
       ),
       defaultValue: this.condition.alias,
-      confirmText: hass_localize("ui.common.submit"),
+      confirmText: myhass.localize("ui.common.submit"),
     });
 
     const value = { ...this.condition };
