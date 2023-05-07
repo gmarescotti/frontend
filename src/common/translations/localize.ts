@@ -266,10 +266,28 @@ export class MyHassClass {
         return "We couldn't find any automations";
       case "ui.panel.config.automation.picker.add_automation":
         return "Create Simga automation";
+
+      case "ui.panel.config.automation.editor.triggers.header":
+        return "Triggers";
+      case "ui.panel.config.automation.editor.triggers.add":
+        return "add trigger";
+      case "ui.panel.config.automation.editor.conditions.header":
+        return "Conditions";
+      case "ui.panel.config.automation.editor.conditions.add":
+        return "Add condition";
+      case "ui.panel.config.automation.editor.actions.header":
+        return "Actions";
+      case "ui.panel.config.automation.editor.actions.add":
+        return "Add Action";
+      case "ui.panel.config.automation.editor.save":
+        return "Save";
       default:
+        if (key.endsWith(".label")) {
+          const ret: string = key.split(".").slice(-2, -1)[0].replace("_", " ");
+          return ret.charAt(0).toUpperCase() + ret.slice(1);
+        }
         return "???" + key;
     }
-    return "miaoo:" + key;
   }
 
   // public localize (key: LocalizeKeys, ..._args: any[]) {

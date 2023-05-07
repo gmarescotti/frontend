@@ -26,7 +26,7 @@ import type HaAutomationConditionRow from "./ha-automation-condition-row";
 // import "./types/ha-automation-condition-not";
 // import "./types/ha-automation-condition-or";
 import { stringCompare } from "../../../../common/string/compare";
-import type { LocalizeFunc } from "../../../../common/translations/localize";
+import { LocalizeFunc, myhass } from "../../../../common/translations/localize";
 import type { HaSelect } from "../../../../components/ha-select";
 import { CONDITION_TYPES } from "../../../../data/condition";
 import { sortableStyles } from "../../../../resources/ha-sortable-style";

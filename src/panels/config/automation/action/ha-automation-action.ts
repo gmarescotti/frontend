@@ -9,7 +9,7 @@ import memoizeOne from "memoize-one";
 import type { SortableEvent } from "sortablejs";
 import { fireEvent } from "../../../../common/dom/fire_event";
 import { stringCompare } from "../../../../common/string/compare";
-import { LocalizeFunc } from "../../../../common/translations/localize";
+import { LocalizeFunc, myhass } from "../../../../common/translations/localize";
 import "../../../../components/ha-button-menu";
 import "../../../../components/ha-button";
 import type { HaSelect } from "../../../../components/ha-select";

@@ -15,7 +15,6 @@ import { CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { differenceInDays } from "date-fns/esm";
-import { isComponentLoaded } from "../../../common/config/is_component_loaded";
 import { formatShortDateTime } from "../../../common/datetime/format_date_time";
 import { relativeTime } from "../../../common/datetime/relative_time";
 import { fireEvent, HASSDomEvent } from "../../../common/dom/fire_event";
@@ -49,7 +48,6 @@ import { haStyle } from "../../../resources/styles";
 import { HomeAssistant, Route } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
 import { configSections } from "../ha-panel-config";
-import { showNewAutomationDialog } from "./show-dialog-new-automation";
 import { myhass } from "../../../common/translations/localize";
 
 @customElement("ha-automation-picker")
@@ -445,11 +443,13 @@ class HaAutomationPicker extends LitElement {
   }
 
   private _createNew() {
-    if (isComponentLoaded(this.hass, "blueprint")) {
-      showNewAutomationDialog(this);
-    } else {
-      navigate("/local/automation/edit/new");
-    }
+    // if (isComponentLoaded(this.hass, "blueprint")) {
+    //   showNewAutomationDialog(this);
+    // } else {
+    // navigate("/local/automation/edit/new");
+    // }
+
+    navigate("/my-giulio/edit/new");
   }
 
   static get styles(): CSSResultGroup {
