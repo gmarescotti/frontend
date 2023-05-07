@@ -12,7 +12,6 @@ import { stringCompare } from "../../../../common/string/compare";
 import { LocalizeFunc, myhass } from "../../../../common/translations/localize";
 import "../../../../components/ha-button-menu";
 import "../../../../components/ha-button";
-import type { HaSelect } from "../../../../components/ha-select";
 import "../../../../components/ha-svg-icon";
 import { ACTION_TYPES } from "../../../../data/action";
 import { Action } from "../../../../data/script";
@@ -128,29 +127,17 @@ export default class HaAutomationAction extends LitElement {
           `
         )}
       </div>
-      <ha-button-menu
-        fixed
-        @action=${this._addAction}
-        .disabled=${this.disabled}
-      >
-        <ha-button
-          slot="trigger"
-          outlined
-          .disabled=${this.disabled}
-          .label=${myhass.localize(
-            "ui.panel.config.automation.editor.actions.add"
-          )}
-        >
-          <ha-svg-icon .path=${mdiPlus} slot="icon"></ha-svg-icon>
-        </ha-button>
-        ${this._processedTypes(myhass.localize).map(
-          ([opt, label, icon]) => html`
-            <mwc-list-item .value=${opt} graphic="icon">
-              ${label}<ha-svg-icon slot="graphic" .path=${icon}></ha-svg-icon
-            ></mwc-list-item>
-          `
+      <ha-button
+        slot="trigger"
+        outlined
+        .label=${myhass.localize(
+          "ui.panel.config.automation.editor.actions.add"
         )}
-      </ha-button-menu>
+        .disabled=${this.disabled}
+        @click=${this._addAction}
+      >
+        <ha-svg-icon .path=${mdiPlus} slot="icon"></ha-svg-icon>
+      </ha-button>
     `;
   }
 
@@ -224,7 +211,11 @@ export default class HaAutomationAction extends LitElement {
   }
 
   private _addAction(ev: CustomEvent<ActionDetail>) {
-    const action = (ev.currentTarget as HaSelect).items[ev.detail.index].value;
+    // const action = (ev.currentTarget as HaSelect).items[ev.detail.index].value;
+
+    // eslint-disable-next-line no-console
+    console.debug("Add Action: " + ev);
+    const action = "device_id";
     const elClass = customElements.get(
       `ha-automation-action-${action}`
     ) as CustomElementConstructor & { defaultConfig: Action };

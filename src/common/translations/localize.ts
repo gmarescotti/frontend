@@ -281,6 +281,26 @@ export class MyHassClass {
         return "Add Action";
       case "ui.panel.config.automation.editor.save":
         return "Save";
+      case "ui.panel.config.automation.editor.triggers.rename":
+        return "Rename";
+      case "ui.panel.config.automation.editor.triggers.re_order":
+        return "Re-order";
+      case "ui.panel.config.automation.editor.triggers.duplicate":
+        return "Duplicate";
+      case "ui.panel.config.automation.editor.triggers.edit_id":
+        return "Edit ID";
+      case "ui.panel.config.automation.editor.edit_yaml":
+        return "Edit in YAML";
+      case "ui.panel.config.automation.editor.edit_ui":
+        return "Edit in visual editor";
+      case "ui.panel.config.automation.editor.actions.disable":
+        return "Disable";
+      case "ui.panel.config.automation.editor.actions.delete":
+        return "Delete";
+      case "ui.panel.config.automation.editor.triggers.type.device.trigger":
+        return "Trigger";
+      case "ui.panel.config.automation.editor.actions.type.device_id.action":
+        return "Action";
       default:
         if (key.endsWith(".label")) {
           const ret: string = key.split(".").slice(-2, -1)[0].replace("_", " ");

@@ -12,7 +12,7 @@ import { stringCompare } from "../../../../common/string/compare";
 import type { LocalizeFunc } from "../../../../common/translations/localize";
 import "../../../../components/ha-button-menu";
 import "../../../../components/ha-button";
-import type { HaSelect } from "../../../../components/ha-select";
+// import type { HaSelect } from "../../../../components/ha-select";
 import "../../../../components/ha-svg-icon";
 import { Trigger } from "../../../../data/automation";
 import { TRIGGER_TYPES } from "../../../../data/trigger";
@@ -126,25 +126,18 @@ export default class HaAutomationTrigger extends LitElement {
           `
         )}
         </div>
-        <ha-button-menu @action=${this._addTrigger} .disabled=${this.disabled}>
-          <ha-button
-            slot="trigger"
-            outlined
-            .label=${myhass.localize(
-              "ui.panel.config.automation.editor.triggers.add"
-            )}
-            .disabled=${this.disabled}
-          >
-            <ha-svg-icon .path=${mdiPlus} slot="icon"></ha-svg-icon>
-          </ha-button>
-          ${this._processedTypes(myhass.localize).map(
-            ([opt, label, icon]) => html`
-              <mwc-list-item .value=${opt} graphic="icon">
-                ${label}<ha-svg-icon slot="graphic" .path=${icon}></ha-svg-icon
-              ></mwc-list-item>
-            `
+
+        <ha-button
+          slot="trigger"
+          outlined
+          .label=${myhass.localize(
+            "ui.panel.config.automation.editor.triggers.add"
           )}
-        </ha-button-menu>
+          .disabled=${this.disabled}
+          @click=${this._addTrigger}
+        >
+        <ha-svg-icon .path=${mdiPlus} slot="icon"></ha-svg-icon>
+        </ha-button>
       </div>
     `;
   }
@@ -223,8 +216,12 @@ export default class HaAutomationTrigger extends LitElement {
   }
 
   private _addTrigger(ev: CustomEvent<ActionDetail>) {
-    const platform = (ev.currentTarget as HaSelect).items[ev.detail.index]
-      .value as Trigger["platform"];
+    // const platform = (ev.currentTarget as HaSelect).items[ev.detail.index]
+    //   .value as Trigger["platform"];
+
+    // eslint-disable-next-line no-console
+    console.debug("Add Trigger: " + ev);
+    const platform = "device";
 
     const elClass = customElements.get(
       `ha-automation-trigger-${platform}`
