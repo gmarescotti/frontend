@@ -10,6 +10,7 @@ import { HassDialog } from "../../../../dialogs/make-dialog-manager";
 import { haStyle, haStyleDialog } from "../../../../resources/styles";
 import type { HomeAssistant } from "../../../../types";
 import type { AutomationRenameDialog } from "./show-dialog-automation-rename";
+import { myhass } from "../../../../common/translations/localize";
 
 @customElement("ha-dialog-automation-rename")
 class DialogAutomationRename extends LitElement implements HassDialog {

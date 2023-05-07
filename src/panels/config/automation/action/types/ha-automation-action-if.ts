@@ -8,6 +8,7 @@ import type { Condition } from "../../../../lovelace/common/validate-condition";
 import "../ha-automation-action";
 import "../../../../../components/ha-textfield";
 import type { ActionElement } from "../ha-automation-action-row";
+import { myhass } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-action-if")
 export class HaIfAction extends LitElement implements ActionElement {

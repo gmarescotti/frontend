@@ -8,6 +8,7 @@ import { DelayAction } from "../../../../../data/script";
 import { HomeAssistant } from "../../../../../types";
 import { ActionElement } from "../ha-automation-action-row";
 import { createDurationData } from "../../../../../common/datetime/create_duration_data";
+import { myhass } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-action-delay")
 export class HaDelayAction extends LitElement implements ActionElement {

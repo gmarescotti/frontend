@@ -33,6 +33,7 @@ import {
 import { haStyle } from "../../../../resources/styles";
 import { HomeAssistant } from "../../../../types";
 import "./ha-automation-condition-editor";
+import { myhass } from "../../../../common/translations/localize";
 
 export interface ConditionElement extends LitElement {
   condition: Condition;

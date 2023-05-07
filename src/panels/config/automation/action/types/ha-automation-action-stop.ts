@@ -5,6 +5,7 @@ import "../../../../../components/ha-textfield";
 import { StopAction } from "../../../../../data/script";
 import { HomeAssistant } from "../../../../../types";
 import { ActionElement } from "../ha-automation-action-row";
+import { myhass } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-action-stop")
 export class HaStopAction extends LitElement implements ActionElement {

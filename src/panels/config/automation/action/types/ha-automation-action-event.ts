@@ -9,6 +9,7 @@ import type { HaYamlEditor } from "../../../../../components/ha-yaml-editor";
 import type { EventAction } from "../../../../../data/script";
 import type { HomeAssistant } from "../../../../../types";
 import { ActionElement, handleChangeEvent } from "../ha-automation-action-row";
+import { myhass } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-action-event")
 export class HaEventAction extends LitElement implements ActionElement {

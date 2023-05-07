@@ -11,6 +11,7 @@ import type {
   TriggerCondition,
 } from "../../../../../data/automation";
 import type { HomeAssistant } from "../../../../../types";
+import { myhass } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-condition-trigger")
 export class HaTriggerCondition extends LitElement {

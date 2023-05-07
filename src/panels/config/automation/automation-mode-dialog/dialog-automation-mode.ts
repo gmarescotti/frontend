@@ -17,6 +17,7 @@ import { haStyle, haStyleDialog } from "../../../../resources/styles";
 import type { HomeAssistant } from "../../../../types";
 import { documentationUrl } from "../../../../util/documentation-url";
 import type { AutomationModeDialog } from "./show-dialog-automation-mode";
+import { myhass } from "../../../../common/translations/localize";
 
 @customElement("ha-dialog-automation-mode")
 class DialogAutomationMode extends LitElement implements HassDialog {

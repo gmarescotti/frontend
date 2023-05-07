@@ -4,6 +4,7 @@ import "../../../../../components/ha-textarea";
 import type { TemplateCondition } from "../../../../../data/automation";
 import type { HomeAssistant } from "../../../../../types";
 import { handleChangeEvent } from "../ha-automation-condition-row";
+import { myhass } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-condition-template")
 export class HaTemplateCondition extends LitElement {

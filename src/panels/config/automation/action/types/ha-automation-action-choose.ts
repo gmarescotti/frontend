@@ -10,6 +10,7 @@ import { Action, ChooseAction } from "../../../../../data/script";
 import { haStyle } from "../../../../../resources/styles";
 import { HomeAssistant } from "../../../../../types";
 import { ActionElement } from "../ha-automation-action-row";
+import { myhass } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-action-choose")
 export class HaChooseAction extends LitElement implements ActionElement {

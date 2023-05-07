@@ -7,6 +7,7 @@ import "../../../../../components/ha-service-control";
 import { ServiceAction, serviceActionStruct } from "../../../../../data/script";
 import type { HomeAssistant } from "../../../../../types";
 import { ActionElement } from "../ha-automation-action-row";
+import { myhass } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-action-service")
 export class HaServiceAction extends LitElement implements ActionElement {

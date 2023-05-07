@@ -18,6 +18,7 @@ import type { StateCondition } from "../../../../../data/automation";
 import type { HomeAssistant } from "../../../../../types";
 import { forDictStruct } from "../../structs";
 import type { ConditionElement } from "../ha-automation-condition-row";
+import { myhass } from "../../../../../common/translations/localize";
 
 const stateConditionStruct = object({
   alias: optional(string()),

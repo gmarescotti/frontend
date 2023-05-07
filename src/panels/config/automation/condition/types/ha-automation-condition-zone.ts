@@ -7,6 +7,7 @@ import "../../../../../components/entity/ha-entity-picker";
 import { ZoneCondition } from "../../../../../data/automation";
 import { PolymerChangedEvent } from "../../../../../polymer-types";
 import { HomeAssistant } from "../../../../../types";
+import { myhass } from "../../../../../common/translations/localize";
 
 function zoneAndLocationFilter(stateObj) {
   return hasLocation(stateObj) && computeStateDomain(stateObj) !== "zone";

@@ -6,6 +6,7 @@ import { SceneAction } from "../../../../../data/script";
 import { PolymerChangedEvent } from "../../../../../polymer-types";
 import { HomeAssistant } from "../../../../../types";
 import { ActionElement } from "../ha-automation-action-row";
+import { myhass } from "../../../../../common/translations/localize";
 
 const includeDomains = ["scene"];
 

@@ -28,6 +28,7 @@ import { SubscribeMixin } from "../../../../mixins/subscribe-mixin";
 import { haStyleDialog } from "../../../../resources/styles";
 import { HomeAssistant } from "../../../../types";
 import { Placeholder, PlaceholderContainer } from "./dialog-thingtalk";
+import { myhass } from "../../../../common/translations/localize";
 
 declare global {
   // for fire event

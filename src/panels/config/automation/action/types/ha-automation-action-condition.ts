@@ -3,7 +3,10 @@ import { customElement, property } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { fireEvent } from "../../../../../common/dom/fire_event";
 import { stringCompare } from "../../../../../common/string/compare";
-import type { LocalizeFunc } from "../../../../../common/translations/localize";
+import {
+  LocalizeFunc,
+  myhass,
+} from "../../../../../common/translations/localize";
 import "../../../../../components/ha-select";
 import type { HaSelect } from "../../../../../components/ha-select";
 import type { Condition } from "../../../../../data/automation";

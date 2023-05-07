@@ -19,6 +19,7 @@ import "./types/ha-automation-condition-template";
 import "./types/ha-automation-condition-time";
 import "./types/ha-automation-condition-trigger";
 import "./types/ha-automation-condition-zone";
+import { myhass } from "../../../../common/translations/localize";
 
 @customElement("ha-automation-condition-editor")
 export default class HaAutomationConditionEditor extends LitElement {

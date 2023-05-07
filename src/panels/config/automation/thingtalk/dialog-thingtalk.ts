@@ -13,6 +13,7 @@ import type { HomeAssistant } from "../../../../types";
 import "./ha-thingtalk-placeholders";
 import type { PlaceholderValues } from "./ha-thingtalk-placeholders";
 import type { ThingtalkDialogParams } from "./show-dialog-thingtalk";
+import { myhass } from "../../../../common/translations/localize";
 
 export interface Placeholder {
   name: string;

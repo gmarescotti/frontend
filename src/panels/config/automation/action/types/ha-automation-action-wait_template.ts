@@ -5,6 +5,7 @@ import type { HomeAssistant } from "../../../../../types";
 import type { ActionElement } from "../ha-automation-action-row";
 import "../../../../../components/ha-form/ha-form";
 import type { SchemaUnion } from "../../../../../components/ha-form/types";
+import { myhass } from "../../../../../common/translations/localize";
 
 const SCHEMA = [
   {

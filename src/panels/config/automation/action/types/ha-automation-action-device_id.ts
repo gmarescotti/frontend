@@ -12,6 +12,7 @@ import {
   fetchDeviceActionCapabilities,
 } from "../../../../../data/device_automation";
 import { HomeAssistant } from "../../../../../types";
+import { myhass } from "../../../../../common/translations/localize";
 
 @customElement("ha-automation-action-device_id")
 export class HaDeviceAction extends LitElement {
