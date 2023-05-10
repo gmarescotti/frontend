@@ -21,7 +21,7 @@ import {
   css,
   CSSResultGroup,
   html,
-  LitElement,
+  // LitElement,
   PropertyValues,
   TemplateResult,
 } from "lit";
@@ -56,7 +56,7 @@ import {
 } from "../../../dialogs/generic/show-dialog-box";
 import "../../../layouts/ha-app-layout";
 import "../../../layouts/hass-subpage";
-import { KeyboardShortcutMixin } from "../../../mixins/keyboard-shortcut-mixin";
+// import { KeyboardShortcutMixin } from "../../../mixins/keyboard-shortcut-mixin";
 import { haStyle } from "../../../resources/styles";
 import { HomeAssistant, Route } from "../../../types";
 import { showToast } from "../../../util/toast";
@@ -66,6 +66,10 @@ import { showAutomationRenameDialog } from "./automation-rename-dialog/show-dial
 import "./blueprint-automation-editor";
 import "./manual-automation-editor";
 import { myhass } from "../../../common/translations/localize";
+// import { showDialog } from "../../../dialogs/make-dialog-manager";
+// import { dialogManagerMixin } from "../../../state/dialog-manager-mixin";
+import { HassElement } from "../../../state/hass-element";
+import QuickBarMixin from "../../../state/quick-bar-mixin";
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -83,7 +87,8 @@ declare global {
   }
 }
 
-export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
+// export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
+export class HaAutomationEditor extends QuickBarMixin(HassElement) {
   @property({ attribute: false }) public hass!: HomeAssistant;
 
   @property() public automationId: string | null = null;
@@ -485,7 +490,7 @@ export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
           ent.platform === "automation" && ent.unique_id === this.automationId
       );
       if (entity) {
-        navigate(`/local/automation/show/${entity.entity_id}`, {
+        navigate(`/my-giulio/show/${entity.entity_id}`, {
           replace: true,
         });
         return;
@@ -527,7 +532,7 @@ export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
     if (this._config?.id) {
       const result = await this.confirmUnsavedChanged();
       if (result) {
-        navigate(`/local/automation/trace/${this._config.id}`);
+        navigate(`/my-giulio/trace/${this._config.id}`);
       }
     }
   }
@@ -701,7 +706,7 @@ export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
     this._dirty = false;
 
     if (!this.automationId) {
-      navigate(`/local/automation/edit/${id}`, { replace: true });
+      navigate(`/my-giulio/edit/${id}`, { replace: true });
     }
   }
 

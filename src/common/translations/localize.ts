@@ -301,6 +301,41 @@ export class MyHassClass {
         return "Trigger";
       case "ui.panel.config.automation.editor.actions.type.device_id.action":
         return "Action";
+      case "ui.panel.config.automation.editor.show_info":
+        return "Information";
+      case "ui.panel.config.automation.editor.run":
+        return "Run";
+      case "ui.panel.config.automation.editor.show_trace":
+        return "Traces";
+      case "ui.panel.config.automation.picker.duplicate":
+        return "Duplicate";
+      case "ui.panel.config.automation.editor.disable":
+        return "Disable";
+      case "ui.panel.config.automation.picker.delete":
+        return "Delete";
+      case "ui.components.relative_time.never":
+        return "Never";
+
+      case "ui.panel.config.automation.editor.default_name":
+        return "New Automation";
+      case "ui.panel.config.automation.editor.alias":
+        return "Name";
+      case "ui.panel.config.automation.editor.description.placeholder":
+        return "Optional Description";
+      case "ui.dialogs.generic.cancel":
+        return "Cancel";
+
+      case "ui.panel.config.automation.editor.rename":
+        return "Rename";
+      case "ui.panel.config.automation.editor.unsaved_confirm_title":
+        return "Leave editor";
+      case "ui.panel.config.automation.editor.unsaved_confirm_text":
+        return "Unsaved changes will be losy";
+      case "ui.common.stay":
+        return "Stay";
+      case "ui.common.leave":
+        return "Leave";
+
       default:
         if (key.endsWith(".label")) {
           const ret: string = key.split(".").slice(-2, -1)[0].replace("_", " ");

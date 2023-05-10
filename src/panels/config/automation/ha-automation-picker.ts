@@ -341,7 +341,7 @@ class HaAutomationPicker extends LitElement {
       });
       return;
     }
-    navigate(`/local/automation/trace/${automation.attributes.id}`);
+    navigate(`/my-giulio/trace/${automation.attributes.id}`);
   }
 
   private async _toggle(automation): Promise<void> {
@@ -436,9 +436,9 @@ class HaAutomationPicker extends LitElement {
     );
 
     if (automation?.attributes.id) {
-      navigate(`/local/automation/edit/${automation.attributes.id}`);
+      navigate(`/my-giulio/edit/${automation.attributes.id}`);
     } else {
-      navigate(`/local/automation/show/${ev.detail.id}`);
+      navigate(`/my-giulio/show/${ev.detail.id}`);
     }
   }
 
