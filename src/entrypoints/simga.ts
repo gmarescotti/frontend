@@ -6,8 +6,8 @@
 // import "../layouts/home-assistant";
 // import "../panels/config/automation/ha-automation-editor";
 import "../panels/config/automation/ha-config-automation";
-// import "../resources/ha-style";
-// import "../resources/roboto";
+import "../resources/ha-style";
+import "../resources/roboto";
 // import "../util/legacy-support";
 
 // setPassiveTouchGestures(true);
