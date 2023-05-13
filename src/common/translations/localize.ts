@@ -336,10 +336,25 @@ export class MyHassClass {
       case "ui.common.leave":
         return "Leave";
 
+      case "ui.panel.config.automation.picker.headers.state":
+        return "State";
+
       default:
         if (key.endsWith(".label")) {
           const ret: string = key.split(".").slice(-2, -1)[0].replace("_", " ");
           return ret.charAt(0).toUpperCase() + ret.slice(1);
+        }
+        if (key.endsWith(".disabled")) {
+          return "Disabled";
+        }
+        if (key.endsWith(".enabled")) {
+          return "Enabled";
+        }
+        if (key.endsWith(".disable")) {
+          return "Disable";
+        }
+        if (key.endsWith(".enable")) {
+          return "Enable";
         }
         return "???" + key;
     }
