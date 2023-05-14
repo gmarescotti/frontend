@@ -71,7 +71,7 @@ export class HaScriptTrace extends LitElement {
 
   @state() private _view:
     | "details"
-    | "my-giulio"
+    | "config"
     | "timeline"
     | "logbook"
     | "blueprint" = "details";
@@ -228,7 +228,7 @@ export class HaScriptTrace extends LitElement {
                       ["details", "Step Details"],
                       ["timeline", "Trace Timeline"],
                       ["logbook", "Related logbook entries"],
-                      ["my-giulio", "Script Config"],
+                      ["config", "Script Config"],
                     ].map(
                       ([view, label]) => html`
                         <button
@@ -272,7 +272,7 @@ export class HaScriptTrace extends LitElement {
                           .renderedNodes=${renderedNodes!}
                         ></ha-trace-path-details>
                       `
-                    : this._view === "my-giulio"
+                    : this._view === "config"
                     ? html`
                         <ha-trace-config
                           .hass=${this.hass}

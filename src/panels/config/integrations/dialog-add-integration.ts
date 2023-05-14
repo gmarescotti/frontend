@@ -142,7 +142,7 @@ class AddIntegrationDialog extends LitElement {
     (
       i: Brands,
       h: Integrations,
-      components: HomeAssistant["my-giulio"]["components"],
+      components: HomeAssistant["config"]["components"],
       localize: LocalizeFunc,
       filter?: string
     ): IntegrationListItem[] => {

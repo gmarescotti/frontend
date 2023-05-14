@@ -435,7 +435,7 @@ class DemoHaForm extends LitElement {
     super();
     const hass = provideHass(this);
     hass.updateTranslations(null, "en");
-    hass.updateTranslations("my-giulio", "en");
+    hass.updateTranslations("config", "en");
     hass.addEntities(ENTITIES);
     mockEntityRegistry(hass);
     mockDeviceRegistry(hass, DEVICES);

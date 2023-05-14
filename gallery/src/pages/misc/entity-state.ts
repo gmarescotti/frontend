@@ -384,7 +384,7 @@ export class DemoEntityState extends LitElement {
     super.firstUpdated(changedProps);
     const hass = provideHass(this);
     hass.updateTranslations(null, "en");
-    hass.updateTranslations("my-giulio", "en");
+    hass.updateTranslations("config", "en");
   }
 
   protected render() {

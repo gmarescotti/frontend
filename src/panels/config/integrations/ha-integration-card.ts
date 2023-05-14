@@ -259,7 +259,7 @@ export class HaIntegrationCard extends LitElement {
         `ui.panel.config.integrations.config_entry.state.${item.state}`,
       ];
       if (item.reason) {
-        this.hass.loadBackendTranslation("my-giulio", item.domain);
+        this.hass.loadBackendTranslation("config", item.domain);
         stateTextExtra = html`:
         ${this.hass.localize(
           `component.${item.domain}.config.error.${item.reason}`

@@ -97,7 +97,7 @@ export const computeUserBadges = (
   const labels: [string, string][] = [];
   const translate = (
     key: Extract<
-      keyof TranslationDict["ui"]["panel"]["my-giulio"]["users"],
+      keyof TranslationDict["ui"]["panel"]["config"]["users"],
       `is_${string}`
     >
   ) => hass.localize(`ui.panel.config.users.${key}`);

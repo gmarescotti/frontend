@@ -182,7 +182,7 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
           manifests.add(flow.handler);
         });
         await this.hass.loadBackendTranslation(
-          "my-giulio",
+          "config",
           Array.from(integrations)
         );
         this._fetchIntegrationManifests(manifests);

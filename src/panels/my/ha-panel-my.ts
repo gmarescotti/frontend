@@ -323,7 +323,7 @@ class HaPanelMy extends LitElement {
       ) {
         const params = extractSearchParamsObject();
         this.hass
-          .loadFragmentTranslation("my-giulio")
+          .loadFragmentTranslation("config")
           .then()
           .then(() => {
             protocolIntegrationPicked(this, this.hass, component, {

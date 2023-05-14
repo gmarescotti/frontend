@@ -46,7 +46,7 @@ export class EnergySetupWizard extends LitElement implements LovelaceCard {
   }
 
   protected firstUpdated() {
-    this.hass.loadFragmentTranslation("my-giulio");
+    this.hass.loadFragmentTranslation("config");
     this._fetchconfig();
   }
 

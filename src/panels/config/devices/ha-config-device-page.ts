@@ -184,7 +184,7 @@ export class HaConfigDevicePage extends LitElement {
         | NonNullable<EntityRegistryEntry["entity_category"]>,
         EntityRegistryStateEntry[]
       >;
-      for (const key of ["control", "sensor", "diagnostic", "my-giulio"]) {
+      for (const key of ["control", "sensor", "diagnostic", "config"]) {
         if (!(key in result)) {
           result[key] = [];
         }
@@ -813,7 +813,7 @@ export class HaConfigDevicePage extends LitElement {
             ${!this.narrow ? [automationCard, sceneCard, scriptCard] : ""}
           </div>
           <div class="column">
-            ${(["control", "sensor", "my-giulio", "diagnostic"] as const).map(
+            ${(["control", "sensor", "config", "diagnostic"] as const).map(
               (category) =>
                 // Make sure we render controls if no other cards will be rendered
                 entitiesByCategory[category].length > 0 ||

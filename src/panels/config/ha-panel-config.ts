@@ -48,21 +48,21 @@ declare global {
 export const configSections: { [name: string]: PageNavigation[] } = {
   dashboard: [
     {
-      path: "/my-giulio/integrations",
+      path: "/config/integrations",
       translationKey: "devices",
       iconPath: mdiDevices,
       iconColor: "#0D47A1",
       core: true,
     },
     {
-      path: "/my-giulio",
+      path: "/config",
       translationKey: "automations",
       iconPath: mdiRobot,
       iconColor: "#518C43",
       core: true,
     },
     {
-      path: "/my-giulio/areas",
+      path: "/config/areas",
       translationKey: "areas",
       iconPath: mdiSofa,
       iconColor: "#E48629",
@@ -76,21 +76,21 @@ export const configSections: { [name: string]: PageNavigation[] } = {
       component: "hassio",
     },
     {
-      path: "/my-giulio/lovelace/dashboards",
+      path: "/config/lovelace/dashboards",
       translationKey: "dashboards",
       iconPath: mdiViewDashboard,
       iconColor: "#B1345C",
       component: "lovelace",
     },
     {
-      path: "/my-giulio/tags",
+      path: "/config/tags",
       translationKey: "tags",
       iconPath: mdiNfcVariant,
       iconColor: "#616161",
       component: "tag",
     },
     {
-      path: "/my-giulio/person",
+      path: "/config/person",
       translationKey: "people",
       iconPath: mdiAccount,
       iconColor: "#5A87FA",
@@ -103,14 +103,14 @@ export const configSections: { [name: string]: PageNavigation[] } = {
       iconColor: "#8E24AA",
     },
     {
-      path: "/my-giulio/system",
+      path: "/config/system",
       translationKey: "system",
       iconPath: mdiCog,
       iconColor: "#301ABE",
       core: true,
     },
     {
-      path: "/my-giulio/info",
+      path: "/config/info",
       translationKey: "about",
       iconPath: mdiInformationOutline,
       iconColor: "#4A5963",
@@ -119,7 +119,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
   ],
   backup: [
     {
-      path: "/my-giulio/backup",
+      path: "/config/backup",
       translationKey: "ui.panel.config.backup.caption",
       iconPath: mdiBackupRestore,
       iconColor: "#4084CD",
@@ -129,7 +129,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
   devices: [
     {
       component: "integrations",
-      path: "/my-giulio/integrations",
+      path: "/config/integrations",
       translationKey: "ui.panel.config.integrations.caption",
       iconPath: mdiPuzzle,
       iconColor: "#2D338F",
@@ -137,7 +137,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
     },
     {
       component: "devices",
-      path: "/my-giulio/devices",
+      path: "/config/devices",
       translationKey: "ui.panel.config.devices.caption",
       iconPath: mdiDevices,
       iconColor: "#2D338F",
@@ -145,7 +145,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
     },
     {
       component: "entities",
-      path: "/my-giulio/entities",
+      path: "/config/entities",
       translationKey: "ui.panel.config.entities.caption",
       iconPath: mdiShape,
       iconColor: "#2D338F",
@@ -153,7 +153,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
     },
     {
       component: "helpers",
-      path: "/my-giulio/helpers",
+      path: "/config/helpers",
       translationKey: "ui.panel.config.helpers.caption",
       iconPath: mdiTools,
       iconColor: "#4D2EA4",
@@ -163,28 +163,28 @@ export const configSections: { [name: string]: PageNavigation[] } = {
   automations: [
     {
       component: "automation",
-      path: "/my-giulio",
+      path: "/config",
       translationKey: "ui.panel.config.automation.caption",
       iconPath: mdiRobot,
       iconColor: "#518C43",
     },
     {
       component: "scene",
-      path: "/my-giulio/scene",
+      path: "/config/scene",
       translationKey: "ui.panel.config.scene.caption",
       iconPath: mdiPalette,
       iconColor: "#518C43",
     },
     {
       component: "script",
-      path: "/my-giulio/script",
+      path: "/config/script",
       translationKey: "ui.panel.config.script.caption",
       iconPath: mdiScriptText,
       iconColor: "#518C43",
     },
     {
       component: "blueprint",
-      path: "/my-giulio/blueprint",
+      path: "/config/blueprint",
       translationKey: "ui.panel.config.blueprint.caption",
       iconPath: mdiPaletteSwatch,
       iconColor: "#518C43",
@@ -193,7 +193,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
   tags: [
     {
       component: "tag",
-      path: "/my-giulio/tags",
+      path: "/config/tags",
       translationKey: "ui.panel.config.tag.caption",
       iconPath: mdiNfcVariant,
       iconColor: "#616161",
@@ -203,7 +203,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
   energy: [
     {
       component: "energy",
-      path: "/my-giulio/energy",
+      path: "/config/energy",
       translationKey: "ui.panel.config.energy.caption",
       iconPath: mdiLightningBolt,
       iconColor: "#F1C447",
@@ -212,7 +212,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
   lovelace: [
     {
       component: "lovelace",
-      path: "/my-giulio/lovelace/dashboards",
+      path: "/config/lovelace/dashboards",
       translationKey: "ui.panel.config.lovelace.caption",
       iconPath: mdiViewDashboard,
       iconColor: "#B1345C",
@@ -221,14 +221,14 @@ export const configSections: { [name: string]: PageNavigation[] } = {
   persons: [
     {
       component: "person",
-      path: "/my-giulio/person",
+      path: "/config/person",
       translationKey: "ui.panel.config.person.caption",
       iconPath: mdiAccount,
       iconColor: "#5A87FA",
     },
     {
       component: "users",
-      path: "/my-giulio/users",
+      path: "/config/users",
       translationKey: "ui.panel.config.users.caption",
       iconPath: mdiBadgeAccountHorizontal,
       iconColor: "#5A87FA",
@@ -239,7 +239,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
   areas: [
     {
       component: "areas",
-      path: "/my-giulio/areas",
+      path: "/config/areas",
       translationKey: "ui.panel.config.areas.caption",
       iconPath: mdiSofa,
       iconColor: "#2D338F",
@@ -247,7 +247,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
     },
     {
       component: "zone",
-      path: "/my-giulio/zone",
+      path: "/config/zone",
       translationKey: "ui.panel.config.zone.caption",
       iconPath: mdiMapMarkerRadius,
       iconColor: "#E48629",
@@ -255,34 +255,34 @@ export const configSections: { [name: string]: PageNavigation[] } = {
   ],
   general: [
     {
-      path: "/my-giulio/general",
+      path: "/config/general",
       translationKey: "core",
       iconPath: mdiCog,
       iconColor: "#653249",
       core: true,
     },
     {
-      path: "/my-giulio/updates",
+      path: "/config/updates",
       translationKey: "updates",
       iconPath: mdiUpdate,
       iconColor: "#3B808E",
     },
     {
-      path: "/my-giulio/repairs",
+      path: "/config/repairs",
       translationKey: "repairs",
       iconPath: mdiScrewdriver,
       iconColor: "#5c995c",
     },
     {
       component: "logs",
-      path: "/my-giulio/logs",
+      path: "/config/logs",
       translationKey: "logs",
       iconPath: mdiMathLog,
       iconColor: "#C65326",
       core: true,
     },
     {
-      path: "/my-giulio/backup",
+      path: "/config/backup",
       translationKey: "backup",
       iconPath: mdiBackupRestore,
       iconColor: "#0D47A1",
@@ -296,26 +296,26 @@ export const configSections: { [name: string]: PageNavigation[] } = {
       component: "hassio",
     },
     {
-      path: "/my-giulio/analytics",
+      path: "/config/analytics",
       translationKey: "analytics",
       iconPath: mdiShape,
       iconColor: "#f1c447",
     },
     {
-      path: "/my-giulio/network",
+      path: "/config/network",
       translationKey: "network",
       iconPath: mdiNetwork,
       iconColor: "#B1345C",
     },
     {
-      path: "/my-giulio/storage",
+      path: "/config/storage",
       translationKey: "storage",
       iconPath: mdiDatabase,
       iconColor: "#518C43",
       component: "hassio",
     },
     {
-      path: "/my-giulio/hardware",
+      path: "/config/hardware",
       translationKey: "hardware",
       iconPath: mdiMemory,
       iconColor: "#301A8E",
@@ -325,7 +325,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
   about: [
     {
       component: "info",
-      path: "/my-giulio/info",
+      path: "/config/info",
       translationKey: "ui.panel.config.info.caption",
       iconPath: mdiInformation,
       iconColor: "#4A5963",

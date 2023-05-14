@@ -106,7 +106,7 @@ class ErrorLogCard extends LitElement {
     super.firstUpdated(changedProps);
 
     if (this.hass?.config.safe_mode || this.show) {
-      this.hass.loadFragmentTranslation("my-giulio");
+      this.hass.loadFragmentTranslation("config");
       this._refreshLogs();
     }
   }

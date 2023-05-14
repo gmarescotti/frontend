@@ -20,7 +20,7 @@
   "settings": {
     "import/resolver": {
       "webpack": {
-        "my-giulio": "./webpack.config.js"
+        "config": "./webpack.config.js"
       }
     }
   },

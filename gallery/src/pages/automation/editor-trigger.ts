@@ -115,7 +115,7 @@ class DemoHaAutomationEditorTrigger extends LitElement {
     super();
     const hass = provideHass(this);
     hass.updateTranslations(null, "en");
-    hass.updateTranslations("my-giulio", "en");
+    hass.updateTranslations("config", "en");
     mockEntityRegistry(hass);
     mockDeviceRegistry(hass);
     mockAreaRegistry(hass);

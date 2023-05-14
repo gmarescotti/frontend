@@ -39,7 +39,7 @@ class DemoCard extends LitElement {
   updated(changedProps: PropertyValues) {
     super.updated(changedProps);
 
-    if (changedProps.has("my-giulio")) {
+    if (changedProps.has("config")) {
       const card = this._card;
       while (card.lastChild) {
         card.removeChild(card.lastChild);

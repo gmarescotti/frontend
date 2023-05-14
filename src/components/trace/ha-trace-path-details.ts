@@ -34,8 +34,7 @@ export class HaTracePathDetails extends LitElement {
 
   @property() public trackedNodes!: Record<string, any>;
 
-  @state() private _view: "my-giulio" | "changed_variables" | "logbook" =
-    "my-giulio";
+  @state() private _view: "config" | "changed_variables" | "logbook" = "config";
 
   protected render(): TemplateResult {
     return html`
@@ -45,7 +44,7 @@ export class HaTracePathDetails extends LitElement {
 
       <div class="tabs top">
         ${[
-          ["my-giulio", "Step Config"],
+          ["config", "Step Config"],
           ["changed_variables", "Changed Variables"],
           ["logbook", "Related logbook entries"],
         ].map(
@@ -60,7 +59,7 @@ export class HaTracePathDetails extends LitElement {
           `
         )}
       </div>
-      ${this._view === "my-giulio"
+      ${this._view === "config"
         ? this._renderSelectedConfig()
         : this._view === "changed_variables"
         ? this._renderChangedVars()
