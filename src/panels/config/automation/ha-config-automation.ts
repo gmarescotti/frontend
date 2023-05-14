@@ -12,6 +12,7 @@ import {
 import { HomeAssistant } from "../../../types";
 import "./ha-automation-editor";
 import "./ha-automation-picker";
+import { myhass } from "../../../common/translations/localize";
 // import { LocalizeFunc } from "../../../common/translations/localize";
 // import { computeLocalize } from "../../../common/translations/localize";
 
@@ -97,6 +98,7 @@ class HaConfigAutomation extends HassRouterPage {
   );
 
   protected firstUpdated(changedProps) {
+    myhass.pushHass2(this.hass);
     super.firstUpdated(changedProps);
     this.hass.loadBackendTranslation("device_automation");
   }

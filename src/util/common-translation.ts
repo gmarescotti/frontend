@@ -135,6 +135,7 @@ export async function getTranslation(
   language: string,
   base_url?: string
 ) {
+  // GGG if (fragment === "custom") fragment = null;
   const metadata = translationMetadata.translations[language];
   if (!metadata?.hash) {
     if (language !== "en") {

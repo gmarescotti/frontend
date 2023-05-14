@@ -1,10 +1,17 @@
+/* eslint-disable no-console */
 import { shouldPolyfill as shouldPolyfillLocale } from "@formatjs/intl-locale/lib/should-polyfill";
 import { shouldPolyfill as shouldPolyfillPluralRules } from "@formatjs/intl-pluralrules/lib/should-polyfill";
 import { shouldPolyfill as shouldPolyfillRelativeTime } from "@formatjs/intl-relativetimeformat/lib/should-polyfill";
 import { shouldPolyfill as shouldPolyfillDateTime } from "@formatjs/intl-datetimeformat/lib/should-polyfill";
 import IntlMessageFormat from "intl-messageformat";
-import { Resources, TranslationDict } from "../../types";
-import { getLocalLanguage } from "../../util/common-translation";
+// import { property } from "lit/decorators";
+import { customElement, property } from "lit/decorators";
+import { LitElement } from "lit";
+import { HomeAssistant, Resources, TranslationDict } from "../../types";
+import {
+  getLocalLanguage,
+  getTranslation,
+} from "../../util/common-translation";
 // import { getTranslation } from "../../util/common-translation";
 // import { HomeAssistantAppEl } from "../../layouts/home-assistant";
 // import { CircularProgress } from "@material/mwc-circular-progress";
@@ -224,158 +231,35 @@ export const loadPolyfillLocales = async (language: string) => {
   }
 };
 
-// const _initializeLocalize = (c) => {
-//   const { language, data } = getTranslation(
-//     null,
-//     "en",
-//     "/api/hassio/app/static/translations"
-//   );
+@customElement("ha-myhass")
+export class MyHassClass extends LitElement {
+  @property() public localize!: LocalizeFunc;
 
-//   c.myhass.localize = computeLocalize(
-//     null,
-//     language,
-//     {
-//       [language]: data,
-//     }
-//   );
-//   // return localize;
-// }
+  @property() public hass!: HomeAssistant;
 
-export class MyHassClass {
-  // @property() public localize: LocalizeFunc;
-
-  // public constructor() {
-  //   this.localize = this.mylocalize;
-  // }
-
-  public localize(key: LocalizeKeys, ..._args: any[]) {
-    switch (key) {
-      case "ui.panel.config.automation.caption":
-        return "Automations";
-      case "ui.panel.config.scene.caption":
-        return "Scenes";
-      case "ui.panel.config.script.caption":
-        return "Scripts";
-      case "ui.panel.config.blueprint.caption":
-        return "Blueprints";
-      case "ui.panel.config.automation.picker.headers.name":
-        return "Name";
-      case "ui.card.automation.last_triggered":
-        return "Last triggered";
-      case "ui.panel.config.automation.picker.no_automations":
-        return "We couldn't find any automations";
-      case "ui.panel.config.automation.picker.add_automation":
-        return "Create Simga automation";
-
-      case "ui.panel.config.automation.editor.triggers.header":
-        return "Triggers";
-      case "ui.panel.config.automation.editor.triggers.add":
-        return "add trigger";
-      case "ui.panel.config.automation.editor.conditions.header":
-        return "Conditions";
-      case "ui.panel.config.automation.editor.conditions.add":
-        return "Add condition";
-      case "ui.panel.config.automation.editor.actions.header":
-        return "Actions";
-      case "ui.panel.config.automation.editor.actions.add":
-        return "Add Action";
-      case "ui.panel.config.automation.editor.save":
-        return "Save";
-      case "ui.panel.config.automation.editor.triggers.rename":
-        return "Rename";
-      case "ui.panel.config.automation.editor.triggers.re_order":
-        return "Re-order";
-      case "ui.panel.config.automation.editor.triggers.duplicate":
-        return "Duplicate";
-      case "ui.panel.config.automation.editor.triggers.edit_id":
-        return "Edit ID";
-      case "ui.panel.config.automation.editor.edit_yaml":
-        return "Edit in YAML";
-      case "ui.panel.config.automation.editor.edit_ui":
-        return "Edit in visual editor";
-      case "ui.panel.config.automation.editor.actions.disable":
-        return "Disable";
-      case "ui.panel.config.automation.editor.actions.delete":
-        return "Delete";
-      case "ui.panel.config.automation.editor.triggers.type.device.trigger":
-        return "Trigger";
-      case "ui.panel.config.automation.editor.actions.type.device_id.action":
-        return "Action";
-      case "ui.panel.config.automation.editor.show_info":
-        return "Information";
-      case "ui.panel.config.automation.editor.run":
-        return "Run";
-      case "ui.panel.config.automation.editor.show_trace":
-        return "Traces";
-      case "ui.panel.config.automation.picker.duplicate":
-        return "Duplicate";
-      case "ui.panel.config.automation.editor.disable":
-        return "Disable";
-      case "ui.panel.config.automation.picker.delete":
-        return "Delete";
-      case "ui.components.relative_time.never":
-        return "Never";
-
-      case "ui.panel.config.automation.editor.default_name":
-        return "New Automation";
-      case "ui.panel.config.automation.editor.alias":
-        return "Name";
-      case "ui.panel.config.automation.editor.description.placeholder":
-        return "Optional Description";
-      case "ui.dialogs.generic.cancel":
-        return "Cancel";
-
-      case "ui.panel.config.automation.editor.rename":
-        return "Rename";
-      case "ui.panel.config.automation.editor.unsaved_confirm_title":
-        return "Leave editor";
-      case "ui.panel.config.automation.editor.unsaved_confirm_text":
-        return "Unsaved changes will be losy";
-      case "ui.common.stay":
-        return "Stay";
-      case "ui.common.leave":
-        return "Leave";
-
-      case "ui.panel.config.automation.picker.headers.state":
-        return "State";
-
-      default:
-        if (key.endsWith(".label")) {
-          const ret: string = key.split(".").slice(-2, -1)[0].replace("_", " ");
-          return ret.charAt(0).toUpperCase() + ret.slice(1);
-        }
-        if (key.endsWith(".disabled")) {
-          return "Disabled";
-        }
-        if (key.endsWith(".enabled")) {
-          return "Enabled";
-        }
-        if (key.endsWith(".disable")) {
-          return "Disable";
-        }
-        if (key.endsWith(".enable")) {
-          return "Enable";
-        }
-        return "???" + key;
-    }
+  public pushHass2(hass) {
+    this.hass = hass;
+    console.log("pushHass2.");
+    (async () => {
+      const { language, data } = await getTranslation(
+        null,
+        hass.language,
+        "/api/hassio/app/static/translations"
+      );
+      console.debug("JSON ===> " + language + "," + data);
+      // console.log(JSON.stringify(data, null, 3));
+      try {
+        this.localize = await computeLocalize(
+          this.constructor.prototype,
+          language,
+          { [language]: data }
+        );
+        console.debug("localize2-2=" + this.localize);
+      } catch (err) {
+        console.debug(err);
+      }
+    })();
   }
-
-  // public localize (key: LocalizeKeys, ..._args: any[]) {
-  //   // code for anonymousn function
-  //   // const v : string = HaConfigAutomation.localize_rel(key);
-  //   // if (v) {
-  //   //   return v;
-  //   // }
-  //   // let x : string;
-
-  //   // (async() => {
-  //   //   const locali : LocalizeFunc = await _initializeLocalize();
-  //   //   let x = "miaoo:" + locali(key);
-  //   // })(); // .then((res) => {x=res;return x});
-
-  //   // return x;
-  //   return "miaoo:" + key;
-  // };
 }
 
 export const myhass: MyHassClass = new MyHassClass();
