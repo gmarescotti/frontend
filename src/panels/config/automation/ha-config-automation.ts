@@ -69,6 +69,7 @@ class HaConfigAutomation extends HassRouterPage {
   // }
 
   protected routerOptions: RouterOptions = {
+    initialLoad: () => myhass.pushHass2(this.hass, undefined),
     defaultPage: "dashboard",
     routes: {
       dashboard: {
@@ -98,7 +99,7 @@ class HaConfigAutomation extends HassRouterPage {
   );
 
   protected firstUpdated(changedProps) {
-    myhass.pushHass2(this.hass);
+    // myhass.pushHass2(this.hass);
     super.firstUpdated(changedProps);
     this.hass.loadBackendTranslation("device_automation");
   }
