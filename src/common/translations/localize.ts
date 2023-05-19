@@ -237,28 +237,36 @@ export class MyHassClass extends LitElement {
 
   @property() public hass!: HomeAssistant;
 
-  public pushHass2(hass) {
+  public async pushHass2(hass, _localize) {
     this.hass = hass;
     console.log("pushHass2.");
-    (async () => {
-      const { language, data } = await getTranslation(
-        null,
+
+    const data = await getTranslation(
+      null,
+      hass.language || "en"
+      // "/api/hassio/app/static/translations"
+    );
+
+    const data2 = await getTranslation(
+      "custom",
+      hass.language || "en"
+      // "/local"
+    );
+
+    const data3 = {
+      ...data,
+      ...data2,
+    };
+
+    try {
+      this.localize = await computeLocalize(
+        this.constructor.prototype,
         hass.language,
-        "/api/hassio/app/static/translations"
+        { [hass.language]: data3 }
       );
-      console.debug("JSON ===> " + language + "," + data);
-      // console.log(JSON.stringify(data, null, 3));
-      try {
-        this.localize = await computeLocalize(
-          this.constructor.prototype,
-          language,
-          { [language]: data }
-        );
-        console.debug("localize2-2=" + this.localize);
-      } catch (err) {
-        console.debug(err);
-      }
-    })();
+    } catch (err) {
+      console.error(err);
+    }
   }
 }
 

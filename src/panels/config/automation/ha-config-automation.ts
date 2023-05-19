@@ -48,26 +48,6 @@ class HaConfigAutomation extends HassRouterPage {
     }
   }, 10);
 
-  // public static setlocalize(hass: HomeAssistant) {
-
-  //   const demo: (key: LocalizeKeys) => string = function (key): string {
-  //       // code for anonymousn function
-  //       const v : string = HaConfigAutomation.localize_rel(key);
-  //       if (v) {
-  //         return v;
-  //       }
-  //       return "miaoo:" + key;
-  //   };
-
-  //   HaConfigAutomation.localize_rel = hass.localize;
-
-  //   hass.localize = demo;
-  // }
-
-  // private constructor() {
-  //   super();
-  // }
-
   protected routerOptions: RouterOptions = {
     initialLoad: () => myhass.pushHass2(this.hass, undefined),
     defaultPage: "dashboard",

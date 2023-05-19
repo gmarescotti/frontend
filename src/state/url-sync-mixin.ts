@@ -11,7 +11,7 @@ import {
 import { ProvideHassElement } from "../mixins/provide-hass-lit-mixin";
 import { Constructor } from "../types";
 
-const DEBUG = false;
+const DEBUG = true;
 
 // eslint-disable-next-line import/no-mutable-exports
 export let historyPromise: Promise<void> | undefined;

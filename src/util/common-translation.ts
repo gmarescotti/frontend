@@ -135,7 +135,6 @@ export async function getTranslation(
   language: string,
   base_url?: string
 ) {
-  // GGG if (fragment === "custom") fragment = null;
   const metadata = translationMetadata.translations[language];
   if (!metadata?.hash) {
     if (language !== "en") {
@@ -154,16 +153,17 @@ export async function getTranslation(
     translations[fingerprint] = fetchTranslation(
       fingerprint,
       base_url || DEFAULT_BASE_URL
-    )
-      .then((data) => ({ language, data }))
-      .catch((error) => {
-        delete translations[fingerprint];
-        if (language !== "en") {
-          // Couldn't load selected translation. Try a fall back to en before failing.
-          return getTranslation(fragment, "en", base_url);
-        }
-        return Promise.reject(error);
-      });
+    );
+    // .then((data) => ({ language, data }))
+    // .catch((error) => {
+    //   console.error("AAAAAAAAAAAAAA: " + error);
+    //   delete translations[fingerprint];
+    //   if (language !== "en") {
+    //     // Couldn't load selected translation. Try a fall back to en before failing.
+    //     return getTranslation(fragment, "en", base_url);
+    //   }
+    //   return Promise.reject(error);
+    // });
   }
   return translations[fingerprint];
 }

@@ -1963,7 +1963,7 @@
             "learn_more": "Learn more about automations",
             "pick_automation": "Pick automation to edit",
             "no_automations": "We couldn't find any automations",
-            "add_automation": "Create automation",
+            "add_automation": "Create Simga automation",
             "only_editable": "Only automations in automations.yaml are editable.",
             "dev_only_editable": "Only automations that have a unique ID assigned are debuggable.",
             "edit_automation": "Edit automation",
