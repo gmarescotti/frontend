@@ -59,8 +59,7 @@ export class HaDeviceCard extends LitElement {
                   )}
                   <span class="hub"
                     ><a
-                      href="/my-giulio/devices/device/${this.device
-                        .via_device_id}"
+                      href="/simga/devices/device/${this.device.via_device_id}"
                       >${this._computeDeviceName(
                         this.devices,
                         this.device.via_device_id

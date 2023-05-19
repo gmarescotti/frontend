@@ -81,7 +81,7 @@ export const updateDeviceRegistryEntry = (
   updates: Partial<DeviceRegistryEntryMutableParams>
 ) =>
   hass.callWS<DeviceRegistryEntry>({
-    type: "my-giulio/device_registry/update",
+    type: "simga/device_registry/update",
     device_id: deviceId,
     ...updates,
   });
@@ -92,14 +92,14 @@ export const removeConfigEntryFromDevice = (
   configEntryId: string
 ) =>
   hass.callWS<DeviceRegistryEntry>({
-    type: "my-giulio/device_registry/remove_config_entry",
+    type: "simga/device_registry/remove_config_entry",
     device_id: deviceId,
     config_entry_id: configEntryId,
   });
 
 export const fetchDeviceRegistry = (conn: Connection) =>
   conn.sendMessagePromise<DeviceRegistryEntry[]>({
-    type: "my-giulio/device_registry/list",
+    type: "simga/device_registry/list",
   });
 
 const subscribeDeviceRegistryUpdates = (

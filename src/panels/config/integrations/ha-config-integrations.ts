@@ -420,7 +420,7 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
       <hass-tabs-subpage
         .hass=${this.hass}
         .narrow=${this.narrow}
-        back-path="/my-giulio"
+        back-path="/simga"
         .route=${this.route}
         .tabs=${configSections.devices}
       >
@@ -699,7 +699,7 @@ class HaConfigIntegrations extends SubscribeMixin(LitElement) {
   private async _handleAdd(localizePromise: Promise<LocalizeFunc>) {
     const brand = extractSearchParam("brand");
     const domain = extractSearchParam("domain");
-    navigate("/my-giulio/integrations", { replace: true });
+    navigate("/simga/integrations", { replace: true });
 
     if (brand) {
       showAddIntegrationDialog(this, {

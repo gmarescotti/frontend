@@ -76,11 +76,11 @@ import "./ha-integration-header";
 import { isDevVersion } from "../../../common/config/version";
 
 const integrationsWithPanel = {
-  matter: "/my-giulio/matter",
-  mqtt: "/my-giulio/mqtt",
-  thread: "/my-giulio/thread",
-  zha: "/my-giulio/zha/dashboard",
-  zwave_js: "/my-giulio/zwave_js/dashboard",
+  matter: "/simga/matter",
+  mqtt: "/simga/mqtt",
+  thread: "/simga/thread",
+  zha: "/simga/zha/dashboard",
+  zwave_js: "/simga/zwave_js/dashboard",
 };
 
 @customElement("ha-integration-card")

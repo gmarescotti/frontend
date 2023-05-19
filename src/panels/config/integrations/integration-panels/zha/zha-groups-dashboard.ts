@@ -120,7 +120,7 @@ export class ZHAGroupsDashboard extends LitElement {
         @row-click=${this._handleRowClicked}
         clickable
       >
-        <a href="/my-giulio/zha/group-add" slot="fab">
+        <a href="/simga/zha/group-add" slot="fab">
           <ha-fab
             .label=${this.hass!.localize(
               "ui.panel.config.zha.groups.add_group"

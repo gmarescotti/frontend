@@ -341,7 +341,7 @@ class HaAutomationPicker extends LitElement {
       });
       return;
     }
-    navigate(`/my-giulio/trace/${automation.attributes.id}`);
+    navigate(`/simga/trace/${automation.attributes.id}`);
   }
 
   private async _toggle(automation): Promise<void> {
@@ -436,9 +436,9 @@ class HaAutomationPicker extends LitElement {
     );
 
     if (automation?.attributes.id) {
-      navigate(`/my-giulio/edit/${automation.attributes.id}`);
+      navigate(`/simga/edit/${automation.attributes.id}`);
     } else {
-      navigate(`/my-giulio/show/${ev.detail.id}`);
+      navigate(`/simga/show/${ev.detail.id}`);
     }
   }
 
@@ -449,7 +449,7 @@ class HaAutomationPicker extends LitElement {
     // navigate("/local/automation/edit/new");
     // }
 
-    navigate("/my-giulio/edit/new");
+    navigate("/simga/edit/new");
   }
 
   static get styles(): CSSResultGroup {

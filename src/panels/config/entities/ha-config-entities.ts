@@ -491,9 +491,7 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
       <hass-tabs-subpage-data-table
         .hass=${this.hass}
         .narrow=${this.narrow}
-        .backPath=${this._searchParms.has("historyBack")
-          ? undefined
-          : "/my-giulio"}
+        .backPath=${this._searchParms.has("historyBack") ? undefined : "/simga"}
         .route=${this.route}
         .tabs=${configSections.devices}
         .columns=${this._columns(
@@ -678,7 +676,7 @@ export class HaConfigEntities extends SubscribeMixin(LitElement) {
               </ha-button-menu>
             `}
         ${includeZHAFab
-          ? html`<a href="/my-giulio/zha/add" slot="fab">
+          ? html`<a href="/simga/zha/add" slot="fab">
               <ha-fab
                 .label=${this.hass.localize("ui.panel.config.zha.add_device")}
                 extended

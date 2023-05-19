@@ -552,7 +552,7 @@ class AddIntegrationDialog extends LitElement {
       isComponentLoaded(this.hass, "cloud")
     ) {
       this.closeDialog();
-      navigate("/my-giulio/cloud");
+      navigate("/simga/cloud");
       return;
     }
 

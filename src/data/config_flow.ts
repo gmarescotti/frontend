@@ -29,7 +29,7 @@ const HEADERS = {
 export const createConfigFlow = (hass: HomeAssistant, handler: string) =>
   hass.callApi<DataEntryFlowStep>(
     "POST",
-    "my-giulio/config_entries/flow",
+    "simga/config_entries/flow",
     {
       handler,
       show_advanced_options: Boolean(hass.userData?.showAdvanced),

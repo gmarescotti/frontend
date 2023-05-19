@@ -8,7 +8,7 @@ import { HomeAssistant } from "../../../types";
 export const lovelaceTabs = [
   {
     component: "lovelace",
-    path: "/my-giulio/lovelace/dashboards",
+    path: "/simga/lovelace/dashboards",
     translationKey: "ui.panel.config.lovelace.dashboards.caption",
     icon: "hass:view-dashboard",
   },

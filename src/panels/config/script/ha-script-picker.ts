@@ -204,7 +204,7 @@ class HaScriptPicker extends LitElement {
       <hass-tabs-subpage-data-table
         .hass=${this.hass}
         .narrow=${this.narrow}
-        back-path="/my-giulio"
+        back-path="/simga"
         .route=${this.route}
         .tabs=${configSections.automations}
         .columns=${this._columns(this.narrow, this.hass.locale)}
@@ -235,7 +235,7 @@ class HaScriptPicker extends LitElement {
           @related-changed=${this._relatedFilterChanged}
         >
         </ha-button-related-filter-menu>
-        <a href="/my-giulio/script/edit/new" slot="fab">
+        <a href="/simga/script/edit/new" slot="fab">
           <ha-fab
             ?is-wide=${this.isWide}
             ?narrow=${this.narrow}

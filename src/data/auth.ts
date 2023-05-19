@@ -55,7 +55,7 @@ export const createAuthForUser = async (
   password: string
 ) =>
   hass.callWS({
-    type: "my-giulio/auth_provider/homeassistant/create",
+    type: "simga/auth_provider/homeassistant/create",
     user_id: userId,
     username,
     password,
@@ -67,7 +67,7 @@ export const adminChangePassword = async (
   password: string
 ) =>
   hass.callWS<void>({
-    type: "my-giulio/auth_provider/homeassistant/admin_change_password",
+    type: "simga/auth_provider/homeassistant/admin_change_password",
     user_id: userId,
     password,
   });

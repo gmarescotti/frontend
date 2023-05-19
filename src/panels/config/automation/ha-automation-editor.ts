@@ -490,7 +490,7 @@ export class HaAutomationEditor extends QuickBarMixin(HassElement) {
           ent.platform === "automation" && ent.unique_id === this.automationId
       );
       if (entity) {
-        navigate(`/my-giulio/show/${entity.entity_id}`, {
+        navigate(`/simga/show/${entity.entity_id}`, {
           replace: true,
         });
         return;
@@ -532,7 +532,7 @@ export class HaAutomationEditor extends QuickBarMixin(HassElement) {
     if (this._config?.id) {
       const result = await this.confirmUnsavedChanged();
       if (result) {
-        navigate(`/my-giulio/trace/${this._config.id}`);
+        navigate(`/simga/trace/${this._config.id}`);
       }
     }
   }
@@ -713,7 +713,7 @@ export class HaAutomationEditor extends QuickBarMixin(HassElement) {
     this._dirty = false;
 
     if (!this.automationId) {
-      navigate(`/my-giulio/edit/${id}`, { replace: true });
+      navigate(`/simga/edit/${id}`, { replace: true });
     }
   }
 

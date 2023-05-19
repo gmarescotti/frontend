@@ -22,7 +22,7 @@ export const demoConfig: HassConfig = {
     "energy",
   ],
   time_zone: "America/Los_Angeles",
-  config_dir: "/my-giulio",
+  config_dir: "/simga",
   version: "DEMO",
   allowlist_external_dirs: [],
   allowlist_external_urls: [],

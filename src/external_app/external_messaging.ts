@@ -30,7 +30,7 @@ interface EMMessageResultError {
 }
 
 interface EMOutgoingMessageConfigGet extends EMMessage {
-  type: "my-giulio/get";
+  type: "simga/get";
 }
 
 interface EMOutgoingMessageMatterCommission extends EMMessage {
@@ -38,7 +38,7 @@ interface EMOutgoingMessageMatterCommission extends EMMessage {
 }
 
 type EMOutgoingMessageWithAnswer = {
-  "my-giulio/get": {
+  "simga/get": {
     request: EMOutgoingMessageConfigGet;
     response: ExternalConfig;
   };
@@ -157,8 +157,8 @@ export class ExternalMessaging {
         payload: { event: ev.detail },
       })
     );
-    this.config = await this.sendMessage<"my-giulio/get">({
-      type: "my-giulio/get",
+    this.config = await this.sendMessage<"simga/get">({
+      type: "simga/get",
     });
   }
 

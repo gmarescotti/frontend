@@ -133,7 +133,7 @@ export class ZHAGroupPage extends LitElement {
               ? this.group.members.map(
                   (member) =>
                     html`<a
-                      href="/my-giulio/devices/device/${member.device
+                      href="/simga/devices/device/${member.device
                         .device_reg_id}"
                     >
                       <paper-item

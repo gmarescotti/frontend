@@ -101,7 +101,7 @@ export class HaConfigApplicationCredentials extends LitElement {
         .hass=${this.hass}
         .narrow=${this.narrow}
         .route=${this.route}
-        backPath="/my-giulio"
+        backPath="/simga"
         .tabs=${configSections.devices}
         .columns=${this._columns(this.narrow, this.hass.localize)}
         .data=${this._applicationCredentials}

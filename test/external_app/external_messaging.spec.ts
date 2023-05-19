@@ -25,13 +25,13 @@ describe("ExternalMessaging", () => {
 
   it("Send success results", async () => {
     const sendMessageProm = bus.sendMessage({
-      type: "my-giulio/get",
+      type: "simga/get",
     });
 
     assert.equal(bus.mockSent.length, 1);
     assert.deepEqual(bus.mockSent[0], {
       id: 1,
-      type: "my-giulio/get",
+      type: "simga/get",
     });
 
     bus.receiveMessage({
@@ -51,7 +51,7 @@ describe("ExternalMessaging", () => {
 
   it("Send fail results", async () => {
     const sendMessageProm = bus.sendMessage({
-      type: "my-giulio/get",
+      type: "simga/get",
     });
 
     bus.receiveMessage({

@@ -234,7 +234,7 @@ class HaDomainIntegrations extends LitElement {
       isComponentLoaded(this.hass, "cloud")
     ) {
       fireEvent(this, "close-dialog");
-      navigate("/my-giulio/cloud");
+      navigate("/simga/cloud");
       return;
     }
 

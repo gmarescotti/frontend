@@ -224,7 +224,7 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
 
           ${this.scriptId && this.narrow
             ? html`
-                <a href="/my-giulio/script/trace/${this.scriptId}">
+                <a href="/simga/script/trace/${this.scriptId}">
                   <mwc-list-item graphic="icon">
                     ${this.hass.localize(
                       "ui.panel.config.script.editor.show_trace"
@@ -785,7 +785,7 @@ export class HaScriptEditor extends KeyboardShortcutMixin(LitElement) {
     try {
       await this.hass!.callApi(
         "POST",
-        "my-giulio/script/config/" + id,
+        "simga/script/config/" + id,
         this._config
       );
     } catch (errors: any) {

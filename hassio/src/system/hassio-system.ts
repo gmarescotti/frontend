@@ -31,7 +31,7 @@ class HassioSystem extends LitElement {
         .route=${this.route}
         .tabs=${supervisorTabs(this.hass)}
         .mainPage=${!atLeastVersion(this.hass.config.version, 2021, 12)}
-        back-path="/my-giulio"
+        back-path="/simga"
         supervisor
       >
         <span slot="header"> ${this.supervisor.localize("panel.system")} </span>

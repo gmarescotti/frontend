@@ -81,7 +81,7 @@ class HaConfigEnergy extends LitElement {
         .narrow=${this.narrow}
         .backPath=${this._searchParms.has("historyBack")
           ? undefined
-          : "/my-giulio/lovelace/dashboards"}
+          : "/simga/lovelace/dashboards"}
         .header=${this.hass.localize("ui.panel.config.energy.caption")}
       >
         <ha-alert>

@@ -115,7 +115,7 @@ export const protocolIntegrationPicked = async (
       return;
     }
 
-    navigate("/my-giulio/zha/add");
+    navigate("/simga/zha/add");
   } else if (domain === "matter") {
     const entries = await getConfigEntries(hass, {
       domain,

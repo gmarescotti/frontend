@@ -753,14 +753,14 @@ class HUIRoot extends LitElement {
     if (!shouldHandleRequestSelectedEvent(ev)) {
       return;
     }
-    navigate("/my-giulio/lovelace/dashboards");
+    navigate("/simga/lovelace/dashboards");
   }
 
   private _handleManageResources(ev: CustomEvent<RequestSelectedDetail>): void {
     if (!shouldHandleRequestSelectedEvent(ev)) {
       return;
     }
-    navigate("/my-giulio/lovelace/resources");
+    navigate("/simga/lovelace/resources");
   }
 
   private _handleUnusedEntities(ev: CustomEvent<RequestSelectedDetail>): void {

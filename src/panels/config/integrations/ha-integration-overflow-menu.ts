@@ -18,7 +18,7 @@ export class HaIntegrationOverflowMenu extends LitElement {
           .label=${this.hass.localize("ui.common.menu")}
           .path=${mdiDotsVertical}
         ></ha-icon-button>
-        <ha-clickable-list-item href="/my-giulio/application_credentials">
+        <ha-clickable-list-item href="/simga/application_credentials">
           ${this.hass.localize(
             "ui.panel.config.application_credentials.caption"
           )}

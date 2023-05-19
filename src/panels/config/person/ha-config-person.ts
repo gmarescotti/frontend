@@ -60,7 +60,7 @@ class HaConfigPerson extends LitElement {
         .hass=${this.hass}
         .narrow=${this.narrow}
         .route=${this.route}
-        back-path="/my-giulio"
+        back-path="/simga"
         .tabs=${configSections.persons}
       >
         <ha-config-section .isWide=${this.isWide}>

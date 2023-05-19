@@ -15,7 +15,7 @@ class HaConfigSectionAnalytics extends LitElement {
   protected render(): TemplateResult {
     return html`
       <hass-subpage
-        back-path="/my-giulio/system"
+        back-path="/simga/system"
         .hass=${this.hass}
         .narrow=${this.narrow}
         .header=${this.hass.localize("ui.panel.config.analytics.caption")}

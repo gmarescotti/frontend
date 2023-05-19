@@ -101,7 +101,7 @@ class HaConfigInfo extends LitElement {
       <hass-subpage
         .hass=${this.hass}
         .narrow=${this.narrow}
-        back-path="/my-giulio"
+        back-path="/simga"
         .header=${this.hass.localize("ui.panel.config.info.caption")}
       >
         <div class="content">

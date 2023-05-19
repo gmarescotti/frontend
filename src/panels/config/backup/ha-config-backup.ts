@@ -136,7 +136,7 @@ class HaConfigBackup extends LitElement {
         ]}
         .hass=${this.hass}
         .narrow=${this.narrow}
-        back-path="/my-giulio/system"
+        back-path="/simga/system"
         .route=${this.route}
         .columns=${this._columns(this.narrow, this.hass.language)}
         .data=${this._getItems(this._backupData.backups)}

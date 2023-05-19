@@ -64,7 +64,7 @@ export class CloudWebhooks extends LitElement {
                   ${this.hass.localize(
                     "ui.panel.config.cloud.account.webhooks.no_hooks_yet"
                   )}
-                  <a href="/my-giulio/integrations"
+                  <a href="/simga/integrations"
                     >${this.hass.localize(
                       "ui.panel.config.cloud.account.webhooks.no_hooks_yet_link_integration"
                     )}
@@ -72,7 +72,7 @@ export class CloudWebhooks extends LitElement {
                   ${this.hass.localize(
                     "ui.panel.config.cloud.account.webhooks.no_hooks_yet2"
                   )}
-                  <a href="/my-giulio/new"
+                  <a href="/simga/new"
                     >${this.hass.localize(
                       "ui.panel.config.cloud.account.webhooks.no_hooks_yet_link_automation"
                     )}</a

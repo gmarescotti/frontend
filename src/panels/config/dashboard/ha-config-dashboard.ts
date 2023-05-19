@@ -142,7 +142,7 @@ class HaConfigDashboard extends SubscribeMixin(LitElement) {
     if (isCloudLoaded) {
       pages.push({
         component: "cloud",
-        path: "/my-giulio/cloud",
+        path: "/simga/cloud",
         name: "Home Assistant Cloud",
         info: cloudStatus,
         iconPath: mdiCloudLock,
@@ -237,7 +237,7 @@ class HaConfigDashboard extends SubscribeMixin(LitElement) {
                       ></ha-config-repairs>
                       ${totalRepairIssues > repairsIssues.length
                         ? html`
-                            <a class="button" href="/my-giulio/repairs">
+                            <a class="button" href="/simga/repairs">
                               ${this.hass.localize(
                                 "ui.panel.config.repairs.more_repairs",
                                 {
@@ -263,7 +263,7 @@ class HaConfigDashboard extends SubscribeMixin(LitElement) {
                       ></ha-config-updates>
                       ${totalUpdates > canInstallUpdates.length
                         ? html`
-                            <a class="button" href="/my-giulio/updates">
+                            <a class="button" href="/simga/updates">
                               ${this.hass.localize(
                                 "ui.panel.config.updates.more_updates",
                                 {

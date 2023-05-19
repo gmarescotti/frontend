@@ -44,7 +44,7 @@ class HaPanelMap extends LitElement {
   }
 
   private _openZonesEditor() {
-    navigate("/my-giulio/zone");
+    navigate("/simga/zone");
   }
 
   public willUpdate(changedProps: PropertyValues) {

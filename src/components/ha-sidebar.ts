@@ -531,7 +531,7 @@ class HaSidebar extends SubscribeMixin(LitElement) {
     return html`<a
       class="configuration-container"
       role="option"
-      href="/my-giulio"
+      href="/simga"
       data-panel="config"
       tabindex="-1"
       @mouseenter=${this._itemMouseEnter}

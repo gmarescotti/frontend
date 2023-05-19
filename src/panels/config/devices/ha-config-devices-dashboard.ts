@@ -411,9 +411,7 @@ export class HaConfigDeviceDashboard extends LitElement {
       <hass-tabs-subpage-data-table
         .hass=${this.hass}
         .narrow=${this.narrow}
-        .backPath=${this._searchParms.has("historyBack")
-          ? undefined
-          : "/my-giulio"}
+        .backPath=${this._searchParms.has("historyBack") ? undefined : "/simga"}
         .tabs=${configSections.devices}
         .route=${this.route}
         .activeFilters=${activeFilters}

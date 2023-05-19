@@ -104,7 +104,7 @@ export class HaScriptTrace extends LitElement {
           ? html`
               <a
                 class="trace-link"
-                href="/my-giulio/script/edit/${this.scriptId}"
+                href="/simga/script/edit/${this.scriptId}"
                 slot="toolbar-icon"
               >
                 <mwc-button>
@@ -139,7 +139,7 @@ export class HaScriptTrace extends LitElement {
             ? html`
                 <a
                   class="trace-link"
-                  href="/my-giulio/script/edit/${this.scriptId}"
+                  href="/simga/script/edit/${this.scriptId}"
                 >
                   <mwc-list-item graphic="icon">
                     ${this.hass.localize(

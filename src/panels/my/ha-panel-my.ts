@@ -18,7 +18,7 @@ import { documentationUrl } from "../../util/documentation-url";
 
 export const getMyRedirects = (hasSupervisor: boolean): Redirects => ({
   application_credentials: {
-    redirect: "/my-giulio/application_credentials",
+    redirect: "/simga/application_credentials",
   },
   developer_states: {
     redirect: "/developer-tools/state",
@@ -49,105 +49,105 @@ export const getMyRedirects = (hasSupervisor: boolean): Redirects => ({
     redirect: "/calendar",
   },
   config: {
-    redirect: "/my-giulio/dashboard",
+    redirect: "/simga/dashboard",
   },
   cloud: {
     component: "cloud",
-    redirect: "/my-giulio/cloud",
+    redirect: "/simga/cloud",
   },
   config_flow_start: {
-    redirect: "/my-giulio/integrations/add",
+    redirect: "/simga/integrations/add",
     params: {
       domain: "string",
     },
   },
   brand: {
-    redirect: "/my-giulio/integrations/add",
+    redirect: "/simga/integrations/add",
     params: {
       brand: "string",
     },
   },
   integrations: {
-    redirect: "/my-giulio/integrations",
+    redirect: "/simga/integrations",
   },
   config_mqtt: {
     component: "mqtt",
-    redirect: "/my-giulio/mqtt",
+    redirect: "/simga/mqtt",
   },
   config_zha: {
     component: "zha",
-    redirect: "/my-giulio/zha/dashboard",
+    redirect: "/simga/zha/dashboard",
   },
   config_zwave_js: {
     component: "zwave_js",
-    redirect: "/my-giulio/zwave_js/dashboard",
+    redirect: "/simga/zwave_js/dashboard",
   },
   add_zigbee_device: {
     component: "zha",
-    redirect: "/my-giulio/zha/add",
+    redirect: "/simga/zha/add",
   },
   add_zwave_device: {
     component: "zwave_js",
-    redirect: "/my-giulio/zwave_js/add",
+    redirect: "/simga/zwave_js/add",
   },
   add_matter_device: {
     component: "matter",
-    redirect: "/my-giulio/matter/add",
+    redirect: "/simga/matter/add",
   },
   config_energy: {
     component: "energy",
-    redirect: "/my-giulio/energy/dashboard",
+    redirect: "/simga/energy/dashboard",
   },
   devices: {
-    redirect: "/my-giulio/devices/dashboard",
+    redirect: "/simga/devices/dashboard",
   },
   entities: {
-    redirect: "/my-giulio/entities",
+    redirect: "/simga/entities",
   },
   energy: {
     component: "energy",
     redirect: "/energy",
   },
   areas: {
-    redirect: "/my-giulio/areas/dashboard",
+    redirect: "/simga/areas/dashboard",
   },
   blueprint_import: {
     component: "blueprint",
-    redirect: "/my-giulio/blueprint/dashboard/import",
+    redirect: "/simga/blueprint/dashboard/import",
     params: {
       blueprint_url: "url",
     },
   },
   blueprints: {
     component: "blueprint",
-    redirect: "/my-giulio/blueprint/dashboard",
+    redirect: "/simga/blueprint/dashboard",
   },
   automations: {
     component: "automation",
-    redirect: "/my-giulio/dashboard",
+    redirect: "/simga/dashboard",
   },
   scenes: {
     component: "scene",
-    redirect: "/my-giulio/scene/dashboard",
+    redirect: "/simga/scene/dashboard",
   },
   scripts: {
     component: "script",
-    redirect: "/my-giulio/script/dashboard",
+    redirect: "/simga/script/dashboard",
   },
   helpers: {
-    redirect: "/my-giulio/helpers",
+    redirect: "/simga/helpers",
   },
   tags: {
     component: "tag",
-    redirect: "/my-giulio/tags",
+    redirect: "/simga/tags",
   },
   lovelace_dashboards: {
     component: "lovelace",
-    redirect: "/my-giulio/lovelace/dashboards",
+    redirect: "/simga/lovelace/dashboards",
   },
   lovelace_resources: {
     component: "lovelace",
-    redirect: "/my-giulio/lovelace/resources",
+    redirect: "/simga/lovelace/resources",
   },
   oauth: {
     redirect: "/auth/external/callback",
@@ -160,52 +160,52 @@ export const getMyRedirects = (hasSupervisor: boolean): Redirects => ({
   },
   people: {
     component: "person",
-    redirect: "/my-giulio/person",
+    redirect: "/simga/person",
   },
   zones: {
     component: "zone",
-    redirect: "/my-giulio/zone",
+    redirect: "/simga/zone",
   },
   users: {
-    redirect: "/my-giulio/users",
+    redirect: "/simga/users",
   },
   general: {
-    redirect: "/my-giulio/general",
+    redirect: "/simga/general",
   },
   logs: {
-    redirect: "/my-giulio/logs",
+    redirect: "/simga/logs",
   },
   repairs: {
     component: "repairs",
-    redirect: "/my-giulio/repairs",
+    redirect: "/simga/repairs",
   },
   info: {
-    redirect: "/my-giulio/info",
+    redirect: "/simga/info",
   },
   system_health: {
-    redirect: "/my-giulio/repairs?dialog=system-health",
+    redirect: "/simga/repairs?dialog=system-health",
   },
   hardware: {
-    redirect: "/my-giulio/hardware",
+    redirect: "/simga/hardware",
   },
   storage: {
-    redirect: "/my-giulio/storage",
+    redirect: "/simga/storage",
   },
   network: {
-    redirect: "/my-giulio/network",
+    redirect: "/simga/network",
   },
   analytics: {
-    redirect: "/my-giulio/analytics",
+    redirect: "/simga/analytics",
   },
   updates: {
-    redirect: "/my-giulio/updates",
+    redirect: "/simga/updates",
   },
   system_dashboard: {
-    redirect: "/my-giulio/system",
+    redirect: "/simga/system",
   },
   customize: {
     // customize was removed in 2021.12, fallback to dashboard
-    redirect: "/my-giulio/dashboard",
+    redirect: "/simga/dashboard",
   },
   profile: {
     redirect: "/profile",
@@ -224,27 +224,27 @@ export const getMyRedirects = (hasSupervisor: boolean): Redirects => ({
   },
   backup: {
     component: hasSupervisor ? "hassio" : "backup",
-    redirect: hasSupervisor ? "/hassio/backups" : "/my-giulio/backup",
+    redirect: hasSupervisor ? "/hassio/backups" : "/simga/backup",
   },
   supervisor_snapshots: {
     component: hasSupervisor ? "hassio" : "backup",
-    redirect: hasSupervisor ? "/hassio/backups" : "/my-giulio/backup",
+    redirect: hasSupervisor ? "/hassio/backups" : "/simga/backup",
   },
   supervisor_backups: {
     component: hasSupervisor ? "hassio" : "backup",
-    redirect: hasSupervisor ? "/hassio/backups" : "/my-giulio/backup",
+    redirect: hasSupervisor ? "/hassio/backups" : "/simga/backup",
   },
   supervisor_system: {
     // Moved from Supervisor panel in 2022.5
-    redirect: "/my-giulio/system",
+    redirect: "/simga/system",
   },
   supervisor_logs: {
     // Moved from Supervisor panel in 2022.5
-    redirect: "/my-giulio/logs",
+    redirect: "/simga/logs",
   },
   supervisor_info: {
     // Moved from Supervisor panel in 2022.5
-    redirect: "/my-giulio/info",
+    redirect: "/simga/info",
   },
   hacs_repository: {
     component: "hacs",

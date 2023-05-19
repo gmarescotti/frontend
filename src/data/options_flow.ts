@@ -2,14 +2,10 @@ import { HomeAssistant } from "../types";
 import { DataEntryFlowStep } from "./data_entry_flow";
 
 export const createOptionsFlow = (hass: HomeAssistant, handler: string) =>
-  hass.callApi<DataEntryFlowStep>(
-    "POST",
-    "my-giulio/config_entries/options/flow",
-    {
-      handler,
-      show_advanced_options: Boolean(hass.userData?.showAdvanced),
-    }
-  );
+  hass.callApi<DataEntryFlowStep>("POST", "simga/config_entries/options/flow", {
+    handler,
+    show_advanced_options: Boolean(hass.userData?.showAdvanced),
+  });
 
 export const fetchOptionsFlow = (hass: HomeAssistant, flowId: string) =>
   hass.callApi<DataEntryFlowStep>(

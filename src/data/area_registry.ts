@@ -32,7 +32,7 @@ export const createAreaRegistryEntry = (
   values: AreaRegistryEntryMutableParams
 ) =>
   hass.callWS<AreaRegistryEntry>({
-    type: "my-giulio/area_registry/create",
+    type: "simga/area_registry/create",
     ...values,
   });
 
@@ -42,21 +42,21 @@ export const updateAreaRegistryEntry = (
   updates: Partial<AreaRegistryEntryMutableParams>
 ) =>
   hass.callWS<AreaRegistryEntry>({
-    type: "my-giulio/area_registry/update",
+    type: "simga/area_registry/update",
     area_id: areaId,
     ...updates,
   });
 
 export const deleteAreaRegistryEntry = (hass: HomeAssistant, areaId: string) =>
   hass.callWS({
-    type: "my-giulio/area_registry/delete",
+    type: "simga/area_registry/delete",
     area_id: areaId,
   });
 
 const fetchAreaRegistry = (conn: Connection) =>
   conn
     .sendMessagePromise({
-      type: "my-giulio/area_registry/list",
+      type: "simga/area_registry/list",
     })
     .then((areas) =>
       (areas as AreaRegistryEntry[]).sort((ent1, ent2) =>

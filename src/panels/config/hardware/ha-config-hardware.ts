@@ -253,7 +253,7 @@ class HaConfigHardware extends SubscribeMixin(LitElement) {
 
     return html`
       <hass-subpage
-        back-path="/my-giulio/system"
+        back-path="/simga/system"
         .hass=${this.hass}
         .narrow=${this.narrow}
         .header=${this.hass.localize("ui.panel.config.hardware.caption")}

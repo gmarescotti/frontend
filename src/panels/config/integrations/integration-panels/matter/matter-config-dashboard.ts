@@ -39,7 +39,7 @@ export class MatterConfigDashboard extends LitElement {
       <hass-subpage .narrow=${this.narrow} .hass=${this.hass} header="Matter">
         ${isComponentLoaded(this.hass, "otbr")
           ? html`
-              <a href="/my-giulio/thread" slot="toolbar-icon">
+              <a href="/simga/thread" slot="toolbar-icon">
                 <mwc-button>Visit Thread Panel</mwc-button>
               </a>
             `

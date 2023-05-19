@@ -155,7 +155,7 @@ class HaChangePasswordCard extends LitElement {
 
     try {
       await this.hass.callWS({
-        type: "my-giulio/auth_provider/homeassistant/change_password",
+        type: "simga/auth_provider/homeassistant/change_password",
         current_password: this._currentPassword,
         new_password: this._password,
       });

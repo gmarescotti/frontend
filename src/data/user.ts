@@ -34,7 +34,7 @@ export interface UpdateUserParams {
 
 export const fetchUsers = async (hass: HomeAssistant) =>
   hass.callWS<User[]>({
-    type: "my-giulio/auth/list",
+    type: "simga/auth/list",
   });
 
 export const createUser = async (
@@ -45,7 +45,7 @@ export const createUser = async (
   local_only?: boolean
 ) =>
   hass.callWS<{ user: User }>({
-    type: "my-giulio/auth/create",
+    type: "simga/auth/create",
     name,
     group_ids,
     local_only,
@@ -58,13 +58,13 @@ export const updateUser = async (
 ) =>
   hass.callWS<{ user: User }>({
     ...params,
-    type: "my-giulio/auth/update",
+    type: "simga/auth/update",
     user_id: userId,
   });
 
 export const deleteUser = async (hass: HomeAssistant, userId: string) =>
   hass.callWS<void>({
-    type: "my-giulio/auth/delete",
+    type: "simga/auth/delete",
     user_id: userId,
   });
 

@@ -195,7 +195,7 @@ export class HaConfigHelpers extends SubscribeMixin(LitElement) {
       <hass-tabs-subpage-data-table
         .hass=${this.hass}
         .narrow=${this.narrow}
-        back-path="/my-giulio"
+        back-path="/simga"
         .route=${this.route}
         .tabs=${configSections.devices}
         .columns=${this._columns(this.narrow, this.hass.localize)}
@@ -239,7 +239,7 @@ export class HaConfigHelpers extends SubscribeMixin(LitElement) {
 
   private async _handleAdd() {
     const domain = extractSearchParam("domain");
-    navigate("/my-giulio/helpers", { replace: true });
+    navigate("/simga/helpers", { replace: true });
     if (!domain) {
       return;
     }

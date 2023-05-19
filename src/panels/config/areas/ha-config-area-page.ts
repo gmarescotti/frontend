@@ -285,7 +285,7 @@ class HaConfigAreaPage extends SubscribeMixin(LitElement) {
                 ? devices.map(
                     (device) =>
                       html`
-                        <a href="/my-giulio/devices/device/${device.id}">
+                        <a href="/simga/devices/device/${device.id}">
                           <paper-item>
                             <paper-item-body> ${device.name} </paper-item-body>
                             <ha-icon-next></ha-icon-next>
