@@ -598,6 +598,13 @@ export class HaAutomationEditor extends QuickBarMixin(HassElement) {
         confirmText: myhass.localize("ui.common.leave"),
         dismissText: myhass.localize("ui.common.stay"),
         destructive: true,
+        // added 'back' because app running as "custom panel" meeds it.
+        confirm: () => {
+          history.back();
+        },
+        cancel: () => {
+          history.back();
+        },
       });
     }
     return true;

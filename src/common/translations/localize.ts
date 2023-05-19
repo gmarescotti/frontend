@@ -239,7 +239,7 @@ export class MyHassClass extends LitElement {
 
   public async pushHass2(hass, _localize) {
     this.hass = hass;
-    console.log("pushHass2.");
+    // console.log("pushHass2.");
 
     const data = await getTranslation(
       null,
