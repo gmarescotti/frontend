@@ -155,8 +155,15 @@ export class HaDevicePicker extends SubscribeMixin(LitElement) {
       }
 
       let inputDevices = devices.filter(
-        (device) => device.id === this.value || !device.disabled_by
+        (device) =>
+          (device.id === this.value || !device.disabled_by) &&
+          device.manufacturer === "Simga"
       );
+
+      for (const device of inputDevices) {
+        // eslint-disable-next-line no-console
+        console.debug("device=" + device.manufacturer);
+      }
 
       if (includeDomains) {
         inputDevices = inputDevices.filter((device) => {

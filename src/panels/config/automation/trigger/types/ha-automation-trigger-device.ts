@@ -14,6 +14,7 @@ import {
 import { HomeAssistant } from "../../../../../types";
 import { myhass } from "../../../../../common/translations/localize";
 
+// const includeDomains = ["simga"];
 @customElement("ha-automation-trigger-device")
 export class HaDeviceTrigger extends LitElement {
   @property({ attribute: false }) public hass!: HomeAssistant;
@@ -47,6 +48,7 @@ export class HaDeviceTrigger extends LitElement {
       return extraFieldsData;
     }
   );
+  // .includeDomains=${includeDomains}
 
   protected render() {
     const deviceId = this._deviceId || this.trigger.device_id;
