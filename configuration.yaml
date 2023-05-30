@@ -1,0 +1,75 @@
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+# module_url: /local/23f0d93f.js
+# module_url: /local/custom-panel.8b5c5d58.js
+
+# Example configuration.yaml entry
+
+# simga:
+
+panel_custom:
+  - name: simga-automation
+    # - name: ha-config-automation
+    sidebar_title: Simga
+    sidebar_icon: mdi:motorbike
+
+    url_path: simga
+    # url_path: config/automation/dashboard
+
+    # module_url: /local/97b58554.js
+    # js_url: /local/97b58554.js
+    # module_url: /local/app.7fe55674.js
+    # /usr/local/lib/python3.10/site-packages/hass_frontend/frontend_latest/core.fd93ec62.js
+    # module_url: /local/core.fd93ec62.js
+
+    module_url: /local/app.js
+
+    embed_iframe: true
+
+    # embed_iframe: false
+    require_admin: false
+    config:
+      who: world
+      # ingress: core_configurator
+
+  - name: Automations
+    sidebar_title: Automations
+    sidebar_icon: mdi:cog-transfer
+
+    url_path: config/automation/dashboard
+
+    js_url: /api/hassio/app/entrypoint.js
+
+    embed_iframe: true
+
+    # require_admin: true
+
+    config:
+      ingress: core_configurator
+
+  # - name: example-panel
+  #   # url_path needs to be unique for each panel_custom config
+  #   url_path: redirect-server-controls
+  #   sidebar_title: Example Panel
+  #   sidebar_icon: mdi:server
+  #   module_url: /local/example-panel.js
+  #   embed_iframe: true
+  #   config:
+  #     # Data you want to make available to panel
+  #     hello: world
+
+
