@@ -11,7 +11,7 @@ import {
   mdiTransitConnection,
 } from "@mdi/js";
 import "@polymer/paper-tooltip/paper-tooltip";
-import { CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { CSSResultGroup, html, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { differenceInDays } from "date-fns/esm";
@@ -49,9 +49,12 @@ import { HomeAssistant, Route } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
 import { configSections } from "../ha-panel-config";
 import { myhass } from "../../../common/translations/localize";
+import { showDialog } from "../../../dialogs/make-dialog-manager";
+import { HassElement } from "../../../state/hass-element";
+import QuickBarMixin from "../../../state/quick-bar-mixin";
 
 @customElement("ha-automation-picker")
-class HaAutomationPicker extends LitElement {
+class HaAutomationPicker extends QuickBarMixin(HassElement) {
   @property({ attribute: false }) public hass!: HomeAssistant;
 
   @property({ type: Boolean }) public isWide!: boolean;
@@ -67,6 +70,27 @@ class HaAutomationPicker extends LitElement {
   @state() private _filteredAutomations?: string[] | null;
 
   @state() private _filterValue?;
+
+  public provideHass(el) {
+    el.hass = this.hass;
+  }
+
+  public connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener("show-dialog", this._dialogManager);
+  }
+
+  private _dialogManager = (e) => {
+    const { dialogTag, dialogImport, dialogParams, addHistory } = e.detail;
+    showDialog(
+      this,
+      this.shadowRoot!,
+      dialogTag,
+      dialogParams,
+      dialogImport,
+      addHistory
+    );
+  };
 
   private _automations = memoizeOne(
     (

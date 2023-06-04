@@ -6,7 +6,7 @@ import { dialogManagerMixin } from "./dialog-manager-mixin";
 // import { hapticMixin } from "./haptic-mixin";
 import { HassBaseEl } from "./hass-base-mixin";
 // import { loggingMixin } from "./logging-mixin";
-// import MoreInfoMixin from "./more-info-mixin";
+import MoreInfoMixin from "./more-info-mixin";
 import NotificationMixin from "./notification-mixin";
 // import { panelTitleMixin } from "./panel-title-mixin";
 // import SidebarMixin from "./sidebar-mixin";
@@ -21,7 +21,7 @@ export class HassElement extends ext(HassBaseEl, [
   // AuthMixin,
   // ThemesMixin,
   TranslationsMixin,
-  // MoreInfoMixin,
+  MoreInfoMixin,
   // SidebarMixin,
   // DisconnectToastMixin,
   connectionMixin,

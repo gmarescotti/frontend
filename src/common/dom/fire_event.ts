@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // Polymer legacy event helpers used courtesy of the Polymer project.
 //
 // Copyright (c) 2017 The Polymer Authors. All rights reserved.
@@ -64,6 +65,8 @@ export const fireEvent = <HassEvent extends ValidHassDomEvent>(
     composed?: boolean;
   }
 ) => {
+  console.debug("FIRED: " + type);
+
   options = options || {};
   // @ts-ignore
   detail = detail === null || detail === undefined ? {} : detail;

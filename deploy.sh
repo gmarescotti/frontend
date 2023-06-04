@@ -1,5 +1,7 @@
 #!/bin/sh
 
+mkdir -p ../config/www/custom
+
 docker cp hass_frontend/frontend_latest/app.js homeassistant:/config/www
 docker cp hass_frontend/frontend_latest/app.js.map homeassistant:/config/www
 docker cp hass_frontend/static/translations/en-1641709d26e071cca9a0d4b83255f64e.json homeassistant:/config/www
