@@ -7,7 +7,7 @@ import {
   mdiRayStartArrow,
   mdiRefresh,
 } from "@mdi/js";
-import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
+import { css, CSSResultGroup, html, TemplateResult } from "lit";
 import { customElement, property, query, state } from "lit/decorators";
 import { classMap } from "lit/directives/class-map";
 import { repeat } from "lit/directives/repeat";
@@ -41,9 +41,11 @@ import { haStyle } from "../../../resources/styles";
 import { HomeAssistant, Route } from "../../../types";
 import { computeRTL } from "../../../common/util/compute_rtl";
 import { myhass } from "../../../common/translations/localize";
+import { HassElement } from "../../../state/hass-element";
+import QuickBarMixin from "../../../state/quick-bar-mixin";
 
 @customElement("ha-automation-trace")
-export class HaAutomationTrace extends LitElement {
+export class HaAutomationTrace extends QuickBarMixin(HassElement) {
   @property({ attribute: false }) public hass!: HomeAssistant;
 
   @property() public automationId!: string;
