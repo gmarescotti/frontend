@@ -200,7 +200,7 @@ export class MoreInfoDialog extends LitElement {
       idToPassThroughUrl = this._entry.unique_id;
     }
 
-    navigate(`/config/${domain}/edit/${idToPassThroughUrl}`);
+    navigate(`/simga/edit/${idToPassThroughUrl}`);
     this.closeDialog();
   }
 
