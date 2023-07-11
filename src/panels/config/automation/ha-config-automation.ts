@@ -72,9 +72,8 @@ class HaConfigAutomation extends HassRouterPage {
   private _getAutomations = memoizeOne(
     (states: HassEntities): AutomationEntity[] =>
       Object.values(states).filter(
-        (entity) =>
-          computeStateDomain(entity) === "automation" &&
-          !entity.attributes.restored
+        (entity) => computeStateDomain(entity) === "simga" // &&
+        // !entity.attributes.restored
       ) as AutomationEntity[]
   );
 

@@ -320,7 +320,7 @@ export const getAutomationStateConfig = (
   entity_id: string
 ) =>
   hass.callWS<{ config: AutomationConfig }>({
-    type: "automation/config",
+    type: "simga/config/automation",
     entity_id,
   });
 
