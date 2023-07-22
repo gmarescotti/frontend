@@ -486,8 +486,7 @@ export class HaAutomationEditor extends QuickBarMixin(HassElement) {
     } catch (err: any) {
       const entityRegistry = await fetchEntityRegistry(this.hass.connection);
       const entity = entityRegistry.find(
-        (ent) =>
-          ent.platform === "automation" && ent.unique_id === this.automationId
+        (ent) => ent.platform === "simga" && ent.unique_id === this.automationId
       );
       if (entity) {
         navigate(`/simga/show/${entity.entity_id}`, {
