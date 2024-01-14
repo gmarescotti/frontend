@@ -10,6 +10,7 @@ import env from "../env.cjs";
 import paths from "../paths.cjs";
 import {
   createAppConfig,
+  createSimgaAppConfig,
   createCastConfig,
   createDemoConfig,
   createGalleryConfig,
@@ -109,6 +110,16 @@ gulp.task("webpack-prod-app", () =>
       isProdBuild: true,
       isStatsBuild: env.isStatsBuild(),
       isTestBuild: env.isTestBuild(),
+    })
+  )
+);
+
+gulp.task("webpack-simga-app", () =>
+  prodBuild(
+    createSimgaAppConfig({
+      isProdBuild: false,
+      latestBuild: true,
+      isStatsBuild: true,
     })
   )
 );

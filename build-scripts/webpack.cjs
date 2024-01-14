@@ -238,6 +238,11 @@ const createAppConfig = ({
     bundle.config.app({ isProdBuild, latestBuild, isStatsBuild, isTestBuild })
   );
 
+const createSimgaAppConfig = ({ isProdBuild, latestBuild, isStatsBuild }) =>
+  createWebpackConfig(
+    bundle.config.simga_app({ isProdBuild, latestBuild, isStatsBuild })
+  );
+
 const createDemoConfig = ({ isProdBuild, latestBuild, isStatsBuild }) =>
   createWebpackConfig(
     bundle.config.demo({ isProdBuild, latestBuild, isStatsBuild })
@@ -266,6 +271,7 @@ const createGalleryConfig = ({ isProdBuild, latestBuild }) =>
 
 module.exports = {
   createAppConfig,
+  createSimgaAppConfig,
   createDemoConfig,
   createCastConfig,
   createHassioConfig,

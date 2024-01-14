@@ -198,6 +198,24 @@ const publicPath = (latestBuild, root = "") =>
   */
 
 module.exports.config = {
+  simga_app({ isProdBuild, latestBuild, isStatsBuild, isWDS }) {
+    return {
+      entry: {
+        // service_worker: "./src/entrypoints/service_worker.ts",
+        app: "./src/entrypoints/simga.ts",
+        // authorize: "./src/entrypoints/authorize.ts",
+        // onboarding: "./src/entrypoints/onboarding.ts",
+        // core: "./src/entrypoints/core.ts",
+        // "custom-panel": "./src/entrypoints/custom-panel.ts",
+      },
+      outputPath: outputPath(paths.app_output_root, latestBuild),
+      publicPath: publicPath(latestBuild),
+      isProdBuild,
+      latestBuild,
+      isStatsBuild,
+      isWDS,
+    };
+  },
   app({ isProdBuild, latestBuild, isStatsBuild, isTestBuild, isWDS }) {
     return {
       name: "frontend" + nameSuffix(latestBuild),
