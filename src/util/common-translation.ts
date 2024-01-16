@@ -5,7 +5,8 @@ import {
 import { translationMetadata } from "../resources/translations-metadata";
 import { HomeAssistant } from "../types";
 
-const BASE_URL = `${__STATIC_PATH__}translations`;
+// const BASE_URL = `${__STATIC_PATH__}translations`;
+const BASE_URL = `static`;
 const STORAGE = window.localStorage || {};
 
 // Store loaded translations in memory so translations are available immediately

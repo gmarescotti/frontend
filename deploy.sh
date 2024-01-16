@@ -20,5 +20,7 @@ mkdir -p ../config/www/custom
 # docker cp hass_frontend/frontend_latest/src_panels_config_automation_automation-mode-dialog_dialog-automation-mode_ts.chunk.js.map homeassistant:/config/www
 
 cp hass_frontend/frontend_latest/* ../config/www/
-cp -r hass_frontend/static/translations ../config/www
+# cp -r hass_frontend/static/translations ../config/www
 
+cp hass_frontend/static/translations/en-*.json ../config/www
+cp hass_frontend/static/translations/config/en-*.json ../config/www/custom
