@@ -62,6 +62,7 @@ import { showNewAutomationDialog } from "./show-dialog-new-automation";
 import { findRelated } from "../../../data/search";
 import { fetchBlueprints } from "../../../data/blueprint";
 import { UNAVAILABLE } from "../../../data/entity";
+import { HassElement } from "../../../state/hass-element";
 
 type AutomationItem = AutomationEntity & {
   name: string;
@@ -70,7 +71,7 @@ type AutomationItem = AutomationEntity & {
 };
 
 @customElement("ha-automation-picker")
-class HaAutomationPicker extends LitElement {
+class HaAutomationPicker extends HassElement {
   @property({ attribute: false }) public hass!: HomeAssistant;
 
   @property({ type: Boolean }) public isWide!: boolean;
@@ -371,7 +372,8 @@ class HaAutomationPicker extends LitElement {
     `;
   }
 
-  firstUpdated() {
+  firstUpdated(changedProps) {
+    super.firstUpdated(changedProps); // GGGG
     if (this._searchParms.has("blueprint")) {
       this._filterBlueprint();
     }
