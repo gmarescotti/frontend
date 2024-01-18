@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {
   mdiCancel,
   mdiContentDuplicate,
@@ -16,7 +17,6 @@ import {
   css,
   CSSResultGroup,
   html,
-  LitElement,
   nothing,
   TemplateResult,
 } from "lit";
@@ -374,6 +374,7 @@ class HaAutomationPicker extends HassElement {
 
   firstUpdated(changedProps) {
     super.firstUpdated(changedProps); // GGGG
+    super.firstUpdated(changedProps); // GGGG funzionano i dialog
     if (this._searchParms.has("blueprint")) {
       this._filterBlueprint();
     }

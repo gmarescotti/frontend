@@ -1,5 +1,5 @@
 import { HassEntities } from "home-assistant-js-websocket";
-import { PropertyValues } from "lit";
+import { HTMLTemplateResult, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators";
 import memoizeOne from "memoize-one";
 import { computeStateDomain } from "../../../common/entity/compute_state_domain";
@@ -74,6 +74,18 @@ class HaConfigAutomation extends HassRouterPage {
   }
 
   protected updatePageEl(pageEl, changedProps: PropertyValues) {
+    console.warn("updatePageEl");
+    this.hass.localize = function(
+      key: string,
+      _values?: Record<
+        string,
+        string | number | HTMLTemplateResult | null | undefined
+      >
+    ): string {
+    
+      return key.substring(key.lastIndexOf(".") + 1).replaceAll("[.,?!]", "");
+    };
+
     pageEl.hass = this.hass;
     pageEl.narrow = this.narrow;
     pageEl.isWide = this.isWide;
