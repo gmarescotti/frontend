@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { HassEntities } from "home-assistant-js-websocket";
+import { HassEntities, UnsubscribeFunc } from "home-assistant-js-websocket";
 import { HTMLTemplateResult, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators";
 import memoizeOne from "memoize-one";
@@ -13,6 +13,9 @@ import {
 import { HomeAssistant } from "../../../types";
 import "./ha-automation-editor";
 import "./ha-automation-picker";
+import { ContextProvider } from "@lit-labs/context";
+import { fullEntitiesContext } from "../../../data/context";
+import { subscribeEntityRegistry } from "../../../data/entity_registry";
 
 const equal = (a: AutomationEntity[], b: AutomationEntity[]): boolean => {
   if (a.length !== b.length) {
@@ -59,6 +62,19 @@ class HaConfigAutomation extends HassRouterPage {
       },
     },
   };
+
+  private _entitiesContext = new ContextProvider(this, {
+    context: fullEntitiesContext,
+    initialValue: [],
+  });
+
+  public hassSubscribe(): UnsubscribeFunc[] {
+    return [
+      subscribeEntityRegistry(this.hass.connection!, (entities) => {
+        this._entitiesContext.setValue(entities);
+      }),
+    ];
+  }
 
   private _getAutomations = memoizeOne(
     (states: HassEntities): AutomationEntity[] =>
