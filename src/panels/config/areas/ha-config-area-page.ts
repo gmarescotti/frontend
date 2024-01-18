@@ -597,7 +597,7 @@ class HaConfigAreaPage extends SubscribeMixin(LitElement) {
       <a
         href=${ifDefined(
           entityState.attributes.id
-            ? `/config/automation/edit/${entityState.attributes.id}`
+            ? `/simga/edit/${entityState.attributes.id}`
             : undefined
         )}
       >

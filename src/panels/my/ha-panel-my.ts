@@ -136,7 +136,7 @@ export const getMyRedirects = (hasSupervisor: boolean): Redirects => ({
   },
   automations: {
     component: "automation",
-    redirect: "/config/automation/dashboard",
+    redirect: "/simga/dashboard",
   },
   scenes: {
     component: "scene",

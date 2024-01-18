@@ -63,7 +63,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
       core: true,
     },
     {
-      path: "/config/automation",
+      path: "/simga",
       translationKey: "automations",
       iconPath: mdiRobot,
       iconColor: "#518C43",
@@ -177,7 +177,7 @@ export const configSections: { [name: string]: PageNavigation[] } = {
   automations: [
     {
       component: "automation",
-      path: "/config/automation",
+      path: "/simga",
       translationKey: "ui.panel.config.automation.caption",
       iconPath: mdiRobot,
       iconColor: "#518C43",

@@ -171,7 +171,7 @@ export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
           </mwc-list-item>
 
           ${stateObj && this._config && this.narrow
-            ? html`<a href="/config/automation/trace/${this._config.id}">
+            ? html`<a href="/simga/trace/${this._config.id}">
                 <mwc-list-item graphic="icon">
                   ${this.hass.localize(
                     "ui.panel.config.automation.editor.show_trace"
@@ -521,7 +521,7 @@ export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
           ent.platform === "automation" && ent.unique_id === this.automationId
       );
       if (entity) {
-        navigate(`/config/automation/show/${entity.entity_id}`, {
+        navigate(`/simga/show/${entity.entity_id}`, {
           replace: true,
         });
         return;
@@ -562,7 +562,7 @@ export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
     if (this._config?.id) {
       const result = await this.confirmUnsavedChanged();
       if (result) {
-        navigate(`/config/automation/trace/${this._config.id}`);
+        navigate(`/simga/trace/${this._config.id}`);
       }
     }
   }
@@ -731,7 +731,7 @@ export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
     this._dirty = false;
 
     if (!this.automationId) {
-      navigate(`/config/automation/edit/${id}`, { replace: true });
+      navigate(`/simga/edit/${id}`, { replace: true });
     }
   }
 

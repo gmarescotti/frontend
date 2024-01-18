@@ -106,7 +106,7 @@ export class HaAutomationTrace extends LitElement {
           ? html`
               <a
                 class="trace-link"
-                href="/config/automation/edit/${stateObj.attributes.id}"
+                href="/simga/edit/${stateObj.attributes.id}"
                 slot="toolbar-icon"
               >
                 <mwc-button>
@@ -140,7 +140,7 @@ export class HaAutomationTrace extends LitElement {
             ? html`
                 <a
                   class="trace-link"
-                  href="/config/automation/edit/${stateObj.attributes.id}"
+                  href="/simga/edit/${stateObj.attributes.id}"
                 >
                   <mwc-list-item graphic="icon">
                     ${this.hass.localize(

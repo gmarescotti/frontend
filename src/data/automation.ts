@@ -354,7 +354,7 @@ export const saveAutomationConfig = (
 
 export const showAutomationEditor = (data?: Partial<AutomationConfig>) => {
   initialAutomationEditorData = data;
-  navigate("/config/automation/edit/new");
+  navigate("/simga/edit/new");
 };
 
 export const duplicateAutomation = (config: AutomationConfig) => {

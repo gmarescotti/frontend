@@ -437,7 +437,7 @@ class HaAutomationPicker extends HassElement {
       });
       return;
     }
-    navigate(`/config/automation/trace/${automation.attributes.id}`);
+    navigate(`/simga/trace/${automation.attributes.id}`);
   }
 
   private async _toggle(automation): Promise<void> {
@@ -532,9 +532,9 @@ class HaAutomationPicker extends HassElement {
     );
 
     if (automation?.attributes.id) {
-      navigate(`/config/automation/edit/${automation.attributes.id}`);
+      navigate(`/simga/edit/${automation.attributes.id}`);
     } else {
-      navigate(`/config/automation/show/${ev.detail.id}`);
+      navigate(`/simga/show/${ev.detail.id}`);
     }
   }
 
@@ -542,7 +542,7 @@ class HaAutomationPicker extends HassElement {
     if (isComponentLoaded(this.hass, "blueprint")) {
       showNewAutomationDialog(this, { mode: "automation" });
     } else {
-      navigate("/config/automation/edit/new");
+      navigate("/simga/edit/new");
     }
   }
 
