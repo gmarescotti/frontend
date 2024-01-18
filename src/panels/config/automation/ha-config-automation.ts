@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { HassEntities } from "home-assistant-js-websocket";
 import { HTMLTemplateResult, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators";
@@ -83,7 +84,11 @@ class HaConfigAutomation extends HassRouterPage {
       >
     ): string {
     
-      return key.substring(key.lastIndexOf(".") + 1).replaceAll("[.,?!]", "");
+      let ret = key.split('.').reverse()[0];
+      if (['caption', 'label', 'description','header'].includes(ret)) {
+        ret = key.split('.').reverse()[1];
+      }
+      return ret;
     };
 
     pageEl.hass = this.hass;
