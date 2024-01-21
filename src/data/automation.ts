@@ -330,12 +330,12 @@ export const triggerAutomationActions = (
 };
 
 export const deleteAutomation = (hass: HomeAssistant, id: string) =>
-  hass.callApi("DELETE", `config/automation/config/${id}`);
+  hass.callApi("DELETE", `simga/config/${id}`);
 
 let initialAutomationEditorData: Partial<AutomationConfig> | undefined;
 
 export const fetchAutomationFileConfig = (hass: HomeAssistant, id: string) =>
-  hass.callApi<AutomationConfig>("GET", `config/automation/config/${id}`);
+  hass.callApi<AutomationConfig>("GET", `simga/config/${id}`);
 
 export const getAutomationStateConfig = (
   hass: HomeAssistant,
@@ -350,7 +350,7 @@ export const saveAutomationConfig = (
   hass: HomeAssistant,
   id: string,
   config: AutomationConfig
-) => hass.callApi<void>("POST", `config/automation/config/${id}`, config);
+) => hass.callApi<void>("POST", `simga/config/${id}`, config);
 
 export const showAutomationEditor = (data?: Partial<AutomationConfig>) => {
   initialAutomationEditorData = data;
