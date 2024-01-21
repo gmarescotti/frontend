@@ -113,6 +113,12 @@ export default <T extends Constructor<HassBaseEl>>(superClass: T) =>
         (!oldHass || oldHass.panels !== this.hass.panels)
       ) {
         this._loadFragmentTranslations(this.hass.language, this.hass.panelUrl);
+        // .then(
+        //   (localize) => {
+        //     if (oldHass && localize) {
+        //       oldHass.localize = localize;
+        //     }
+        //   });
       }
     }
 
@@ -430,9 +436,11 @@ export default <T extends Constructor<HassBaseEl>>(superClass: T) =>
         setTimeout(resolve, 0);
       });
 
+      console.warn("OOOOOOOOOOOOOOOOOOOOOOOOOO4: " + language + " != " + this.hass!.language);
       if (language !== (this.hass ?? this._pendingHass).language) {
         // the language was changed, abort
         return (this.hass ?? this._pendingHass).localize!;
+        // this.hass!.language = language;
       }
 
       const resources = {

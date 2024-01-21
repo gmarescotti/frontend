@@ -16,6 +16,11 @@ export class HassBaseEl extends LitElement {
     el.hass = this.hass;
   }
 
+  public provideLocalize(el) {
+    el.hass.localize = this.hass?.localize;
+    // console.warn("provideLocalize: JJJJJJJJJJJJJJ " + el.hass.localize("ui.panel.config.automation.picker.filtered_by_blueprint"));
+  }
+
   protected initializeHass(_auth: Auth, _conn: Connection) {
     // implemented in connection-mixin
     // eslint-disable-next-line

@@ -17,6 +17,7 @@ import {
   css,
   CSSResultGroup,
   html,
+  LitElement,
   nothing,
   TemplateResult,
 } from "lit";
@@ -55,14 +56,14 @@ import {
 } from "../../../dialogs/generic/show-dialog-box";
 import "../../../layouts/hass-tabs-subpage-data-table";
 import { haStyle } from "../../../resources/styles";
-import { HomeAssistant, Route } from "../../../types";
+import { Constructor, HomeAssistant, Route } from "../../../types";
 import { documentationUrl } from "../../../util/documentation-url";
 import { configSections } from "../ha-panel-config";
 import { showNewAutomationDialog } from "./show-dialog-new-automation";
 import { findRelated } from "../../../data/search";
 import { fetchBlueprints } from "../../../data/blueprint";
 import { UNAVAILABLE } from "../../../data/entity";
-import { HassElement } from "../../../state/hass-element";
+import MoreInfoMixin from "../../../state/more-info-mixin";
 
 type AutomationItem = AutomationEntity & {
   name: string;
@@ -70,8 +71,13 @@ type AutomationItem = AutomationEntity & {
   disabled: boolean;
 };
 
+const ext = <T extends Constructor>(baseClass: T, mixins): T =>
+  mixins.reduceRight((base, mixin) => mixin(base), baseClass);
+
 @customElement("ha-automation-picker")
-class HaAutomationPicker extends HassElement {
+class HaAutomationPicker extends ext(LitElement, [
+  MoreInfoMixin  
+]) {
   @property({ attribute: false }) public hass!: HomeAssistant;
 
   @property({ type: Boolean }) public isWide!: boolean;
@@ -136,7 +142,7 @@ class HaAutomationPicker extends HassElement {
         name: {
           title: this.hass.localize(
             "ui.panel.config.automation.picker.headers.name"
-          ),
+          ) + "??",
           main: true,
           sortable: true,
           filterable: true,
@@ -170,7 +176,7 @@ class HaAutomationPicker extends HassElement {
         columns.last_triggered = {
           sortable: true,
           width: "20%",
-          title: this.hass.localize("ui.card.automation.last_triggered"),
+          title: this.hass.localize("ui.card.automation.last_triggered") + "**",
           template: (automation) => {
             if (!automation.last_triggered) {
               return this.hass.localize("ui.components.relative_time.never");
@@ -372,8 +378,23 @@ class HaAutomationPicker extends HassElement {
     `;
   }
 
+  // eslint-disable-next-line: variable-name
+  private __provideHass: HTMLElement[] = [];
+
+  public provideHass(el) {
+    this.__provideHass.push(el);
+    el.hass = this.hass;
+  }
+  
+  constructor() {
+    super();
+    this.addEventListener("translations-updated", (ev) => {
+      console.warn("UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU: " + JSON.stringify(ev));
+      // this.provideLocalize(this);
+    });
+  }
+  
   firstUpdated(changedProps) {
-    super.firstUpdated(changedProps); // GGGG
     super.firstUpdated(changedProps); // GGGG funzionano i dialog
     if (this._searchParms.has("blueprint")) {
       this._filterBlueprint();
