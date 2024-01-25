@@ -14,6 +14,7 @@ import type {
 import type { HomeAssistant, Route } from "../types";
 import "./hass-tabs-subpage";
 import type { PageNavigation } from "./hass-tabs-subpage";
+import { myhass } from "../panels/config/automation/my-hass";
 
 declare global {
   // for fire event
@@ -153,14 +154,14 @@ export class HaTabsSubpageDataTable extends LitElement {
   protected render(): TemplateResult {
     const hiddenLabel = this.numHidden
       ? this.hiddenLabel ||
-        this.hass.localize("ui.components.data-table.hidden", {
+        myhass.localize("ui.components.data-table.hidden", {
           number: this.numHidden,
         }) ||
         this.numHidden
       : undefined;
 
     const filterInfo = this.activeFilters
-      ? html`${this.hass.localize("ui.components.data-table.filtering_by")}
+      ? html`${myhass.localize("ui.components.data-table.filtering_by")}
         ${this.activeFilters.join(", ")}
         ${hiddenLabel ? `(${hiddenLabel})` : ""}`
       : hiddenLabel;
@@ -182,7 +183,7 @@ export class HaTabsSubpageDataTable extends LitElement {
               ? html`<div class="active-filters">
                   ${filterInfo}
                   <mwc-button @click=${this._clearFilter}>
-                    ${this.hass.localize("ui.components.data-table.clear")}
+                    ${myhass.localize("ui.components.data-table.clear")}
                   </mwc-button>
                 </div>`
               : ""}
@@ -194,7 +195,7 @@ export class HaTabsSubpageDataTable extends LitElement {
     return html`
       <hass-tabs-subpage
         .hass=${this.hass}
-        .localizeFunc=${this.localizeFunc}
+        .localizeFunc=${myhass.localize}
         .narrow=${this.narrow}
         .isWide=${this.isWide}
         .backPath=${this.backPath}

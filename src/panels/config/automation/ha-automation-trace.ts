@@ -47,6 +47,7 @@ import "../../../layouts/hass-subpage";
 import { haStyle } from "../../../resources/styles";
 import { HomeAssistant, Route } from "../../../types";
 import { computeRTL } from "../../../common/util/compute_rtl";
+import { myhass } from "./my-hass";
 
 const TABS = ["details", "automation_config", "timeline", "logbook"] as const;
 
@@ -110,7 +111,7 @@ export class HaAutomationTrace extends LitElement {
                 slot="toolbar-icon"
               >
                 <mwc-button>
-                  ${this.hass.localize(
+                  ${myhass.localize(
                     "ui.panel.config.automation.trace.edit_automation"
                   )}
                 </mwc-button>
@@ -120,7 +121,7 @@ export class HaAutomationTrace extends LitElement {
         <ha-button-menu slot="toolbar-icon">
           <ha-icon-button
             slot="trigger"
-            .label=${this.hass.localize("ui.common.menu")}
+            .label=${myhass.localize("ui.common.menu")}
             .path=${mdiDotsVertical}
           ></ha-icon-button>
 
@@ -129,7 +130,7 @@ export class HaAutomationTrace extends LitElement {
             .disabled=${!stateObj}
             @click=${this._showInfo}
           >
-            ${this.hass.localize("ui.panel.config.automation.editor.show_info")}
+            ${myhass.localize("ui.panel.config.automation.editor.show_info")}
             <ha-svg-icon
               slot="graphic"
               .path=${mdiInformationOutline}
@@ -143,7 +144,7 @@ export class HaAutomationTrace extends LitElement {
                   href="/simga/edit/${stateObj.attributes.id}"
                 >
                   <mwc-list-item graphic="icon">
-                    ${this.hass.localize(
+                    ${myhass.localize(
                       "ui.panel.config.automation.trace.edit_automation"
                     )}
                     <ha-svg-icon
@@ -158,7 +159,7 @@ export class HaAutomationTrace extends LitElement {
           <li divider role="separator"></li>
 
           <mwc-list-item graphic="icon" @click=${this._refreshTraces}>
-            ${this.hass.localize("ui.panel.config.automation.trace.refresh")}
+            ${myhass.localize("ui.panel.config.automation.trace.refresh")}
             <ha-svg-icon slot="graphic" .path=${mdiRefresh}></ha-svg-icon>
           </mwc-list-item>
 
@@ -167,7 +168,7 @@ export class HaAutomationTrace extends LitElement {
             .disabled=${!this._trace}
             @click=${this._downloadTrace}
           >
-            ${this.hass.localize(
+            ${myhass.localize(
               "ui.panel.config.automation.trace.download_trace"
             )}
             <ha-svg-icon slot="graphic" .path=${mdiDownload}></ha-svg-icon>

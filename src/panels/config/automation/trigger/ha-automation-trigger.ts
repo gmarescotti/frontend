@@ -17,6 +17,7 @@ import {
 } from "../show-add-automation-element-dialog";
 import "./ha-automation-trigger-row";
 import type HaAutomationTriggerRow from "./ha-automation-trigger-row";
+import { myhass } from "../my-hass";
 
 @customElement("ha-automation-trigger")
 export default class HaAutomationTrigger extends LitElement {
@@ -48,15 +49,15 @@ export default class HaAutomationTrigger extends LitElement {
         ? html`
             <ha-alert
               alert-type="info"
-              .title=${this.hass.localize(
+              .title=${myhass.localize(
                 "ui.panel.config.automation.editor.re_order_mode.title"
               )}
             >
-              ${this.hass.localize(
+              ${myhass.localize(
                 "ui.panel.config.automation.editor.re_order_mode.description_triggers"
               )}
               <ha-button slot="action" @click=${this._exitReOrderMode}>
-                ${this.hass.localize(
+                ${myhass.localize(
                   "ui.panel.config.automation.editor.re_order_mode.exit"
                 )}
               </ha-button>
@@ -88,7 +89,7 @@ export default class HaAutomationTrigger extends LitElement {
                       <ha-icon-button
                         .index=${idx}
                         slot="icons"
-                        .label=${this.hass.localize(
+                        .label=${myhass.localize(
                           "ui.panel.config.automation.editor.move_up"
                         )}
                         .path=${mdiArrowUp}
@@ -98,7 +99,7 @@ export default class HaAutomationTrigger extends LitElement {
                       <ha-icon-button
                         .index=${idx}
                         slot="icons"
-                        .label=${this.hass.localize(
+                        .label=${myhass.localize(
                           "ui.panel.config.automation.editor.move_down"
                         )}
                         .path=${mdiArrowDown}
@@ -117,7 +118,7 @@ export default class HaAutomationTrigger extends LitElement {
       </ha-sortable>
       <ha-button
         outlined
-        .label=${this.hass.localize(
+        .label=${myhass.localize(
           "ui.panel.config.automation.editor.triggers.add"
         )}
         .disabled=${this.disabled}

@@ -6,6 +6,7 @@ import "../../../components/ha-relative-time";
 import { triggerAutomationActions } from "../../../data/automation";
 import { isUnavailableState } from "../../../data/entity";
 import { HomeAssistant } from "../../../types";
+import { myhass } from "../../../panels/config/automation/my-hass";
 
 @customElement("more-info-automation")
 class MoreInfoAutomation extends LitElement {
@@ -21,7 +22,7 @@ class MoreInfoAutomation extends LitElement {
     return html`
       <hr />
       <div class="flex">
-        <div>${this.hass.localize("ui.card.automation.last_triggered")}:</div>
+        <div>${myhass.localize("ui.card.automation.last_triggered")}:</div>
         <ha-relative-time
           .hass=${this.hass}
           .datetime=${this.stateObj.attributes.last_triggered}
@@ -34,7 +35,7 @@ class MoreInfoAutomation extends LitElement {
           @click=${this._runActions}
           .disabled=${isUnavailableState(this.stateObj!.state)}
         >
-          ${this.hass.localize("ui.card.automation.trigger")}
+          ${myhass.localize("ui.card.automation.trigger")}
         </mwc-button>
       </div>
     `;

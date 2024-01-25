@@ -18,6 +18,7 @@ import {
 } from "../show-add-automation-element-dialog";
 import type HaAutomationActionRow from "./ha-automation-action-row";
 import { getType } from "./ha-automation-action-row";
+import { myhass } from "../my-hass";
 
 @customElement("ha-automation-action")
 export default class HaAutomationAction extends LitElement {
@@ -51,15 +52,15 @@ export default class HaAutomationAction extends LitElement {
         ? html`
             <ha-alert
               alert-type="info"
-              .title=${this.hass.localize(
+              .title=${myhass.localize(
                 "ui.panel.config.automation.editor.re_order_mode.title"
               )}
             >
-              ${this.hass.localize(
+              ${myhass.localize(
                 "ui.panel.config.automation.editor.re_order_mode.description_actions"
               )}
               <ha-button slot="action" @click=${this._exitReOrderMode}>
-                ${this.hass.localize(
+                ${myhass.localize(
                   "ui.panel.config.automation.editor.re_order_mode.exit"
                 )}
               </ha-button>
@@ -93,7 +94,7 @@ export default class HaAutomationAction extends LitElement {
                       <ha-icon-button
                         .index=${idx}
                         slot="icons"
-                        .label=${this.hass.localize(
+                        .label=${myhass.localize(
                           "ui.panel.config.automation.editor.move_up"
                         )}
                         .path=${mdiArrowUp}
@@ -103,7 +104,7 @@ export default class HaAutomationAction extends LitElement {
                       <ha-icon-button
                         .index=${idx}
                         slot="icons"
-                        .label=${this.hass.localize(
+                        .label=${myhass.localize(
                           "ui.panel.config.automation.editor.move_down"
                         )}
                         .path=${mdiArrowDown}
@@ -124,7 +125,7 @@ export default class HaAutomationAction extends LitElement {
         <ha-button
           outlined
           .disabled=${this.disabled}
-          .label=${this.hass.localize(
+          .label=${myhass.localize(
             "ui.panel.config.automation.editor.actions.add"
           )}
           @click=${this._addActionDialog}
@@ -133,7 +134,7 @@ export default class HaAutomationAction extends LitElement {
         </ha-button>
         <ha-button
           .disabled=${this.disabled}
-          .label=${this.hass.localize(
+          .label=${myhass.localize(
             "ui.panel.config.automation.editor.actions.add_building_block"
           )}
           @click=${this._addActionBuildingBlockDialog}

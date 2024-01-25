@@ -64,6 +64,7 @@ import { findRelated } from "../../../data/search";
 import { fetchBlueprints } from "../../../data/blueprint";
 import { UNAVAILABLE } from "../../../data/entity";
 import MoreInfoMixin from "../../../state/more-info-mixin";
+import { myhass } from "./my-hass";
 
 type AutomationItem = AutomationEntity & {
   name: string;
@@ -124,7 +125,7 @@ class HaAutomationPicker extends ext(LitElement, [
       const columns: DataTableColumnContainer<AutomationItem> = {
         icon: {
           title: "",
-          label: this.hass.localize(
+          label: myhass.localize(
             "ui.panel.config.automation.picker.headers.state"
           ),
           type: "icon",
@@ -140,9 +141,9 @@ class HaAutomationPicker extends ext(LitElement, [
             ></ha-state-icon>`,
         },
         name: {
-          title: this.hass.localize(
+          title: myhass.localize(
             "ui.panel.config.automation.picker.headers.name"
-          ) + "??",
+          ),
           main: true,
           sortable: true,
           filterable: true,
@@ -156,7 +157,7 @@ class HaAutomationPicker extends ext(LitElement, [
                 return html`
                   ${automation.name}
                   <div class="secondary">
-                    ${this.hass.localize("ui.card.automation.last_triggered")}:
+                    ${myhass.localize("ui.card.automation.last_triggered")}:
                     ${automation.attributes.last_triggered
                       ? dayDifference > 3
                         ? formatShortDateTime(
@@ -165,7 +166,7 @@ class HaAutomationPicker extends ext(LitElement, [
                             this.hass.config
                           )
                         : relativeTime(date, this.hass.locale)
-                      : this.hass.localize("ui.components.relative_time.never")}
+                      : myhass.localize("ui.components.relative_time.never")}
                   </div>
                 `;
               }
@@ -176,10 +177,10 @@ class HaAutomationPicker extends ext(LitElement, [
         columns.last_triggered = {
           sortable: true,
           width: "20%",
-          title: this.hass.localize("ui.card.automation.last_triggered") + "**",
+          title: myhass.localize("ui.card.automation.last_triggered"),
           template: (automation) => {
             if (!automation.last_triggered) {
-              return this.hass.localize("ui.components.relative_time.never");
+              return myhass.localize("ui.components.relative_time.never");
             }
             const date = new Date(automation.last_triggered);
             const now = new Date();
@@ -200,7 +201,7 @@ class HaAutomationPicker extends ext(LitElement, [
               automation.disabled
                 ? html`
                     <simple-tooltip animation-delay="0" position="left">
-                      ${this.hass.localize(
+                      ${myhass.localize(
                         "ui.panel.config.automation.picker.disabled"
                       )}
                     </simple-tooltip>
@@ -218,7 +219,7 @@ class HaAutomationPicker extends ext(LitElement, [
               automation.disabled
                 ? html`
                     <ha-label>
-                      ${this.hass.localize(
+                      ${myhass.localize(
                         "ui.panel.config.automation.picker.disabled"
                       )}
                     </ha-label>
@@ -237,21 +238,21 @@ class HaAutomationPicker extends ext(LitElement, [
             .items=${[
               {
                 path: mdiInformationOutline,
-                label: this.hass.localize(
+                label: myhass.localize(
                   "ui.panel.config.automation.editor.show_info"
                 ),
                 action: () => this._showInfo(automation),
               },
               {
                 path: mdiPlay,
-                label: this.hass.localize(
+                label: myhass.localize(
                   "ui.panel.config.automation.editor.run"
                 ),
                 action: () => this._runActions(automation),
               },
               {
                 path: mdiTransitConnection,
-                label: this.hass.localize(
+                label: myhass.localize(
                   "ui.panel.config.automation.editor.show_trace"
                 ),
                 action: () => this._showTrace(automation),
@@ -261,7 +262,7 @@ class HaAutomationPicker extends ext(LitElement, [
               },
               {
                 path: mdiContentDuplicate,
-                label: this.hass.localize(
+                label: myhass.localize(
                   "ui.panel.config.automation.picker.duplicate"
                 ),
                 action: () => this.duplicate(automation),
@@ -273,16 +274,16 @@ class HaAutomationPicker extends ext(LitElement, [
                     : mdiStopCircleOutline,
                 label:
                   automation.state === "off"
-                    ? this.hass.localize(
+                    ? myhass.localize(
                         "ui.panel.config.automation.editor.enable"
                       )
-                    : this.hass.localize(
+                    : myhass.localize(
                         "ui.panel.config.automation.editor.disable"
                       ),
                 action: () => this._toggle(automation),
               },
               {
-                label: this.hass.localize(
+                label: myhass.localize(
                   "ui.panel.config.automation.picker.delete"
                 ),
                 path: mdiDelete,
@@ -312,7 +313,7 @@ class HaAutomationPicker extends ext(LitElement, [
         .data=${this._automations(this.automations, this._filteredAutomations)}
         .empty=${!this.automations.length}
         @row-click=${this._handleRowClicked}
-        .noDataText=${this.hass.localize(
+        .noDataText=${myhass.localize(
           "ui.panel.config.automation.picker.no_automations"
         )}
         @clear-filter=${this._clearFilter}
@@ -321,7 +322,7 @@ class HaAutomationPicker extends ext(LitElement, [
       >
         <ha-icon-button
           slot="toolbar-icon"
-          .label=${this.hass.localize("ui.common.help")}
+          .label=${myhass.localize("ui.common.help")}
           .path=${mdiHelpCircle}
           @click=${this._showHelp}
         ></ha-icon-button>
@@ -338,17 +339,17 @@ class HaAutomationPicker extends ext(LitElement, [
           ? html`<div class="empty" slot="empty">
               <ha-svg-icon .path=${mdiRobotHappy}></ha-svg-icon>
               <h1>
-                ${this.hass.localize(
+                ${myhass.localize(
                   "ui.panel.config.automation.picker.empty_header"
                 )}
               </h1>
               <p>
-                ${this.hass.localize(
+                ${myhass.localize(
                   "ui.panel.config.automation.picker.empty_text_1"
                 )}
               </p>
               <p>
-                ${this.hass.localize(
+                ${myhass.localize(
                   "ui.panel.config.automation.picker.empty_text_2",
                   { user: this.hass.user?.name || "Alice" }
                 )}
@@ -359,14 +360,14 @@ class HaAutomationPicker extends ext(LitElement, [
                 rel="noreferrer"
               >
                 <ha-button>
-                  ${this.hass.localize("ui.panel.config.common.learn_more")}
+                  ${myhass.localize("ui.panel.config.common.learn_more")}
                 </ha-button>
               </a>
             </div>`
           : nothing}
         <ha-fab
           slot="fab"
-          .label=${this.hass.localize(
+          .label=${myhass.localize(
             "ui.panel.config.automation.picker.add_automation"
           )}
           extended
@@ -413,7 +414,7 @@ class HaAutomationPicker extends ext(LitElement, [
     this._filteredAutomations = related.automation || [];
     const blueprintMeta = blueprints[blueprint];
     this._activeFilters = [
-      this.hass.localize(
+      myhass.localize(
         "ui.panel.config.automation.picker.filtered_by_blueprint",
         {
           name:
@@ -452,7 +453,7 @@ class HaAutomationPicker extends ext(LitElement, [
   private _showTrace(automation: any) {
     if (!automation.attributes.id) {
       showAlertDialog(this, {
-        text: this.hass.localize(
+        text: myhass.localize(
           "ui.panel.config.automation.picker.traces_not_available"
         ),
       });
@@ -470,10 +471,10 @@ class HaAutomationPicker extends ext(LitElement, [
 
   private async _deleteConfirm(automation) {
     showConfirmationDialog(this, {
-      title: this.hass.localize(
+      title: myhass.localize(
         "ui.panel.config.automation.picker.delete_confirm_title"
       ),
-      text: this.hass.localize(
+      text: myhass.localize(
         "ui.panel.config.automation.picker.delete_confirm_text",
         { name: automation.name }
       ),
@@ -491,10 +492,10 @@ class HaAutomationPicker extends ext(LitElement, [
       await showAlertDialog(this, {
         text:
           err.status_code === 400
-            ? this.hass.localize(
+            ? myhass.localize(
                 "ui.panel.config.automation.editor.load_error_not_deletable"
               )
-            : this.hass.localize(
+            : myhass.localize(
                 "ui.panel.config.automation.editor.load_error_unknown",
                 { err_no: err.status_code }
               ),
@@ -519,7 +520,7 @@ class HaAutomationPicker extends ext(LitElement, [
         return;
       }
       await showAlertDialog(this, {
-        text: this.hass.localize(
+        text: myhass.localize(
           "ui.panel.config.automation.editor.load_error_unknown",
           { err_no: err.status_code }
         ),
@@ -529,16 +530,16 @@ class HaAutomationPicker extends ext(LitElement, [
 
   private _showHelp() {
     showAlertDialog(this, {
-      title: this.hass.localize("ui.panel.config.automation.caption"),
+      title: myhass.localize("ui.panel.config.automation.caption"),
       text: html`
-        ${this.hass.localize("ui.panel.config.automation.picker.introduction")}
+        ${myhass.localize("ui.panel.config.automation.picker.introduction")}
         <p>
           <a
             href=${documentationUrl(this.hass, "/docs/automation/editor/")}
             target="_blank"
             rel="noreferrer"
           >
-            ${this.hass.localize(
+            ${myhass.localize(
               "ui.panel.config.automation.picker.learn_more"
             )}
           </a>
