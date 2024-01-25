@@ -4,7 +4,7 @@ import { DataEntryFlowStep } from "./data_entry_flow";
 export const createOptionsFlow = (hass: HomeAssistant, handler: string) =>
   hass.callApi<DataEntryFlowStep>(
     "POST",
-    "config/config_entries/options/flow",
+    "simga/config_entries/options/flow",
     {
       handler,
       show_advanced_options: Boolean(hass.userData?.showAdvanced),

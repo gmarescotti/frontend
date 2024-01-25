@@ -221,12 +221,12 @@ export const removeEntityRegistryEntry = (
 
 export const fetchEntityRegistry = (conn: Connection) =>
   conn.sendMessagePromise<EntityRegistryEntry[]>({
-    type: "config/entity_registry/list",
+    type: "simga/entity_registry/list",
   });
 
 export const fetchEntityRegistryDisplay = (conn: Connection) =>
   conn.sendMessagePromise<EntityRegistryDisplayEntryResponse>({
-    type: "config/entity_registry/list_for_display",
+    type: "simga/entity_registry/list_for_display",
   });
 
 const subscribeEntityRegistryUpdates = (

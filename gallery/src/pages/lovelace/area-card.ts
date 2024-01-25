@@ -108,7 +108,7 @@ class DemoArea extends LitElement {
       },
     ]);
     hass.mockWS("config/device_registry/list", () => []);
-    hass.mockWS("config/entity_registry/list", () => [
+    hass.mockWS("simga/entity_registry/list", () => [
       {
         area_id: "bedroom",
         entity_id: "light.bed_light",

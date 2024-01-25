@@ -10,11 +10,11 @@ import {
   HassRouterPage,
   RouterOptions,
 } from "../../../layouts/hass-router-page";
-import { Constructor, HomeAssistant, Resources } from "../../../types";
+import { Constructor, HomeAssistant } from "../../../types";
 import "./ha-automation-editor";
 import "./ha-automation-picker";
-import TranslationsMixin from "../../../state/translations-mixin";
 import ThemesMixin from "../../../state/themes-mixin";
+import { myhass } from "./my-hass";
 
 const equal = (a: AutomationEntity[], b: AutomationEntity[]): boolean => {
   if (a.length !== b.length) {
@@ -27,10 +27,8 @@ const ext = <T extends Constructor>(baseClass: T, mixins): T =>
   mixins.reduceRight((base, mixin) => mixin(base), baseClass);
 
 @customElement("ha-config-automation")
-// class HaConfigAutomation extends HassRouterPage {
-  class HaConfigAutomation extends  ext(HassRouterPage, [
-    ThemesMixin,
-    TranslationsMixin,
+class HaConfigAutomation extends  ext(HassRouterPage, [
+    ThemesMixin
   ]) {
   @property({ attribute: false }) public hass!: HomeAssistant;
 
@@ -42,11 +40,9 @@ const ext = <T extends Constructor>(baseClass: T, mixins): T =>
 
   @property() public automations: AutomationEntity[] = [];
 
-  private resources: Resources = {};
-
-  private localize(key) {
-    this.hass.resources = this.resources;
-    return this.hass.localize(key);
+  constructor() {
+    super();
+    myhass.el = this;
   }
 
   private _debouncedUpdateAutomations = debounce((pageEl) => {
@@ -57,6 +53,7 @@ const ext = <T extends Constructor>(baseClass: T, mixins): T =>
   }, 10);
 
   protected routerOptions: RouterOptions = {
+    initialLoad: (() => myhass.update()),
     defaultPage: "dashboard",
     routes: {
       dashboard: {
@@ -76,24 +73,11 @@ const ext = <T extends Constructor>(baseClass: T, mixins): T =>
     },
   };
 
-  // private _entitiesContext = new ContextProvider(this, {
-  //   context: fullEntitiesContext,
-  //   initialValue: [],
-  // });
-
-  // public hassSubscribe(): UnsubscribeFunc[] {
-  //   return [
-  //     subscribeEntityRegistry(this.hass.connection!, (entities) => {
-  //       this._entitiesContext.setValue(entities);
-  //     }),
-  //   ];
-  // }
-
   private _getAutomations = memoizeOne(
     (states: HassEntities): AutomationEntity[] =>
       Object.values(states).filter(
         (entity) =>
-          computeStateDomain(entity) === "automation" &&
+          computeStateDomain(entity) === "simga_automation" &&
           !entity.attributes.restored
       ) as AutomationEntity[]
   );
@@ -103,47 +87,13 @@ const ext = <T extends Constructor>(baseClass: T, mixins): T =>
     // this.hass.loadBackendTranslation("device_automation");
   }
 
-  protected _updateHass(obj: Partial<HomeAssistant>) {
-    // console.warn("HCA: _updateHass=" + Object.keys(obj) + "::" + this.shadowRoot);
-    // if (!this.hass) {
-    //   this._pendingHass = { ...this._pendingHass, ...obj };
-    //   return;
-    // }
-    console.warn("HCA: prima=" + Object.keys(this.hass.resources.en).length);
-    this.hass = { ...this.hass, ...obj };
-    if (obj.resources) {
-      // this.hass.resources = obj.resources;
-      // this.hass = { ...this.hass, ...obj };
-      console.warn("HCA: " + Object.keys(obj.resources));
-      this.resources = obj.resources;
-    }
-    console.warn("HCA: dopox=" + Object.keys(this.hass.resources.en).length);
-    console.warn("HCA: test_state: " + this.localize("ui.panel.config.automation.picker.headers.state"));
-    console.warn("HCA: test_triggered: " + this.localize("ui.card.automation.last_triggered"));
-   }
-
   protected updatePageEl(pageEl, changedProps: PropertyValues) {
-    // console.warn("updatePageEl");
-
-    // this.localize = function(
-    //   key: string,
-    //   _values?: Record<
-    //     string,
-    //     string | number | HTMLTemplateResult | null | undefined
-    //   >
-    // ): string {
-    
     //   let ret = key.split('.').reverse()[0];
     //   if (['caption', 'label', 'description','header'].includes(ret)) {
     //     ret = key.split('.').reverse()[1];
     //   }
     //   return ret;
     // };
-
-    console.warn("HCA: updatePageEl=" + Object.keys(this.hass.resources.en).length);
-    console.warn("HCA: test_state: " + this.localize("ui.panel.config.automation.picker.headers.state"));
-    console.warn("HCA: test_triggered: " + this.localize("ui.card.automation.last_triggered"));
-
 
     pageEl.hass = this.hass;
     pageEl.narrow = this.narrow;
