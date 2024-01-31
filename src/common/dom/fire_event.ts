@@ -65,7 +65,7 @@ export const fireEvent = <HassEvent extends ValidHassDomEvent>(
     composed?: boolean;
   }
 ) => {
-  console.warn("FIRED(" + node + "): " + type + ": " + JSON.stringify(detail));
+  console.warn("FIRED(" + node.constructor.name + "): " + type + ": " + JSON.stringify(detail));
 
   options = options || {};
   // @ts-ignore

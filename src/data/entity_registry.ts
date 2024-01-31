@@ -186,7 +186,7 @@ export const getExtendedEntityRegistryEntry = (
   entityId: string
 ): Promise<ExtEntityRegistryEntry> =>
   hass.callWS({
-    type: "config/entity_registry/get",
+    type: "simga/entity_registry/get",
     entity_id: entityId,
   });
 
@@ -195,7 +195,7 @@ export const getExtendedEntityRegistryEntries = (
   entityIds: string[]
 ): Promise<Record<string, ExtEntityRegistryEntry>> =>
   hass.callWS({
-    type: "config/entity_registry/get_entries",
+    type: "simga/entity_registry/get_entries",
     entity_ids: entityIds,
   });
 
@@ -205,7 +205,7 @@ export const updateEntityRegistryEntry = (
   updates: Partial<EntityRegistryEntryUpdateParams>
 ): Promise<UpdateEntityRegistryEntryResult> =>
   hass.callWS({
-    type: "config/entity_registry/update",
+    type: "simga/entity_registry/update",
     entity_id: entityId,
     ...updates,
   });
@@ -215,7 +215,7 @@ export const removeEntityRegistryEntry = (
   entityId: string
 ): Promise<void> =>
   hass.callWS({
-    type: "config/entity_registry/remove",
+    type: "simga/entity_registry/remove",
     entity_id: entityId,
   });
 

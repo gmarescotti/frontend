@@ -1,17 +1,21 @@
 /* eslint-disable no-console */
+// import { ContextProvider } from "@lit-labs/context";
+// import { UnsubscribeFunc } from "home-assistant-js-websocket";
 import { HomeAssistant } from "../../../types";
 
-import { atLeastVersion } from "../../../common/config/version";
+// import { atLeastVersion } from "../../../common/config/version";
 import { computeLocalize, LocalizeFunc } from "../../../common/translations/localize";
-import {
-  getHassTranslations,
-  getHassTranslationsPre109,
-} from "../../../data/translation";
+// import {
+//   getHassTranslations,
+//   getHassTranslationsPre109,
+// } from "../../../data/translation";
 import { translationMetadata } from "../../../resources/translations-metadata";
 import {
   getLocalLanguage,
   getTranslation,
 } from "../../../util/common-translation";
+// import { fullEntitiesContext } from "../../../data/context";
+// import { subscribeEntityRegistry } from "../../../data/entity_registry";
 
 declare global {
   // for fire event
@@ -38,14 +42,14 @@ declare global {
   }
 }
 
-interface LoadedTranslationCategory {
-  // individual integrations loaded for this category
-  integrations: string[];
-  // if integrations that have been set up for this category are loaded
-  setup: boolean;
-  // if
-  configFlow: boolean;
-}
+// interface LoadedTranslationCategory {
+//   // individual integrations loaded for this category
+//   integrations: string[];
+//   // if integrations that have been set up for this category are loaded
+//   setup: boolean;
+//   // if
+//   configFlow: boolean;
+// }
 
 let updateResourcesIteration = 0;
 
@@ -64,6 +68,10 @@ class MyHass {
     //   return "this.localize(key)";
     // }
 
+    // constructor(parent) {
+    //   this.el = parent;
+    // }
+
     public localize: LocalizeFunc = (() => "??");
 
     // export default <T extends Constructor<LitElement>>(superClass: T) =>
@@ -73,20 +81,42 @@ class MyHass {
 
     private __loadedFragmetTranslations: Set<string> = new Set();
 
-    private __loadedTranslations: {
-      // track what things have been loaded
-      [category: string]: LoadedTranslationCategory;
-    } = {};
+    // private __loadedTranslations: {
+    //   // track what things have been loaded
+    //   [category: string]: LoadedTranslationCategory;
+    // } = {};
 
     public async update() {
+
       await this._loadCoreTranslations(getLocalLanguage());
 
       // await this.updated();
       this.localize = await this._loadFragmentTranslations(this.el.hass!.language, this.el.hass!.panelUrl) || (() => "!!");
+
+      // const _entitiesContext = new ContextProvider(this.el, {
+      //   context: fullEntitiesContext,
+      //   initialValue: [],
+      // });
+
+      // // sottoscrive le entities e assegna "_entityReg"
+      // subscribeEntityRegistry(this.el.hass.connection!, (entities) => {
+      //   _entitiesContext.setValue(entities);
+      // })
     }
 
+    // public hassSubscribe(): UnsubscribeFunc[] {
+    //   const _entitiesContext = new ContextProvider(this.el, {
+    //     context: fullEntitiesContext,
+    //     initialValue: [],
+    //   });
+    //     return [
+    //     subscribeEntityRegistry(this.el.hass.connection!, (entities) => {
+    //       _entitiesContext.setValue(entities);
+    //     }),
+    //   ];
+    // }
+  
     public firstUpdated(_hass: HomeAssistant) {
-
       // this.el.hass = hass;
 
       // super.firstUpdated(changedProps);
@@ -301,90 +331,90 @@ class MyHass {
      * @param configFlow optional, if having to fetch for all integrations with a config flow
      * @param force optional, load even if already cached
      */
-    private async _loadHassTranslations(
-      language: string,
-      category: Parameters<typeof getHassTranslations>[2],
-      integration?: Parameters<typeof getHassTranslations>[3],
-      configFlow?: Parameters<typeof getHassTranslations>[4],
-      force = false
-    ): Promise<LocalizeFunc> {
-      if (
-        __BACKWARDS_COMPAT__ &&
-        !atLeastVersion(this.el.hass!.connection.haVersion, 0, 109)
-      ) {
-        if (category !== "state") {
-          return this.el.hass!.localize;
-        }
-        const resources = await getHassTranslationsPre109(this.el.hass!, language);
+    // private async _loadHassTranslations(
+    //   language: string,
+    //   category: Parameters<typeof getHassTranslations>[2],
+    //   integration?: Parameters<typeof getHassTranslations>[3],
+    //   configFlow?: Parameters<typeof getHassTranslations>[4],
+    //   force = false
+    // ): Promise<LocalizeFunc> {
+    //   if (
+    //     __BACKWARDS_COMPAT__ &&
+    //     !atLeastVersion(this.el.hass!.connection.haVersion, 0, 109)
+    //   ) {
+    //     if (category !== "state") {
+    //       return this.el.hass!.localize;
+    //     }
+    //     const resources = await getHassTranslationsPre109(this.el.hass!, language);
 
-        // Ignore the repsonse if user switched languages before we got response
-        if (this.el.hass!.language !== language) {
-          return this.el.hass!.localize;
-        }
+    //     // Ignore the repsonse if user switched languages before we got response
+    //     if (this.el.hass!.language !== language) {
+    //       return this.el.hass!.localize;
+    //     }
 
-        return this._updateResources(language, resources);
-      }
+    //     return this._updateResources(language, resources);
+    //   }
 
-      let alreadyLoaded: LoadedTranslationCategory;
+    //   let alreadyLoaded: LoadedTranslationCategory;
 
-      if (category in this.__loadedTranslations) {
-        alreadyLoaded = this.__loadedTranslations[category];
-      } else {
-        alreadyLoaded = this.__loadedTranslations[category] = {
-          integrations: [],
-          setup: false,
-          configFlow: false,
-        };
-      }
+    //   if (category in this.__loadedTranslations) {
+    //     alreadyLoaded = this.__loadedTranslations[category];
+    //   } else {
+    //     alreadyLoaded = this.__loadedTranslations[category] = {
+    //       integrations: [],
+    //       setup: false,
+    //       configFlow: false,
+    //     };
+    //   }
 
-      let integrationsToLoad: string[] = [];
+    //   let integrationsToLoad: string[] = [];
 
-      // Check if already loaded
-      if (!force) {
-        if (integration && Array.isArray(integration)) {
-          integrationsToLoad = integration.filter(
-            (i) => !alreadyLoaded.integrations.includes(i)
-          );
-          if (!integrationsToLoad.length) {
-            return this.el.hass!.localize;
-          }
-        } else if (integration) {
-          if (alreadyLoaded.integrations.includes(integration)) {
-            return this.el.hass!.localize;
-          }
-          integrationsToLoad = [integration];
-        } else if (
-          configFlow ? alreadyLoaded.configFlow : alreadyLoaded.setup
-        ) {
-          return this.el.hass!.localize;
-        }
-      }
+    //   // Check if already loaded
+    //   if (!force) {
+    //     if (integration && Array.isArray(integration)) {
+    //       integrationsToLoad = integration.filter(
+    //         (i) => !alreadyLoaded.integrations.includes(i)
+    //       );
+    //       if (!integrationsToLoad.length) {
+    //         return this.el.hass!.localize;
+    //       }
+    //     } else if (integration) {
+    //       if (alreadyLoaded.integrations.includes(integration)) {
+    //         return this.el.hass!.localize;
+    //       }
+    //       integrationsToLoad = [integration];
+    //     } else if (
+    //       configFlow ? alreadyLoaded.configFlow : alreadyLoaded.setup
+    //     ) {
+    //       return this.el.hass!.localize;
+    //     }
+    //   }
 
-      // Add to cache
-      if (integrationsToLoad.length) {
-        alreadyLoaded.integrations.push(...integrationsToLoad);
-      } else {
-        alreadyLoaded.setup = true;
-        if (configFlow) {
-          alreadyLoaded.configFlow = true;
-        }
-      }
+    //   // Add to cache
+    //   if (integrationsToLoad.length) {
+    //     alreadyLoaded.integrations.push(...integrationsToLoad);
+    //   } else {
+    //     alreadyLoaded.setup = true;
+    //     if (configFlow) {
+    //       alreadyLoaded.configFlow = true;
+    //     }
+    //   }
 
-      const resources = await getHassTranslations(
-        this.el.hass!,
-        language,
-        category,
-        integrationsToLoad.length ? integrationsToLoad : undefined,
-        configFlow
-      );
+    //   const resources = await getHassTranslations(
+    //     this.el.hass!,
+    //     language,
+    //     category,
+    //     integrationsToLoad.length ? integrationsToLoad : undefined,
+    //     configFlow
+    //   );
 
-      // Ignore the repsonse if user switched languages before we got response
-      if (this.el.hass!.language !== language) {
-        return this.el.hass!.localize;
-      }
+    //   // Ignore the repsonse if user switched languages before we got response
+    //   if (this.el.hass!.language !== language) {
+    //     return this.el.hass!.localize;
+    //   }
 
-      return this._updateResources(language, resources);
-    }
+    //   return this._updateResources(language, resources);
+    // }
 
     private async _loadFragmentTranslations(
       language: string,

@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
-import { HassEntities } from "home-assistant-js-websocket";
+import { HassEntities, UnsubscribeFunc } from "home-assistant-js-websocket";
 import { PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators";
 import memoizeOne from "memoize-one";
+import { ContextProvider } from "@lit-labs/context";
 import { computeStateDomain } from "../../../common/entity/compute_state_domain";
 import { debounce } from "../../../common/util/debounce";
 import { AutomationEntity } from "../../../data/automation";
@@ -15,6 +16,11 @@ import "./ha-automation-editor";
 import "./ha-automation-picker";
 import ThemesMixin from "../../../state/themes-mixin";
 import { myhass } from "./my-hass";
+import { SubscribeMixin } from "../../../mixins/subscribe-mixin";
+import { fullEntitiesContext } from "../../../data/context";
+import { subscribeEntityRegistry } from "../../../data/entity_registry";
+// import { dialogManagerMixin } from "../../../state/dialog-manager-mixin";
+// import NotificationMixin from "../../../state/notification-mixin";
 
 const equal = (a: AutomationEntity[], b: AutomationEntity[]): boolean => {
   if (a.length !== b.length) {
@@ -27,8 +33,10 @@ const ext = <T extends Constructor>(baseClass: T, mixins): T =>
   mixins.reduceRight((base, mixin) => mixin(base), baseClass);
 
 @customElement("ha-config-automation")
-class HaConfigAutomation extends  ext(HassRouterPage, [
-    ThemesMixin
+class HaConfigAutomation extends  ext(SubscribeMixin(HassRouterPage), [
+    ThemesMixin,
+    // NotificationMixin,
+    // dialogManagerMixin,
   ]) {
   @property({ attribute: false }) public hass!: HomeAssistant;
 
@@ -43,6 +51,25 @@ class HaConfigAutomation extends  ext(HassRouterPage, [
   constructor() {
     super();
     myhass.el = this;
+  }
+
+  private _entitiesContext = new ContextProvider(this, {
+    context: fullEntitiesContext,
+    initialValue: [],
+  });
+
+  public hassSubscribe(): UnsubscribeFunc[] {
+    return [
+      subscribeEntityRegistry(this.hass.connection!, (entities) => {
+        this._entitiesContext.setValue(entities);
+      }),
+    ];
+  }
+
+  public provideHass(el) {
+    // this.__provideHass.push(el);
+    el.hass = this.hass;
+    el.hass.localize = myhass.localize;
   }
 
   private _debouncedUpdateAutomations = debounce((pageEl) => {
@@ -84,7 +111,7 @@ class HaConfigAutomation extends  ext(HassRouterPage, [
 
   protected firstUpdated(changedProps) {
     super.firstUpdated(changedProps);
-    // this.hass.loadBackendTranslation("device_automation");
+    this.hass.loadBackendTranslation("device_automation");
   }
 
   protected updatePageEl(pageEl, changedProps: PropertyValues) {

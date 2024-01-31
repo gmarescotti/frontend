@@ -65,6 +65,8 @@ import { fetchBlueprints } from "../../../data/blueprint";
 import { UNAVAILABLE } from "../../../data/entity";
 import MoreInfoMixin from "../../../state/more-info-mixin";
 import { myhass } from "./my-hass";
+import NotificationMixin from "../../../state/notification-mixin";
+import { dialogManagerMixin } from "../../../state/dialog-manager-mixin";
 
 type AutomationItem = AutomationEntity & {
   name: string;
@@ -77,7 +79,9 @@ const ext = <T extends Constructor>(baseClass: T, mixins): T =>
 
 @customElement("ha-automation-picker")
 class HaAutomationPicker extends ext(LitElement, [
-  MoreInfoMixin  
+  MoreInfoMixin,
+  NotificationMixin,
+  dialogManagerMixin
 ]) {
   @property({ attribute: false }) public hass!: HomeAssistant;
 
@@ -380,11 +384,12 @@ class HaAutomationPicker extends ext(LitElement, [
   }
 
   // eslint-disable-next-line: variable-name
-  private __provideHass: HTMLElement[] = [];
+  // private __provideHass: HTMLElement[] = [];
 
   public provideHass(el) {
-    this.__provideHass.push(el);
+    // this.__provideHass.push(el);
     el.hass = this.hass;
+    el.hass.localize = myhass.localize;
   }
   
   constructor() {

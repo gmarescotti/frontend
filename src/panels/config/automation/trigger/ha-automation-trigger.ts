@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { mdiArrowDown, mdiArrowUp, mdiDrag, mdiPlus } from "@mdi/js";
 import deepClone from "deep-clone-simple";
 import { CSSResultGroup, LitElement, PropertyValues, css, html } from "lit";
@@ -142,7 +143,7 @@ export default class HaAutomationTrigger extends LitElement {
     if (value === PASTE_VALUE) {
       triggers = this.triggers.concat(deepClone(this._clipboard!.trigger));
     } else {
-      const platform = value as Trigger["platform"];
+      const platform = value as Trigger["platform"]; // GGG "device";
       const elClass = customElements.get(
         `ha-automation-trigger-${platform}`
       ) as CustomElementConstructor & {

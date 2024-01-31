@@ -56,7 +56,7 @@ import {
 import "../../../layouts/hass-subpage";
 import { KeyboardShortcutMixin } from "../../../mixins/keyboard-shortcut-mixin";
 import { haStyle } from "../../../resources/styles";
-import { Entries, HomeAssistant, Route } from "../../../types";
+import { Constructor, Entries, HomeAssistant, Route } from "../../../types";
 import { showToast } from "../../../util/toast";
 import "../ha-config-section";
 import { showAutomationModeDialog } from "./automation-mode-dialog/show-dialog-automation-mode";
@@ -64,6 +64,10 @@ import { showAutomationRenameDialog } from "./automation-rename-dialog/show-dial
 import "./blueprint-automation-editor";
 import "./manual-automation-editor";
 import { myhass } from "./my-hass";
+import MoreInfoMixin from "../../../state/more-info-mixin";
+// import { SubscribeMixin } from "../../../mixins/subscribe-mixin";
+import NotificationMixin from "../../../state/notification-mixin";
+import { dialogManagerMixin } from "../../../state/dialog-manager-mixin";
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -81,7 +85,14 @@ declare global {
   }
 }
 
-export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
+const ext = <T extends Constructor>(baseClass: T, mixins): T =>
+  mixins.reduceRight((base, mixin) => mixin(base), baseClass);
+
+export class HaAutomationEditor extends ext(KeyboardShortcutMixin(LitElement),[
+  MoreInfoMixin,
+  NotificationMixin,
+  dialogManagerMixin,
+]) {
   @property({ attribute: false }) public hass!: HomeAssistant;
 
   @property() public automationId: string | null = null;
@@ -116,6 +127,12 @@ export class HaAutomationEditor extends KeyboardShortcutMixin(LitElement) {
   > = {};
 
   private _configSubscriptionsId = 1;
+
+  public provideHass(el) {
+    // this.__provideHass.push(el);
+    el.hass = this.hass;
+    el.hass.localize = myhass.localize;
+  }
 
   protected render(): TemplateResult {
     const stateObj = this._entityId
