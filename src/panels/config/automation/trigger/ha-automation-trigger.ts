@@ -12,10 +12,10 @@ import "../../../../components/ha-sortable";
 import "../../../../components/ha-svg-icon";
 import { AutomationClipboard, Trigger } from "../../../../data/automation";
 import { HomeAssistant } from "../../../../types";
-import {
-  PASTE_VALUE,
-  showAddAutomationElementDialog,
-} from "../show-add-automation-element-dialog";
+// import {
+//   PASTE_VALUE,
+//   showAddAutomationElementDialog,
+// } from "../show-add-automation-element-dialog";
 import "./ha-automation-trigger-row";
 import type HaAutomationTriggerRow from "./ha-automation-trigger-row";
 import { myhass } from "../my-hass";
@@ -123,40 +123,57 @@ export default class HaAutomationTrigger extends LitElement {
           "ui.panel.config.automation.editor.triggers.add"
         )}
         .disabled=${this.disabled}
-        @click=${this._addTriggerDialog}
+        @click=${this._addTrigger}
       >
         <ha-svg-icon .path=${mdiPlus} slot="icon"></ha-svg-icon>
       </ha-button>
     `;
   }
 
-  private _addTriggerDialog() {
-    showAddAutomationElementDialog(this, {
-      type: "trigger",
-      add: this._addTrigger,
-      clipboardItem: this._clipboard?.trigger?.platform,
+  private _addTrigger = () => {
+    // let triggers: Trigger[];
+    const platform = "device";
+    const elClass = customElements.get(
+      `ha-automation-trigger-${platform}`
+    ) as CustomElementConstructor & {
+      defaultConfig: Omit<Trigger, "platform">;
+    };
+    const triggers = this.triggers.concat({
+      platform: platform as any,
+      ...elClass.defaultConfig,
     });
-  }
 
-  private _addTrigger = (value: string) => {
-    let triggers: Trigger[];
-    if (value === PASTE_VALUE) {
-      triggers = this.triggers.concat(deepClone(this._clipboard!.trigger));
-    } else {
-      const platform = value as Trigger["platform"]; // GGG "device";
-      const elClass = customElements.get(
-        `ha-automation-trigger-${platform}`
-      ) as CustomElementConstructor & {
-        defaultConfig: Omit<Trigger, "platform">;
-      };
-      triggers = this.triggers.concat({
-        platform: platform as any,
-        ...elClass.defaultConfig,
-      });
-    }
     this._focusLastTriggerOnChange = true;
     fireEvent(this, "value-changed", { value: triggers });
   };
+
+  // private _addTriggerDialog() {
+  //   showAddAutomationElementDialog(this, {
+  //     type: "trigger",
+  //     add: this._addTrigger,
+  //     clipboardItem: this._clipboard?.trigger?.platform,
+  //   });
+  // }
+
+  // private _addTrigger = (value: string) => {
+  //   let triggers: Trigger[];
+  //   if (value === PASTE_VALUE) {
+  //     triggers = this.triggers.concat(deepClone(this._clipboard!.trigger));
+  //   } else {
+  //     const platform = value as Trigger["platform"]; // GGG "device";
+  //     const elClass = customElements.get(
+  //       `ha-automation-trigger-${platform}`
+  //     ) as CustomElementConstructor & {
+  //       defaultConfig: Omit<Trigger, "platform">;
+  //     };
+  //     triggers = this.triggers.concat({
+  //       platform: platform as any,
+  //       ...elClass.defaultConfig,
+  //     });
+  //   }
+  //   this._focusLastTriggerOnChange = true;
+  //   fireEvent(this, "value-changed", { value: triggers });
+  // };
 
   protected updated(changedProps: PropertyValues) {
     super.updated(changedProps);

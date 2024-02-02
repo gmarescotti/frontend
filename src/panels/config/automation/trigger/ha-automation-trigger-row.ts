@@ -653,7 +653,8 @@ export default class HaAutomationTriggerRow extends LitElement {
           font-weight: inherit;
         }
         .trigger-icon {
-          display: none;
+          // forzo la visualizzazione della icona "device"
+          display: inline-block; // none
         }
         @media (min-width: 870px) {
           .trigger-icon {
