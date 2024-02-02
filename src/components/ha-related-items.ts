@@ -28,6 +28,7 @@ import "./ha-icon-next";
 import "./ha-list-item";
 import "./ha-state-icon";
 import "./ha-switch";
+import { myhass } from "../panels/config/automation/my-hass";
 
 @customElement("ha-related-items")
 export class HaRelatedItems extends LitElement {
@@ -121,7 +122,7 @@ export class HaRelatedItems extends LitElement {
               .path=${mdiAlertCircleOutline}
               slot="graphic"
             ></ha-svg-icon>
-            ${this.hass.localize(
+            ${myhass.localize(
               "ui.components.related-items.no_related_found"
             )}
           </ha-list-item>
@@ -131,7 +132,7 @@ export class HaRelatedItems extends LitElement {
     return html`
       ${this._related.config_entry && this._entries
         ? html`<h3>
-              ${this.hass.localize("ui.components.related-items.integration")}
+              ${myhass.localize("ui.components.related-items.integration")}
             </h3>
             <mwc-list
               >${this._related.config_entry.map((relatedConfigEntryId) => {
@@ -159,7 +160,7 @@ export class HaRelatedItems extends LitElement {
                         alt=${entry.domain}
                         slot="graphic"
                       />
-                      ${this.hass.localize(`component.${entry.domain}.title`)}:
+                      ${myhass.localize(`component.${entry.domain}.title`)}:
                       ${entry.title} <ha-icon-next slot="meta"></ha-icon-next>
                     </ha-list-item>
                   </a>
@@ -169,7 +170,7 @@ export class HaRelatedItems extends LitElement {
         : nothing}
       ${this._related.device
         ? html`<h3>
-              ${this.hass.localize("ui.components.related-items.device")}
+              ${myhass.localize("ui.components.related-items.device")}
             </h3>
             ${this._related.device.map((relatedDeviceId) => {
               const device = this.hass.devices[relatedDeviceId];
@@ -196,7 +197,7 @@ export class HaRelatedItems extends LitElement {
         : nothing}
       ${this._related.area
         ? html`<h3>
-              ${this.hass.localize("ui.components.related-items.area")}
+              ${myhass.localize("ui.components.related-items.area")}
             </h3>
             <mwc-list
               >${this._related.area.map((relatedAreaId) => {
@@ -235,7 +236,7 @@ export class HaRelatedItems extends LitElement {
         : nothing}
       ${this._related.entity
         ? html`
-            <h3>${this.hass.localize("ui.components.related-items.entity")}</h3>
+            <h3>${myhass.localize("ui.components.related-items.entity")}</h3>
             <mwc-list>
               ${this._relatedEntities(this._related.entity).map(
                 (entity) => html`
@@ -259,7 +260,7 @@ export class HaRelatedItems extends LitElement {
         : nothing}
       ${this._related.group
         ? html`
-            <h3>${this.hass.localize("ui.components.related-items.group")}</h3>
+            <h3>${myhass.localize("ui.components.related-items.group")}</h3>
             <mwc-list>
               ${this._relatedGroups(this._related.group).map(
                 (group) => html`
@@ -283,7 +284,7 @@ export class HaRelatedItems extends LitElement {
         : nothing}
       ${this._related.scene
         ? html`
-            <h3>${this.hass.localize("ui.components.related-items.scene")}</h3>
+            <h3>${myhass.localize("ui.components.related-items.scene")}</h3>
             <mwc-list>
               ${this._relatedScenes(this._related.scene).map(
                 (scene) => html`
@@ -308,7 +309,7 @@ export class HaRelatedItems extends LitElement {
       ${this._related.automation_blueprint
         ? html`
             <h3>
-              ${this.hass.localize("ui.components.related-items.blueprint")}
+              ${myhass.localize("ui.components.related-items.blueprint")}
             </h3>
             <mwc-list>
               ${this._related.automation_blueprint.map((path) => {
@@ -337,7 +338,7 @@ export class HaRelatedItems extends LitElement {
       ${this._related.automation
         ? html`
             <h3>
-              ${this.hass.localize("ui.components.related-items.automation")}
+              ${myhass.localize("ui.components.related-items.automation")}
             </h3>
             <mwc-list>
               ${this._relatedAutomations(this._related.automation).map(
@@ -364,7 +365,7 @@ export class HaRelatedItems extends LitElement {
       ${this._related.script_blueprint
         ? html`
             <h3>
-              ${this.hass.localize("ui.components.related-items.blueprint")}
+              ${myhass.localize("ui.components.related-items.blueprint")}
             </h3>
             <mwc-list>
               ${this._related.script_blueprint.map((path) => {
@@ -392,7 +393,7 @@ export class HaRelatedItems extends LitElement {
         : nothing}
       ${this._related.script
         ? html`
-            <h3>${this.hass.localize("ui.components.related-items.script")}</h3>
+            <h3>${myhass.localize("ui.components.related-items.script")}</h3>
             <mwc-list>
               ${this._relatedScripts(this._related.script).map(
                 (script) => html`

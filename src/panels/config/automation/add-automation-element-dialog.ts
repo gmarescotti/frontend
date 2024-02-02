@@ -52,6 +52,7 @@ import {
 } from "./show-add-automation-element-dialog";
 import { computeDomain } from "../../../common/entity/compute_domain";
 import { deepEqual } from "../../../common/util/deep-equal";
+import { myhass } from "./my-hass";
 
 const TYPES = {
   trigger: { groups: TRIGGER_GROUPS, icons: TRIGGER_ICONS },
@@ -370,12 +371,12 @@ class DialogAddAutomationElement extends LitElement implements HassDialog {
               : undefined,
             key: `${SERVICE_PREFIX}${dmn}.${service}`,
             name: `${domain ? "" : `${domainToName(localize, dmn)}: `}${
-              this.hass.localize(`component.${dmn}.services.${service}.name`) ||
+              myhass.localize(`component.${dmn}.services.${service}.name`) ||
               services[dmn][service]?.name ||
               service
             }`,
             description:
-              this.hass.localize(
+              myhass.localize(
                 `component.${domain}.services.${service}.description`
               ) || services[dmn][service]?.description,
           });
@@ -458,7 +459,7 @@ class DialogAddAutomationElement extends LitElement implements HassDialog {
           this._params.type,
           this._group,
           this._filter,
-          this.hass.localize,
+          myhass.localize,
           this.hass.services,
           this._manifests
         )
@@ -466,18 +467,18 @@ class DialogAddAutomationElement extends LitElement implements HassDialog {
           this._params.type,
           this._group,
           this._domains,
-          this.hass.localize,
+          myhass.localize,
           this.hass.services,
           this._manifests
         );
 
     const groupName = isService(this._group)
       ? domainToName(
-          this.hass.localize,
+          myhass.localize,
           getService(this._group!),
           this._manifests?.[getService(this._group!)]
         )
-      : this.hass.localize(
+      : myhass.localize(
           // @ts-ignore
           `ui.panel.config.automation.editor.${this._params.type}s.groups.${this._group}.label`
         );
@@ -495,7 +496,7 @@ class DialogAddAutomationElement extends LitElement implements HassDialog {
             <span slot="title"
               >${this._group
                 ? groupName
-                : this.hass.localize(
+                : myhass.localize(
                     `ui.panel.config.automation.editor.${this._params.type}s.add`
                   )}</span
             >
@@ -516,11 +517,11 @@ class DialogAddAutomationElement extends LitElement implements HassDialog {
             .filter=${this._filter}
             @value-changed=${this._filterChanged}
             .label=${groupName
-              ? this.hass.localize(
+              ? myhass.localize(
                   "ui.panel.config.automation.editor.search_in",
                   { group: groupName }
                 )
-              : this.hass.localize(
+              : myhass.localize(
                   `ui.panel.config.automation.editor.${this._params.type}s.search`
                 )}
           ></search-input>
@@ -547,11 +548,11 @@ class DialogAddAutomationElement extends LitElement implements HassDialog {
                   hasMeta
                   @request-selected=${this._selected}
                 >
-                  ${this.hass.localize(
+                  ${myhass.localize(
                     `ui.panel.config.automation.editor.${this._params.type}s.paste`
                   )}
                   <span slot="secondary"
-                    >${this.hass.localize(
+                    >${myhass.localize(
                       // @ts-ignore
                       `ui.panel.config.automation.editor.${this._params.type}s.type.${this._params.clipboardItem}.label`
                     )}</span

@@ -23,6 +23,7 @@ import {
   formatListWithAnds,
   formatListWithOrs,
 } from "../common/string/format-list";
+import { myhass } from "../panels/config/automation/my-hass";
 
 const triggerTranslationBaseKey =
   "ui.panel.config.automation.editor.triggers.type";
@@ -709,10 +710,10 @@ const tryDescribeTrigger = (
   }
 
   return (
-    hass.localize(
+    myhass.localize(
       `ui.panel.config.automation.editor.triggers.type.${trigger.platform}.label`
     ) ||
-    hass.localize(`ui.panel.config.automation.editor.triggers.unknown_trigger`)
+    myhass.localize(`ui.panel.config.automation.editor.triggers.unknown_trigger`)
   );
 };
 

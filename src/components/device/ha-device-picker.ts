@@ -21,6 +21,7 @@ import { HomeAssistant, ValueChangedEvent } from "../../types";
 import "../ha-combo-box";
 import type { HaComboBox } from "../ha-combo-box";
 import "../ha-list-item";
+import { myhass } from "../../panels/config/automation/my-hass";
 
 interface Device {
   name: string;
@@ -115,7 +116,7 @@ export class HaDevicePicker extends LitElement {
           {
             id: "no_devices",
             area: "",
-            name: this.hass.localize("ui.components.device-picker.no_devices"),
+            name: myhass.localize("ui.components.device-picker.no_devices"),
             strings: [],
           },
         ];
@@ -223,7 +224,7 @@ export class HaDevicePicker extends LitElement {
           area:
             device.area_id && areas[device.area_id]
               ? areas[device.area_id].name
-              : this.hass.localize("ui.components.device-picker.no_area"),
+              : myhass.localize("ui.components.device-picker.no_area"),
           strings: [name || ""],
         };
       });
@@ -232,7 +233,7 @@ export class HaDevicePicker extends LitElement {
           {
             id: "no_devices",
             area: "",
-            name: this.hass.localize("ui.components.device-picker.no_match"),
+            name: myhass.localize("ui.components.device-picker.no_match"),
             strings: [],
           },
         ];
@@ -283,7 +284,7 @@ export class HaDevicePicker extends LitElement {
       <ha-combo-box
         .hass=${this.hass}
         .label=${this.label === undefined && this.hass
-          ? this.hass.localize("ui.components.device-picker.device")
+          ? myhass.localize("ui.components.device-picker.device")
           : this.label}
         .value=${this._value}
         .helper=${this.helper}

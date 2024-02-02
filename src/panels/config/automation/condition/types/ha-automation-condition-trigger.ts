@@ -13,6 +13,7 @@ import type {
   TriggerCondition,
 } from "../../../../../data/automation";
 import type { HomeAssistant } from "../../../../../types";
+import { myhass } from "../../my-hass";
 
 @customElement("ha-automation-condition-trigger")
 export class HaTriggerCondition extends LitElement {
@@ -64,7 +65,7 @@ export class HaTriggerCondition extends LitElement {
 
   protected render() {
     if (!this._triggers.length) {
-      return this.hass.localize(
+      return myhass.localize(
         "ui.panel.config.automation.editor.conditions.type.trigger.no_triggers"
       );
     }
@@ -86,7 +87,7 @@ export class HaTriggerCondition extends LitElement {
   private _computeLabelCallback = (
     schema: SchemaUnion<ReturnType<typeof this._schema>>
   ): string =>
-    this.hass.localize(
+    myhass.localize(
       `ui.panel.config.automation.editor.conditions.type.trigger.${schema.name}`
     );
 
